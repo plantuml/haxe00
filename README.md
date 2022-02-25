@@ -25,7 +25,7 @@ You can just use mindmap diagrams:
 
 ## How to build it
 
-You will need Haxe 4.2.4](https://haxe.org) to build it.
+You will need [Haxe 4.2.4](https://haxe.org) to build it.
 
 The two following libraries are used:
 
