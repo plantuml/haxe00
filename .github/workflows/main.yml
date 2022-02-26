@@ -59,6 +59,11 @@ jobs:
           ls -l Main.js
           ls -l main.html
 
+      - uses: papeloto/action-zip@v1
+        with:
+          files: main.html Main.js
+          dest: javascript.zip
+
       - uses: actions/upload-artifact@v2
         with:
           name: Main.py
@@ -76,4 +81,5 @@ jobs:
           files: |
             Main.py
             jvm/MainCLI.jar
+            javascript.zip
 
