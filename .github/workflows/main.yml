@@ -29,4 +29,4 @@ jobs:
       - run: |
           haxe -version
           haxelib install utest
-          haxelib haxe-strings
+          haxelib install haxe-strings
