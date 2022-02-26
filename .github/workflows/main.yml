@@ -48,3 +48,13 @@ jobs:
           ls -l Main.py
           ls -l jvm/MainCLI.jar
 
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Main.py
+          path: Main.py
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: MainCLI.jar
+          path: jvm/MainCLI.jar
+
