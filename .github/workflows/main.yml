@@ -32,9 +32,26 @@ jobs:
           ls
           echo end of check
 
-      #- run: |
-      #    haxe -version
-      #    haxelib install utest
-      #    haxelib install haxe-strings
-      #    ls
-      # haxe CLI.hxml
+      - name: install haxe library
+        run: |
+          haxe -version
+          haxelib install utest
+          haxelib install haxe-strings
+          ls
+          echo end of install library
+
+      - name: install haxe library
+        run: |
+          ls
+          haxe -version
+          haxelib install utest
+          haxelib install haxe-strings
+          ls
+          echo end of install library
+
+      - name: build CLI
+        run: |
+          ls
+          haxe -version
+          haxe CLI.hxml
+
