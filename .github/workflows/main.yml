@@ -28,9 +28,9 @@ jobs:
       # Runs a single command using the runners shell
       - name: check
         run: |
-        echo Hello, world!
-        ls
-        echo end of check
+          echo Hello, world!
+          ls
+          echo end of check
 
       #- run: |
       #    haxe -version
