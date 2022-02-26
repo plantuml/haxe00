@@ -55,5 +55,5 @@ Or the java one:
 java -jar jvm/Main.jar foo.puml foo.hxml
 ```
 
-Or open the html page **njs.html**.
+Or open the html page **main.html**.
 
