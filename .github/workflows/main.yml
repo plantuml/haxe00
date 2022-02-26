@@ -58,3 +58,8 @@ jobs:
           name: MainCLI.jar
           path: jvm/MainCLI.jar
 
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: Main.py
+
