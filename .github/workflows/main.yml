@@ -51,6 +51,14 @@ jobs:
           ls -l Main.py
           ls -l jvm/MainCLI.jar
 
+      - name: build JavaScript
+        run: |
+          ls
+          haxe -version
+          haxe js.hxml
+          ls -l Main.js
+          ls -l main.html
+
       - uses: actions/upload-artifact@v2
         with:
           name: Main.py
