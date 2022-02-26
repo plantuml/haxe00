@@ -32,22 +32,13 @@ jobs:
           ls
           echo end of check
 
-      - name: install haxe library
+      - name: install haxe libraries
         run: |
           haxe -version
           haxelib install utest
           haxelib install haxe-strings
+          haxelib install hxjava
           ls
-          echo end of install library
-
-      - name: install haxe library
-        run: |
-          ls
-          haxe -version
-          haxelib install utest
-          haxelib install haxe-strings
-          ls
-          echo end of install library
 
       - name: build CLI
         run: |
