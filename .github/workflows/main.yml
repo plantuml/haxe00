@@ -45,4 +45,6 @@ jobs:
           ls
           haxe -version
           haxe CLI.hxml
+          ls -l Main.py
+          ls -l jvm/MainCLI.jar
 
