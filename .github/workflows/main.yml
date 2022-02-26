@@ -30,4 +30,5 @@ jobs:
           haxe -version
           haxelib install utest
           haxelib install haxe-strings
-          haxe CLI.hxml
+          ls
+      # haxe CLI.hxml
