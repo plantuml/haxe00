@@ -65,5 +65,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: Main.py
+          files: |
+            Main.py
+            jvm/MainCLI.jar
 
