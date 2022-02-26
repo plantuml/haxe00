@@ -28,4 +28,5 @@ jobs:
 
       - run: |
           haxe -version
-          haxelib install hxnodejs
+          haxelib install utest
+          haxelib haxe-strings
