@@ -6,6 +6,7 @@ import com.plantuml.api.v1.*;
 
 class MainTest {
 	static function main() {
+		Sys.println("hello");
 		// the long way
 		var runner = new Runner();
 		runner.addCase(new MinMapDiagramTest());
