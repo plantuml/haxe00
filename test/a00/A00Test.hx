@@ -1,6 +1,7 @@
 package a00;
 
 using hx.strings.Strings;
+using com.plantuml.utils.StartUtils;
 
 import utest.Test;
 import utest.utils.Print;
@@ -27,9 +28,10 @@ class A00Test extends AbstractTest {
 		final path = getPath();
 		Sys.println('p1=$path');
 		Assert.equals("test/a00/A00Test.hx", path);
-		var data = File.getContent(path);
-		Sys.println(data);
-		Assert.isTrue(false);
+		foo();
+		// var data = File.getContent(path);
+		// Sys.println(data);
+		// Assert.isTrue(false);
 	}
 	/*
 			@Test
