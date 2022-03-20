@@ -31,7 +31,7 @@ The two following libraries are used:
 
 ```
 haxelib install utest
-haxelib haxe-strings
+haxelib install haxe-strings
 ```
 
 Then build the JavaScript version:
