@@ -1,5 +1,8 @@
 package com.plantuml.utils;
 
+import com.plantuml.core.DiagramType;
+import com.plantuml.core.DiagramType.DiagramTypeUtils;
+
 using hx.strings.Strings;
 
 class StartUtils {
@@ -14,5 +17,17 @@ class StartUtils {
 		if (header != null && s.startsWith(header))
 			return s.substring(header.length);
 		return s;
+	}
+
+	static public function isArobaseStartDiagram(s:String) {
+		final s2 = s.trim();
+		if (s2.startsWith("@") == false && s2.startsWith("\\") == false)
+			return false;
+
+		return DiagramTypeUtils.getTypeFromArobaseStart(s2) != DiagramType.UNKNOWN;
+	}
+
+	static public function startsWithSymbolAnd(tmp:String, value:String) {
+		return tmp.startsWith("@" + value) || tmp.startsWith("\\" + value);
 	}
 }

@@ -1,12 +1,9 @@
 package a00;
 
-using hx.strings.Strings;
-using com.plantuml.utils.StartUtils;
-
-import utest.Test;
-import utest.utils.Print;
-import sys.io.File;
 import utest.Assert;
+
+using com.plantuml.utils.StartUtils;
+using hx.strings.Strings;
 
 /*
 	@startmindmap
@@ -24,7 +21,6 @@ import utest.Assert;
  */
 class A00Test extends AbstractTest {
 	function testExecute() {
-
 		final path = getPath();
 		Sys.println('p1=$path');
 		Assert.equals("test/a00/A00Test.hx", path);
