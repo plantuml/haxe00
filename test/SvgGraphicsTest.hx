@@ -10,7 +10,6 @@ class SvgGraphicsTest extends utest.Test {
 	function testBasicThing0() {
 		var s = "azertyzz".orderMe();
 		Assert.equals("aertyzzz", s);
-		trace(s);
 		Assert.equals("f1241e2bfe0a0ee338e9d566d2368cd7d71f6146", s.sha1());
 	}
 
