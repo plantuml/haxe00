@@ -20,12 +20,21 @@ class AbstractTest extends Test {
 	function foo() {
 		var data = File.getContent(getPath());
 		var headerToRemove = null;
+		var result = null;
 		for (s in data.splitLines()) {
 			final tmp = s.beforeStartUml();
 			if (tmp != null)
 				headerToRemove = tmp;
 			s = s.removeHeader(headerToRemove);
-			Sys.println(s);
+
+			if (s.isArobaseStartDiagram())
+				result = [];
+
+			if (result != null)
+				result.push(s);
+
+			if (s.isArobaseEndDiagram())
+				Sys.println(result);
 		}
 	}
 }

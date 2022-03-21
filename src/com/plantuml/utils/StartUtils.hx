@@ -19,6 +19,11 @@ class StartUtils {
 		return s;
 	}
 
+	static public function isArobaseEndDiagram(s:String) {
+		final s2 = s.trim();
+		return startsWithSymbolAnd(s2, "end");
+	}
+
 	static public function isArobaseStartDiagram(s:String) {
 		final s2 = s.trim();
 		if (s2.startsWith("@") == false && s2.startsWith("\\") == false)
@@ -27,7 +32,7 @@ class StartUtils {
 		return DiagramTypeUtils.getTypeFromArobaseStart(s2) != DiagramType.UNKNOWN;
 	}
 
-	static public function startsWithSymbolAnd(tmp:String, value:String) {
-		return tmp.startsWith("@" + value) || tmp.startsWith("\\" + value);
+	static public function startsWithSymbolAnd(s:String, value:String) {
+		return s.startsWith("@" + value) || s.startsWith("\\" + value);
 	}
 }
