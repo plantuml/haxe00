@@ -30,7 +30,7 @@ class UnicodeRegexTest extends utest.Test {
 		trace(toto);
 		trace(toto.group());
 
-		Assert.notNull(Re.match(Re.compile("\\p{Letter}", Re.UNICODE), s));
+		Assert.notNull(Re.match(Re.compile("[^\\W\\d_]", Re.UNICODE), s));
 
 	}
 	#end
