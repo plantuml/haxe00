@@ -39,7 +39,7 @@ class SvgGraphicsTest extends utest.Test {
 		Assert.equals("aertyzzz", s);
 	}
 
-	function testBasicThing1() {
+	function xtestBasicThing1() {
 		final svg = new SvgGraphics();
 		final result = svg.toSvg();
 		trace(result);
@@ -47,7 +47,7 @@ class SvgGraphicsTest extends utest.Test {
 		// Assert.equals(orderMe(exp), orderMe(result));
 	}
 
-	function testBasicThing2() {
+	function xtestBasicThing2() {
 		final svg = new SvgGraphics();
 		svg.text("Hello World", 10, 10, "", 14, "", "plain", "", 100.0, [], "white");
 		final result = svg.toSvg();

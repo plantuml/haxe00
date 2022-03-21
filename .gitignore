@@ -2,3 +2,4 @@ bin/
 jvm/
 js/
 *.svg
+.unittest/*.json

@@ -1,5 +1,8 @@
 package com.plantuml.api.v1;
 
+using hx.strings.Strings;
+using com.plantuml.utils.StartUtils;
+
 import com.plantuml.ugraphic.UGraphicSvg;
 import com.plantuml.command.BlocLines;
 import com.plantuml.mindmap.MindMapDiagramFactory;
@@ -56,5 +59,26 @@ class Plantuml {
 		diagram.exportDiagramNow(svg);
 		var s = svg.getSvg();
 		return s;
+	}
+
+	public function getInternalText() {
+		var headerToRemove = null;
+		var result = null;
+		for (s in data) {
+			final tmp = s.beforeStartUml();
+			if (tmp != null)
+				headerToRemove = tmp;
+			s = s.removeHeader(headerToRemove);
+
+			if (s.isArobaseStartDiagram())
+				result = [];
+
+			if (result != null)
+				result.push(s);
+
+			if (s.isArobaseEndDiagram())
+				return result;
+		}
+		return null;
 	}
 }

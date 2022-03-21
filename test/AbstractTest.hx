@@ -34,8 +34,9 @@ class AbstractTest extends Test {
 				result.push(s);
 
 			if (s.isArobaseEndDiagram())
-				Sys.println(result);
+				return result;
 		}
+		return null;
 	}
 }
 // http://www.unexpected-vortices.com/haxe/brief-tutorial.html
