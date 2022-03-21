@@ -1,11 +1,12 @@
 package com.plantuml.mindmap;
 
-using hx.strings.Strings;
-
 import com.plantuml.command.*;
 import com.plantuml.core.Diagram;
+import com.plantuml.core.DiagramType;
 
-class MindMapDiagramFactory {
+using hx.strings.Strings;
+
+class MindMapDiagramFactory implements PSystemFactory {
 	var cmds:Array<Command>;
 
 	public function new() {
@@ -36,17 +37,21 @@ class MindMapDiagramFactory {
 	public function createSystem(lines:BlocLines):Diagram {
 		var diagram = new MindMapDiagram();
 		for (s in lines.getLines()) {
-			if (s == "" || s.startsWith("@start")|| s.startsWith("@end"))
+			if (s == "" || s.startsWith("@start") || s.startsWith("@end"))
 				continue;
 
 			var cmd = getCandidate(s);
 			if (cmd == null)
-				throw new haxe.exceptions.NotImplementedException();
+				throw new haxe.exceptions.NotImplementedException(s);
 
 			var exec:CommandExecutionResult = cmd.execute(diagram, BlocLines.single(s));
 
 			// if (exec != CommandExecutionResult.OK)
 		}
 		return diagram;
+	}
+
+	public function getDiagramType():DiagramType {
+		return DiagramType.MINDMAP;
 	}
 }

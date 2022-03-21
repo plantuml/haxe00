@@ -1,11 +1,11 @@
 package com.plantuml.api.v1;
 
-using hx.strings.Strings;
-using com.plantuml.utils.StartUtils;
-
-import com.plantuml.ugraphic.UGraphicSvg;
 import com.plantuml.command.BlocLines;
 import com.plantuml.mindmap.MindMapDiagramFactory;
+import com.plantuml.ugraphic.UGraphicSvg;
+
+using com.plantuml.utils.StartUtils;
+using hx.strings.Strings;
 
 @:expose
 class Plantuml {
@@ -51,10 +51,10 @@ class Plantuml {
 	}
 
 	public function getSvg():String {
-		var factory = new MindMapDiagramFactory();
-		var lines = new BlocLines(data);
-
-		var diagram = factory.createSystem(lines);
+		final builder = new PSystemBuilder();
+		final internal = getInternalText();
+		final diagram = builder.createPSystem(internal);
+		trace(diagram);
 		var svg:UGraphicSvg = UGraphicSvg.create();
 		diagram.exportDiagramNow(svg);
 		var s = svg.getSvg();

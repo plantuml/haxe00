@@ -19,12 +19,12 @@ class StartUtils {
 		return s;
 	}
 
-	static public function isArobaseEndDiagram(s:String) {
+	static public function isArobaseEndDiagram(s:String):Bool {
 		final s2 = s.trim();
 		return startsWithSymbolAnd(s2, "end");
 	}
 
-	static public function isArobaseStartDiagram(s:String) {
+	static public function isArobaseStartDiagram(s:String):Bool {
 		final s2 = s.trim();
 		if (s2.startsWith("@") == false && s2.startsWith("\\") == false)
 			return false;
