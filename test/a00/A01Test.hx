@@ -6,11 +6,11 @@ import utest.Assert;
 using com.plantuml.utils.StartUtils;
 using hx.strings.Strings;
 
-class A00Test extends AbstractTest {
+class A01Test extends AbstractTest {
 	function testExecute() {
 		final diag = "
 			@startmindmap
-			* Debian
+			* Debianなダイアグラム
 			** Ubuntu
 			*** Linux Mint
 			*** Kubuntu
@@ -23,6 +23,7 @@ class A00Test extends AbstractTest {
 			@endmindmap
 		";
 		final sha1 = exportSvgAndCheck(diag);
-		Assert.equals("78b041f5d2958cb6310d4f2aabf71878d1bbebfb", sha1);
+		Assert.equals("047b2793566ee7772ed3c6462dd7dd5cc80bb027", sha1);
+		
 	}
 }

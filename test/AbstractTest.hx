@@ -13,7 +13,7 @@ class AbstractTest extends Test {
 	}
 
 	function getPath():String {
-		final name = Std.string(this);
+		final name = Type.getClassName(Type.getClass(this));
 		final path = "test/" + name.replaceAll(".", "/") + ".hx";
 		return path;
 	}
@@ -37,12 +37,11 @@ class AbstractTest extends Test {
 		return "other";
 	}
 
-	function exportSvgAndCheck(diag2:String, sha1:String) {
+	function exportSvgAndCheck(diag2:String):String {
 		final p = new Plantuml();
 		p.addLines(diag2);
 		final svg = p.getSvg();
 		Assert.isTrue(svg.length > 0);
-		Assert.equals(sha1, svg.orderMe().sha1());
 
 		final target = getTarget();
 		final path = getPath().replaceFirst(".hx", '-$target.svg');
@@ -51,6 +50,7 @@ class AbstractTest extends Test {
 		#if !js
 		sys.io.File.saveContent(path, svg);
 		#end
+		return svg.orderMe().sha1();
 	}
 } // http://www.unexpected-vortices.com/haxe/brief-tutorial.html
 // http://thx-lib.org/api/thx/Set.html
