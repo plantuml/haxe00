@@ -30,12 +30,11 @@ class PSystemBuilder {
 
 		trace(type);
 		final lines = new BlocLines(data);
-		for (f in factories)
-			if (f.getDiagramType() == type) {
-				final result = f.createSystem(lines);
-				if (result != null)
-					return result;
-			}
+		for (f in factories.filter(x -> x.getDiagramType() == type)) {
+			final result = f.createSystem(lines);
+			if (result != null)
+				return result;
+		}
 		trace(lines);
 		return null;
 	}
