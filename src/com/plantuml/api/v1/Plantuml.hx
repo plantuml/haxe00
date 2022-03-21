@@ -54,7 +54,6 @@ class Plantuml {
 		final builder = new PSystemBuilder();
 		final internal = getInternalText();
 		final diagram = builder.createPSystem(internal);
-		trace(diagram);
 		var svg:UGraphicSvg = UGraphicSvg.create();
 		diagram.exportDiagramNow(svg);
 		var s = svg.getSvg();
