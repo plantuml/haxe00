@@ -10,7 +10,7 @@ class MainTest {
 		trace("hello");
 		// the long way
 		var runner = new Runner();
-		runner.addCase(new A00Test());
+/* 		runner.addCase(new A00Test());
 		runner.addCase(new A01Test());
 		runner.addCase(new MinMapDiagramTest());
 		runner.addCase(new SvgGraphicsTest());
@@ -19,6 +19,9 @@ class MainTest {
 		runner.addCase(new CommandMindMapOrgmodeTest());
 		runner.addCase(new StripeFrontierTest());
 		runner.addCase(new StripeTest());
+ */		runner.addCase(new UnicodeTest());
+ 		runner.addCase(new UnicodeRegexTest());
+ 
 
 		Report.create(runner);
 		runner.run();

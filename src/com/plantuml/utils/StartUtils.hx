@@ -41,9 +41,11 @@ class StartUtils {
 
 	static public function orderMe(s:String):String {
 		final tree:BalancedTree<String, Int> = new BalancedTree();
+		// https://www.regular-expressions.info/unicode.html
+		var r = new EReg("\\w", "i");
 		for (i in 0...s.length) {
 			var c = s.charAt(i);
-			if (c == " ")
+			if (r.match(c) == false)
 				continue;
 			var cpt = tree.get(c);
 			if (cpt == null)
@@ -56,7 +58,7 @@ class StartUtils {
 			for (i in 0...ent.value)
 				sb.add(ent.key);
 
-		return sb.toString();
+		return "sb.toString()";
 	}
 
 	static public function sha1(s:String):String {
