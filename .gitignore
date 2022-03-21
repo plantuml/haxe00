@@ -1,5 +1,9 @@
+.unittest/*.json
+TestJvm/*
 bin/
 jvm/
 js/
 *.svg
-.unittest/*.json
+*.py
+*.js
+

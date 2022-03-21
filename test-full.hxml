@@ -1,0 +1,14 @@
+-cp test
+-cp src
+--library utest
+--library haxe-strings
+-main MainTest
+
+--each
+--python TestPy.py
+
+--next
+--java ./TestJvm
+
+--next
+--js TestJs.js
