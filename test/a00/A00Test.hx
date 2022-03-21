@@ -25,7 +25,6 @@ class A00Test extends AbstractTest {
 		final p = new Plantuml();
 		p.addLines(diag2);
 		final svg = p.getSvg();
-		trace(svg);
 		Assert.isTrue(svg.length > 0);
 	}
 }

@@ -1,5 +1,8 @@
 package com.plantuml.utils;
 
+import haxe.crypto.Sha1;
+import hx.strings.StringBuilder;
+import haxe.ds.BalancedTree;
 import com.plantuml.core.DiagramType;
 import com.plantuml.core.DiagramType.DiagramTypeUtils;
 
@@ -34,5 +37,29 @@ class StartUtils {
 
 	static public function startsWithSymbolAnd(s:String, value:String) {
 		return s.startsWith("@" + value) || s.startsWith("\\" + value);
+	}
+
+	static public function orderMe(s:String):String {
+		final tree:BalancedTree<String, Int> = new BalancedTree();
+		for (i in 0...s.length) {
+			var c = s.charAt(i);
+			if (c == " ")
+				continue;
+			var cpt = tree.get(c);
+			if (cpt == null)
+				tree.set(c, 1);
+			else
+				tree.set(c, cpt + 1);
+		}
+		var sb:StringBuilder = new StringBuilder();
+		for (ent in tree.keyValueIterator())
+			for (i in 0...ent.value)
+				sb.add(ent.key);
+
+		return sb.toString();
+	}
+
+	static public function sha1(s:String):String {
+		return Sha1.encode(s);
 	}
 }
