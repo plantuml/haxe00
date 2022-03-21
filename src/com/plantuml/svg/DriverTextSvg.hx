@@ -6,7 +6,7 @@ import com.plantuml.ugraphic.color.ColorMapper;
 import com.plantuml.ugraphic.UParam;
 import com.plantuml.ugraphic.UDriver;
 
-class DriverTextSvg implements UDriver {
+class DriverTextSvg implements UDriver<SvgGraphics> {
 	public function new() {}
 
 	public function draw(shape:UShape, x:Float, y:Float, mapper:ColorMapper, param:UParam, object:SvgGraphics) {

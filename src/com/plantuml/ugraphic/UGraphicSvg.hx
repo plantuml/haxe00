@@ -20,7 +20,7 @@ class StringBounderSvg implements StringBounder {
 	}
 }
 
-class UGraphicSvg extends AbstractCommonUGraphic implements UGraphic {
+class UGraphicSvg extends AbstractCommonUGraphic<SvgGraphics> implements UGraphic {
 	private final core:SvgGraphics;
 
 	public function new(core:SvgGraphics) {

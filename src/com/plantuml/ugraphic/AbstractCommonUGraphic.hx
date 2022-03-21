@@ -1,8 +1,8 @@
 package com.plantuml.ugraphic;
 
-abstract class AbstractCommonUGraphic implements UGraphic {
+abstract class AbstractCommonUGraphic<T> implements UGraphic {
 	var translate:UTranslate = new UTranslate(0, 0);
-	final drivers:Map<String, UDriver> = [];
+	final drivers:Map<String, UDriver<T>> = [];
 
 	function getTranslateX():Float {
 		return translate.getDx();
@@ -23,5 +23,5 @@ abstract class AbstractCommonUGraphic implements UGraphic {
 		throw new haxe.exceptions.NotImplementedException();
 	}
 
-	abstract function copyUGraphic():AbstractCommonUGraphic;
+	abstract function copyUGraphic():AbstractCommonUGraphic<T>;
 }
