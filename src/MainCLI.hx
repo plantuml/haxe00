@@ -1,4 +1,3 @@
-import com.plantuml.command.regex.*;
 import com.plantuml.api.v1.*;
 
 class MainCLI {
