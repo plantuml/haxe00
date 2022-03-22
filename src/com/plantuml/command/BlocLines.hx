@@ -34,8 +34,7 @@ class BlocLines {
 	}
 
 	public function addLines(lines:String) {
-		final r = ~/\r?\n/g;
- 		for (s in r.split(lines))
+ 		for (s in lines.splitInLines())
 			addLineSingle(s);
  	}
 

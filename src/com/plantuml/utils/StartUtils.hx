@@ -39,6 +39,11 @@ class StartUtils {
 		return s.startsWith("@" + value) || s.startsWith("\\" + value);
 	}
 
+	static public function splitInLines(s:String):Array<String> {
+		final r = ~/\r?\n/g;
+ 		return r.split(s);
+	}
+
 	static public function orderMe(s:String):String {
 		final tree:BalancedTree<String, Int> = new BalancedTree();
 		// https://www.regular-expressions.info/unicode.html

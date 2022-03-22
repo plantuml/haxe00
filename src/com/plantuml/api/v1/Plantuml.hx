@@ -24,6 +24,11 @@ class Plantuml {
 			addLineSingle(s);
 	}
 
+	public function addLines(lines:String) {
+		for (s in lines.splitInLines())
+		   addLineSingle(s);
+	}
+
 	public function toString() {
 		return data.toString();
 	}
