@@ -1,10 +1,10 @@
-import utest.*;
-import utest.Runner;
-import utest.ui.Report;
-import com.plantuml.command.regex.*;
-import com.plantuml.api.v1.*;
+package com.plantuml.command.regex;
 
-class TestCase1 extends utest.Test {
+import utest.Assert;
+import com.plantuml.api.v1.*;
+import utest.ui.Report;
+
+class RegexLeafTest extends utest.Test {
 	function testAz() {
 		final az = new RegexLeaf(1, "([a-z]+)", "name");
 		Assert.isTrue(az.match("lapin"));

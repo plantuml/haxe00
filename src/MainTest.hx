@@ -1,4 +1,5 @@
 import a00.*;
+import com.plantuml.command.regex.*;
 import com.plantuml.mindmap.*;
 import com.plantuml.regex.*;
 import com.plantuml.svg.*;
@@ -14,7 +15,7 @@ class MainTest {
 		runner.addCase(new A01Test());
 		runner.addCase(new MinMapDiagramTest());
 		runner.addCase(new SvgGraphicsTest());
-		runner.addCase(new TestCase1());
+		runner.addCase(new RegexLeafTest());
 		runner.addCase(new CommandMindMapDirectionTest());
 		runner.addCase(new CommandMindMapOrgmodeTest());
 		runner.addCase(new StripeFrontierTest());
