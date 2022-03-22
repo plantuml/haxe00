@@ -3,5 +3,7 @@ export PATH=/opt/jdk1.8.0_102/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/
 export JAVA_HOME=/opt/jdk1.8.0_102
 rm *.py
 haxe test-full.hxml
-python3 TestPy.py
-java -jar TestJvm/MainTest.jar
+python3 TestPy.py > TestPy.tmp
+java -jar TestJvm/MainTest.jar > TestJvm.tmp
+grep results TestPy.tmp
+grep results TestJvm.tmp

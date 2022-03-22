@@ -24,6 +24,11 @@ class MyPattern {
 		s = s.replaceAll("[%%L]", "[\\p{L}]");
 		s = s.replaceAll("[%%UL]", "[_\\p{L}]");
 		#end
+
+		s = s.replaceAll("%s", "\\s\u00A0"); // space
+		s = s.replaceAll("%q", "'\u2018\u2019"); // quote
+		s = s.replaceAll("%g", "\"\u201c\u201d\u00ab\u00bb"); // double quote
+
 		return s;
 	}
 

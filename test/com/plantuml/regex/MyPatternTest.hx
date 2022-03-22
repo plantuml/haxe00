@@ -101,6 +101,14 @@ class MyPatternTest extends utest.Test {
 		Assert.equals("123", m.group(2));
 	}
 
+	function testGroup4() {
+		final s = "^([%s]+[%q]+[%g]+)$";
+		final p = MyPattern.cmpile(s);
+
+		Assert.isTrue(p.matcher("    '''''\"\"\"\"").matches());
+		Assert.isFalse(p.matcher("'''''   \"\"\"\"").matches());
+	}
+
 	function testBasicThing2() {
 		final s = "^([a-z]*)(\\d*)$";
 		final p = MyPattern.cmpile(s);
