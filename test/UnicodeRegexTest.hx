@@ -61,10 +61,22 @@ class UnicodeRegexTest extends utest.Test {
 		var onlyDigit = new RegExp("\\d", "u");
 
 		final m:RegExpMatch = onlyLetter.exec(getLetter());
-		trace('mmm=$m');
+		trace('mmm1=$m');
 		Assert.equals(getLetter(), m[0]);
 		final gg = m.groups;
-		trace('gg3=$gg');
+		trace('gg1=$gg');
+	}
+
+	function testBasicThing1AccentJs2() {
+		// https://api.haxe.org/js/lib/RegExp.html
+		var onlyLetter = new RegExp("\\w", "u");
+		var onlyDigit = new RegExp("\\d", "u");
+
+		final m:RegExpMatch = onlyLetter.exec(getNumber());
+		trace('mmm0=$m');
+		Assert.equals(getNumber(), m[0]);
+		final gg = m.groups;
+		trace('gg0=$gg');
 	}
 
 	function testBasicThing1AccentJsOld() {

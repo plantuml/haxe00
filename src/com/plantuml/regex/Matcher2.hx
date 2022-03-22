@@ -35,6 +35,16 @@ class Matcher2 {
 		this.p = p;
 		this.m = Re.match(p, input);
 	}
+	#elseif js
+	final p:RegExp;
+	final m:RegExpMatch;
+
+	public function new(pString, input, p:RegExp) {
+		this.pString = pString;
+		this.input = input;
+		this.p = p;
+		this.m = p.exec(input);
+	}
 	#else
 	public function new(pString, input) {
 		this.pString = pString;
@@ -47,6 +57,8 @@ class Matcher2 {
 		return m.matches();
 		#elseif python
 		return m != null;
+		#elseif js
+		return p.test(input);
 		#else
 		final r = new EReg(pString, "i");
 		return r.match(input);
@@ -62,6 +74,10 @@ class Matcher2 {
 		if (m == null)
 			return null;
 		return m.group(n);
+		#elseif js
+		if (m == null)
+			return null;
+		return m[n];
 		#else
 		trace('n=$n');
 		final r = new EReg(pString, "i");

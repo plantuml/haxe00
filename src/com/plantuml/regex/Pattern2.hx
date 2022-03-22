@@ -16,14 +16,18 @@ class Pattern2 {
 	final p:Pattern;
 	#elseif python
 	final p:Pattern;
+	#elseif js
+	final p:RegExp;
 	#end
 
-	public function new(p:String) {
-		this.pString = p;
+	public function new(pString:String) {
+		this.pString = pString;
 		#if java
-		this.p = Pattern.compile(p);
+		this.p = Pattern.compile(pString);
 		#elseif python
-		this.p = Re.compile(p, Re.UNICODE);
+		this.p = Re.compile(pString, Re.UNICODE);
+		#elseif js
+		this.p = new RegExp(pString, "u");
 		#end
 	}
 
@@ -31,6 +35,8 @@ class Pattern2 {
 		#if java
 		return new Matcher2(pString, input, p);
 		#elseif python
+		return new Matcher2(pString, input, p);
+		#elseif js
 		return new Matcher2(pString, input, p);
 		#else
 		return new Matcher2(pString, input);
