@@ -19,10 +19,14 @@ class UnicodeRegexTest extends utest.Test {
 		// https://api.haxe.org/java/util/regex/Pattern.html
 		// https://api.haxe.org/python/lib/Regex.html
 
-		final onlyLetter = Re.compile("[^\\W\\d_]");
+		final onlyLetter = Re.compile("[^\\W\\d_]", Re.UNICODE);
+		final onlyDigit = Re.compile("[\\d]", Re.UNICODE);
 
-		Assert.notNull(Re.match(Re.compile("[^\\W\\d_]", Re.UNICODE), getLetterAccent()));
-		Assert.isNull(Re.match(Re.compile("[^\\W\\d_]", Re.UNICODE), "4"));
+		Assert.notNull(Re.match(onlyLetter, getLetterAccent()));
+		Assert.isNull(Re.match(onlyDigit, getLetterAccent()));
+
+		Assert.isNull(Re.match(onlyLetter, getNumber()));
+		Assert.notNull(Re.match(onlyDigit, getNumber()));
 	}
 	#end
 
