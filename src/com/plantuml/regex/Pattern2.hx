@@ -20,6 +20,10 @@ class Pattern2 {
 	final p:RegExp;
 	#end
 
+	public function getPatternString():String {
+		return pString;
+	}
+
 	public function new(pString:String) {
 		this.pString = pString;
 		#if java

@@ -1,35 +1,33 @@
 package com.plantuml.command.regex;
 
-abstract class AbstractRegex implements IRegex {
-	private final patternString:String;
+import com.plantuml.regex.MyPattern;
+import com.plantuml.regex.Pattern2;
 
-	public function getPatternString():String {
-		return patternString;
-	}
+abstract class AbstractRegex implements IRegex {
+	private final regex:Pattern2;
 
 	public function new(s:String) {
-		this.patternString = s;
+		this.regex = MyPattern.cmpile(s);
+	}
+
+	public function getPatternString():String {
+		return regex.getPatternString();
 	}
 
 	public function match(full:String):Bool {
-		var r = new EReg(patternString, "i");
-		return r.match(full);
+		return regex.matcher(full).matches();
 	}
 
 	public function matchArray(full:String):Array<String> {
-		var r = new EReg(patternString, "i");
-		if (r.match(full) == false)
+		final m = regex.matcher(full);
+		if (m.matches() == false)
 			return null;
 
 		var result = [];
-		var i = 1;
-		try {
-			while (true) {
-				result.push(r.matched(i));
-				i = i + 1;
-			}
-		} catch (e:haxe.Exception) {
-			return result;
-		}
+		final nb = m.count() + 1;
+		for (i in 1...nb)
+			result.push(m.group(i));
+
+		return result;
 	}
 }

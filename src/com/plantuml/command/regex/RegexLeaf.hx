@@ -1,5 +1,6 @@
 package com.plantuml.command.regex;
 
+import com.plantuml.regex.MyPattern;
 import haxe.display.JsonModuleTypes.JsonExpr;
 
 class RegexLeaf extends AbstractRegex implements IRegex {
@@ -12,7 +13,7 @@ class RegexLeaf extends AbstractRegex implements IRegex {
 
 	public function new(size:Int, pattern:String, ?name:String) {
 		this.name = name;
-		super(MyPattern.transform(pattern));
+		super(pattern);
 		this.size = size;
 	}
 
