@@ -40,7 +40,7 @@ class UnicodeRegexTest extends utest.Test {
 	#if java
 	function testBasicThing1AccentJava() {
 		// https://api.haxe.org/java/util/regex/Pattern.html
-		var onlyLetter = Pattern.compile("\\p{L}");
+		var onlyLetter = Pattern.compile("[\\p{L}]");
 		var onlyDigit = Pattern.compile("\\d");
 
 		Assert.isTrue(onlyLetter.matcher(getLetterAccent()).matches());
@@ -81,7 +81,7 @@ class UnicodeRegexTest extends utest.Test {
 
 	function testBasicThing1AccentJsOld() {
 		// https://api.haxe.org/js/lib/RegExp.html
-		var onlyLetter = new RegExp("\\p{Letter}", "u");
+		var onlyLetter = new RegExp("\\p{L}", "u");
 		var onlyDigit = new RegExp("\\d", "u");
 
 		Assert.isTrue(onlyLetter.test(getLetterAccent()));
