@@ -1,3 +1,5 @@
+package com.plantuml.mindmap;
+
 import com.plantuml.mindmap.Stripe;
 import utest.*;
 

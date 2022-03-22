@@ -1,13 +1,11 @@
+package com.plantuml.mindmap;
+
+import utest.Assert;
 import com.plantuml.ugraphic.UGraphicSvg;
-import com.plantuml.mindmap.MindMapDiagramFactory;
-import com.plantuml.command.CommandControl;
-import com.plantuml.command.BlocLines;
-import com.plantuml.mindmap.CommandMindMapDirection;
-import utest.*;
-import utest.Runner;
-import utest.ui.Report;
-import com.plantuml.command.regex.RegexLeaf;
 import com.plantuml.api.v1.*;
+import com.plantuml.command.BlocLines;
+import com.plantuml.command.regex.RegexLeaf;
+import com.plantuml.mindmap.MindMapDiagramFactory;
 
 class MinMapDiagramTest extends utest.Test {
 	function testBasicThing1() {

@@ -1,11 +1,9 @@
-import com.plantuml.command.CommandControl;
+package com.plantuml.mindmap;
+
 import com.plantuml.command.BlocLines;
+import com.plantuml.command.CommandControl;
 import com.plantuml.mindmap.CommandMindMapDirection;
 import utest.*;
-import utest.Runner;
-import utest.ui.Report;
-import com.plantuml.command.regex.RegexLeaf;
-import com.plantuml.api.v1.*;
 
 class CommandMindMapDirectionTest extends utest.Test {
 	function testBasicThing1() {

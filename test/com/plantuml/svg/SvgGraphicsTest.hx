@@ -1,10 +1,9 @@
+package com.plantuml.svg;
+
 import com.plantuml.svg.SvgGraphics;
+import utest.*;
 
 using com.plantuml.utils.StartUtils;
-
-import haxe.ds.BalancedTree;
-import hx.strings.StringBuilder;
-import utest.*;
 
 class SvgGraphicsTest extends utest.Test {
 	function testBasicThing0() {

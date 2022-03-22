@@ -1,10 +1,9 @@
-import com.plantuml.regex.MyPatternTest;
 import a00.*;
-import utest.*;
+import com.plantuml.mindmap.*;
+import com.plantuml.regex.*;
+import com.plantuml.svg.*;
 import utest.Runner;
 import utest.ui.Report;
-import com.plantuml.command.regex.*;
-import com.plantuml.api.v1.*;
 
 class MainTest {
 	static function main() {
