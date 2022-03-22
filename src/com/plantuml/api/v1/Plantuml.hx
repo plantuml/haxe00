@@ -19,11 +19,6 @@ class Plantuml {
 		data[data.length] = line;
 	}
 
-	public function addLines(lines:String) {
-		for (s in lines.splitLines())
-			addLineSingle(s);
-	}
-
 	public function addLinesArray(lines:Array<String>) {
 		for (s in lines)
 			addLineSingle(s);

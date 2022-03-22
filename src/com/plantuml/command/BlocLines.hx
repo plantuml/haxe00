@@ -34,9 +34,10 @@ class BlocLines {
 	}
 
 	public function addLines(lines:String) {
-		for (s in lines.splitLines())
+		final r = ~/\r?\n/g;
+ 		for (s in r.split(lines))
 			addLineSingle(s);
-	}
+ 	}
 
 	public function findStartSomething():BlocLines {
 		var headerToRemove = null;
