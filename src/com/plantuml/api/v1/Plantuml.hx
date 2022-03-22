@@ -16,12 +16,11 @@ class Plantuml {
 	public function new() {}
 
 	public function addLineSingle(line:String) {
-		if (line != "")
-			data[data.length] = line;
+		data[data.length] = line;
 	}
 
 	public function addLines(lines:String) {
-		for (s in lines.split("\n"))
+		for (s in lines.splitLines())
 			addLineSingle(s);
 	}
 
@@ -52,32 +51,10 @@ class Plantuml {
 
 	public function getSvg():String {
 		final builder = new PSystemBuilder();
-		final internal = getInternalText();
-		final diagram = builder.createPSystem(internal);
+		final diagram = builder.createPSystem(data);
 		var svg:UGraphicSvg = UGraphicSvg.create();
 		diagram.exportDiagramNow(svg);
 		var s = svg.getSvg();
 		return s;
-	}
-
-	public function getInternalText() {
-		var headerToRemove = null;
-		var result = null;
-		for (s in data) {
-			final tmp = s.beforeStartUml();
-			if (tmp != null)
-				headerToRemove = tmp;
-			s = s.removeHeader(headerToRemove);
-
-			if (s.isArobaseStartDiagram())
-				result = [];
-
-			if (result != null)
-				result.push(s);
-
-			if (s.isArobaseEndDiagram())
-				return result;
-		}
-		return null;
 	}
 }

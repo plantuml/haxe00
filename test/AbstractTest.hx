@@ -1,3 +1,4 @@
+import com.plantuml.command.BlocLines;
 import com.plantuml.api.v1.Plantuml;
 
 using hx.strings.Strings;
@@ -38,8 +39,13 @@ class AbstractTest extends Test {
 	}
 
 	function exportSvgAndCheck(diag2:String):String {
+		var bl = new BlocLines();
+		bl.addLines(diag2);
+		bl = bl.findStartSomething();
+
 		final p = new Plantuml();
-		p.addLines(diag2);
+		p.addLinesArray(bl.getLines());
+		trace('p=$p');
 		final svg = p.getSvg();
 		Assert.isTrue(svg.length > 0);
 

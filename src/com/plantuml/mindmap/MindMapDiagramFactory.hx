@@ -27,8 +27,9 @@ class MindMapDiagramFactory implements PSystemFactory {
 	}
 
 	private function getCandidate(s:String) {
+		final bl = BlocLines.single(s);
 		for (cmd in this.cmds) {
-			if (cmd.isValid(BlocLines.single(s)) == CommandControl.OK)
+			if (cmd.isValid(bl) == CommandControl.OK)
 				return cmd;
 		}
 		return null;
