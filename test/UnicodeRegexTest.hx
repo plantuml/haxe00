@@ -5,6 +5,9 @@ import js.lib.RegExp;
 #if python
 import python.lib.Re;
 #end
+#if java
+import java.util.regex.Pattern;
+#end
 
 using hx.strings.Strings;
 
@@ -16,7 +19,6 @@ class UnicodeRegexTest extends utest.Test {
 
 	#if python
 	function testBasicThing1AccentPython() {
-		// https://api.haxe.org/java/util/regex/Pattern.html
 		// https://api.haxe.org/python/lib/Regex.html
 
 		final onlyLetter = Re.compile("[^\\W\\d_]", Re.UNICODE);
@@ -30,12 +32,25 @@ class UnicodeRegexTest extends utest.Test {
 	}
 	#end
 
+	#if java
+	function testBasicThing1AccentJava() {
+		// https://api.haxe.org/java/util/regex/Pattern.html
+		var onlyDigit = Pattern.compile("\\d");
+		Assert.notNull(onlyDigit);
+	}
+	#end
+
 	#if js
 	function testBasicThing1AccentJs() {
 		// https://api.haxe.org/js/lib/RegExp.html
-		var r = new RegExp("\\p{Letter}", "u");
+		var onlyLetter = new RegExp("\\p{Letter}", "u");
+		var onlyDigit = new RegExp("\\d", "u");
 
-		Assert.isTrue(r.test(getLetterAccent()), "Not a letter");
+		Assert.isTrue(onlyLetter.test(getLetterAccent()));
+		Assert.isFalse(onlyDigit.test(getLetterAccent()));
+
+		Assert.isFalse(onlyLetter.test(getNumber()));
+		Assert.isTrue(onlyDigit.test(getNumber()));
 	}
 	#else
 	function testBasicThing1Accent() {
