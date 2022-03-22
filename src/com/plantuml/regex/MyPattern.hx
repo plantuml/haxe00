@@ -4,9 +4,9 @@ using hx.strings.Strings;
 
 class MyPattern {
 	public static function cmpile(p:String):Pattern2 {
-		trace('before=$p');
+		// trace('before=$p');
 		p = transform(p);
-		trace('after =$p');
+		// trace('after =$p');
 		return new Pattern2(p);
 	}
 

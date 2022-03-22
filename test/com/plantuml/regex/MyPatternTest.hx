@@ -71,6 +71,36 @@ class MyPatternTest extends utest.Test {
 		Assert.isTrue(p.matcher(getLetterAccent() + "abc123").matches());
 	}
 
+	function testGroup1() {
+		final s = "^([%%UL]+)(?:foo)([0-9]+)$";
+		final p = MyPattern.cmpile(s);
+
+		final m = p.matcher("abc_sdf_foo123");
+		Assert.isTrue(m.matches());
+		Assert.equals("abc_sdf_", m.group(1));
+		Assert.equals("123", m.group(2));
+	}
+
+	function testGroup2() {
+		final s = "^([%%UL]+)(?:[fo]+)([0-9]+)$";
+		final p = MyPattern.cmpile(s);
+
+		final m = p.matcher("abc_sdf_foo123");
+		Assert.isTrue(m.matches());
+		Assert.equals("abc_sdf_fo", m.group(1));
+		Assert.equals("123", m.group(2));
+	}
+
+	function testGroup3() {
+		final s = "^([%%UL]+?)(?:[fo]+)([0-9]+)$";
+		final p = MyPattern.cmpile(s);
+
+		final m = p.matcher("abc_sdf_foo123");
+		Assert.isTrue(m.matches());
+		Assert.equals("abc_sdf_", m.group(1));
+		Assert.equals("123", m.group(2));
+	}
+
 	function testBasicThing2() {
 		final s = "^([a-z]*)(\\d*)$";
 		final p = MyPattern.cmpile(s);
