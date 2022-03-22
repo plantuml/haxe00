@@ -21,8 +21,10 @@ class UnicodeRegexTest extends utest.Test {
 	function testBasicThing1AccentPython() {
 		// https://api.haxe.org/python/lib/Regex.html
 
-		final onlyLetter = Re.compile("[^\\W\\d_]", Re.UNICODE);
-		final onlyDigit = Re.compile("[\\d]", Re.UNICODE);
+		final onlyLetter:Pattern = Re.compile("[^\\W\\d_]", Re.UNICODE);
+		final onlyDigit:Pattern = Re.compile("[\\d]", Re.UNICODE);
+
+		final tmp:MatchObject = Re.match(onlyLetter, getLetterAccent());
 
 		Assert.notNull(Re.match(onlyLetter, getLetterAccent()));
 		Assert.isNull(Re.match(onlyDigit, getLetterAccent()));

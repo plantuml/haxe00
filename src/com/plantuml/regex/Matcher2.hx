@@ -25,6 +25,16 @@ class Matcher2 {
 		this.p = p;
 		this.m = p.matcher(input);
 	}
+	#elseif python
+	final p:Pattern;
+	final m:MatchObject;
+
+	public function new(pString, input, p:Pattern) {
+		this.pString = pString;
+		this.input = input;
+		this.p = p;
+		this.m = Re.match(p, input);
+	}
 	#else
 	public function new(pString, input) {
 		this.pString = pString;
