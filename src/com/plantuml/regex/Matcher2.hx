@@ -45,6 +45,8 @@ class Matcher2 {
 	public function matches():Bool {
 		#if java
 		return m.matches();
+		#elseif python
+		return m != null;
 		#else
 		final r = new EReg(pString, "i");
 		return r.match(input);
@@ -54,6 +56,10 @@ class Matcher2 {
 	public function group(n:Int):String {
 		#if java
 		if (m.matches() == false)
+			return null;
+		return m.group(n);
+		#elseif python
+		if (m == null)
 			return null;
 		return m.group(n);
 		#else
