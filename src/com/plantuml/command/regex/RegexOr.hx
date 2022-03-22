@@ -18,10 +18,10 @@ class RegexOr extends AbstractRegex implements IRegex {
 				tmp += "(?:";
 			else
 				tmp += "|";
-			tmp += r.getPattern();
+			tmp += r.getPatternString();
 		}
 		tmp += ")";
-		this.pattern = tmp;
+		super(tmp);
 	}
 
 	public function eat(array:Array<String>, map:Map<String, String>):Void {
