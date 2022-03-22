@@ -38,6 +38,7 @@ class MyPatternTest extends utest.Test {
 		Assert.isTrue(m.matches());
 		Assert.equals(getLetterAccent() + "abc", m.group(1));
 		Assert.equals("123", m.group(2));
+		Assert.equals(2, m.count());
 
 		final m2 = p.matcher(";abc123");
 		Assert.isFalse(m2.matches());
@@ -79,6 +80,7 @@ class MyPatternTest extends utest.Test {
 		Assert.isTrue(m.matches());
 		Assert.equals("abc_sdf_", m.group(1));
 		Assert.equals("123", m.group(2));
+		Assert.equals(2, m.count());
 	}
 
 	function testGroup2() {
@@ -99,6 +101,17 @@ class MyPatternTest extends utest.Test {
 		Assert.isTrue(m.matches());
 		Assert.equals("abc_sdf_", m.group(1));
 		Assert.equals("123", m.group(2));
+	}
+
+	function testGroup3b() {
+		final s = "^([%%UL]+?)([fo]+)([0-9]+)$";
+		final p = MyPattern.cmpile(s);
+
+		final m = p.matcher("abc_sdf_foo123");
+		Assert.isTrue(m.matches());
+		Assert.equals("abc_sdf_", m.group(1));
+		Assert.equals("123", m.group(3));
+		Assert.equals(3, m.count());
 	}
 
 	function testGroup4() {

@@ -66,6 +66,26 @@ class Matcher2 {
 		#end
 	}
 
+	public function count():Int {
+		#if java
+		return m.groupCount();
+		#else
+		final r = new EReg(pString, "i");
+		if (r.match(input) == false)
+			throw new haxe.exceptions.NotImplementedException();
+
+		var i = 1;
+		try {
+			while (true) {
+				r.matched(i);
+				i = i + 1;
+			}
+		} catch (e:haxe.Exception) {
+			return i - 1;
+		}
+		#end
+	}
+
 	public function group(n:Int):String {
 		#if java
 		if (m.matches() == false)
