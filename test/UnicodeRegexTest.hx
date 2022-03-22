@@ -27,6 +27,9 @@ class UnicodeRegexTest extends utest.Test {
 		Assert.notNull(Re.match(onlyLetter, getLetterAccent()));
 		Assert.isNull(Re.match(onlyDigit, getLetterAccent()));
 
+		Assert.notNull(Re.match(onlyLetter, getLetter()));
+		Assert.isNull(Re.match(onlyDigit, getLetter()));
+
 		Assert.isNull(Re.match(onlyLetter, getNumber()));
 		Assert.notNull(Re.match(onlyDigit, getNumber()));
 	}
@@ -35,8 +38,17 @@ class UnicodeRegexTest extends utest.Test {
 	#if java
 	function testBasicThing1AccentJava() {
 		// https://api.haxe.org/java/util/regex/Pattern.html
+		var onlyLetter = Pattern.compile("\\p{L}");
 		var onlyDigit = Pattern.compile("\\d");
-		Assert.notNull(onlyDigit);
+
+		Assert.isTrue(onlyLetter.matcher(getLetterAccent()).matches());
+		Assert.isFalse(onlyDigit.matcher(getLetterAccent()).matches());
+
+		Assert.isTrue(onlyLetter.matcher(getLetter()).matches());
+		Assert.isFalse(onlyDigit.matcher(getLetter()).matches());
+
+		Assert.isFalse(onlyLetter.matcher(getNumber()).matches());
+		Assert.isTrue(onlyDigit.matcher(getNumber()).matches());
 	}
 	#end
 
@@ -49,22 +61,29 @@ class UnicodeRegexTest extends utest.Test {
 		Assert.isTrue(onlyLetter.test(getLetterAccent()));
 		Assert.isFalse(onlyDigit.test(getLetterAccent()));
 
+		Assert.isTrue(onlyLetter.test(getLetter()));
+		Assert.isFalse(onlyDigit.test(getLetter()));
+
 		Assert.isFalse(onlyLetter.test(getNumber()));
 		Assert.isTrue(onlyDigit.test(getNumber()));
 	}
-	#else
-	function testBasicThing1Accent() {
-		var r1 = new EReg("\\w", "i");
-		#if java
-		var r2 = new EReg("\\p{L}", "u");
+	#end
+
+	function testBasic1() {
+		var onlyLetter = new EReg("[^\\W\\d_]", "i");
+		var onlyDigit = new EReg("\\d", "i");
+
+		#if !js
+		Assert.isTrue(onlyLetter.match(getLetterAccent()));
+		Assert.isFalse(onlyDigit.match(getLetterAccent()));
 		#end
 
-		Assert.isTrue(r1.match(getLetterAccent()), "Not a letter");
-		#if java
-		Assert.isTrue(r2.match(getLetterAccent()), "Not a letter");
-		#end
+		Assert.isTrue(onlyLetter.match(getLetter()));
+		Assert.isFalse(onlyDigit.match(getLetter()));
+
+		Assert.isFalse(onlyLetter.match(getNumber()));
+		Assert.isTrue(onlyDigit.match(getNumber()));
 	}
-	#end
 
 	function getLetter() {
 		final s = "a";
@@ -81,10 +100,22 @@ class UnicodeRegexTest extends utest.Test {
 	}
 
 	function getLetterAccent() {
+		final s = "&#12480;".htmlDecode();
+		#if !js
+		Assert.equals("ダ", s);
+		#end
+		Assert.equals("&#12480;", s.htmlEncode());
+		Assert.equals(1, s.length8());
+		Assert.equals(1, s.length);
+		return s;
+	}
+
+	function getLetterAccent2() {
 		final s = "&#233;".htmlDecode();
 		#if !js
 		Assert.equals("é", s);
 		#end
+		Assert.equals("&#233;", s.htmlEncode());
 		Assert.equals(1, s.length8());
 		Assert.equals(1, s.length);
 		return s;
