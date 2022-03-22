@@ -57,6 +57,18 @@ class UnicodeRegexTest extends utest.Test {
 	#if js
 	function testBasicThing1AccentJs() {
 		// https://api.haxe.org/js/lib/RegExp.html
+		var onlyLetter = new RegExp("\\w", "u");
+		var onlyDigit = new RegExp("\\d", "u");
+
+		final m:RegExpMatch = onlyLetter.exec(getLetter());
+		trace('mmm=$m');
+		Assert.equals(getLetter(), m[0]);
+		final gg = m.groups;
+		trace('gg3=$gg');
+	}
+
+	function testBasicThing1AccentJsOld() {
+		// https://api.haxe.org/js/lib/RegExp.html
 		var onlyLetter = new RegExp("\\p{Letter}", "u");
 		var onlyDigit = new RegExp("\\d", "u");
 
