@@ -1,13 +1,13 @@
 package com.plantuml.command.regex;
 
 abstract class AbstractRegex implements IRegex {
-	private var patternString:String;
+	private final patternString:String;
 
 	public function getPatternString():String {
 		return patternString;
 	}
 
-	public function pinit(s:String) {
+	public function new(s:String) {
 		this.patternString = s;
 	}
 

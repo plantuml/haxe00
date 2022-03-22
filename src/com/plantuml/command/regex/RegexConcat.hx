@@ -16,7 +16,7 @@ class RegexConcat extends AbstractRegex implements IRegex {
 		for (r in all)
 			tmp += r.getPatternString();
 
-		pinit(tmp);
+		super(tmp);
 	}
 
 	public function matcher(full:String):Map<String, String> {

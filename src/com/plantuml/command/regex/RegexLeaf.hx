@@ -12,7 +12,7 @@ class RegexLeaf extends AbstractRegex implements IRegex {
 
 	public function new(size:Int, pattern:String, ?name:String) {
 		this.name = name;
-		pinit(MyPattern.transform(pattern));
+		super(MyPattern.transform(pattern));
 		this.size = size;
 	}
 
