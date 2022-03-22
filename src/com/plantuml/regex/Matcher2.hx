@@ -69,6 +69,10 @@ class Matcher2 {
 	public function count():Int {
 		#if java
 		return m.groupCount();
+		#elseif python
+		return m.lastindex;
+		#elseif js
+		return m.length - 1;
 		#else
 		final r = new EReg(pString, "i");
 		if (r.match(input) == false)
