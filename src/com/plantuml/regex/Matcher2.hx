@@ -58,7 +58,8 @@ class Matcher2 {
 		#elseif python
 		return m != null;
 		#elseif js
-		return p.test(input);
+		return m != null;
+		// return p.test(input);
 		#else
 		final r = new EReg(pString, "i");
 		return r.match(input);
