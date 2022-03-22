@@ -12,12 +12,12 @@ class RegexLeaf extends AbstractRegex implements IRegex {
 
 	public function new(size:Int, pattern:String, ?name:String) {
 		this.name = name;
-		this.pattern = MyPattern.transform(pattern);
+		pinit(MyPattern.transform(pattern));
 		this.size = size;
 	}
 
 	function toString():String {
-		return name + "=" + pattern;
+		return name + "=" + getPatternString();
 	}
 
 	public function eat(array:Array<String>, map:Map<String, String>):Void {

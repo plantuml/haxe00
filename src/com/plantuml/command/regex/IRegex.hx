@@ -5,7 +5,7 @@ import haxe.ds.StringMap;
 interface IRegex {
 	public function getSize():Int;
 
-	public function getPattern():String;
+	public function getPatternString():String;
 
 	public function match(full:String):Bool;
 

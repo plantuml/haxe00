@@ -1,19 +1,23 @@
 package com.plantuml.command.regex;
 
 abstract class AbstractRegex implements IRegex {
-	var pattern:String;
+	private var patternString:String;
 
-	public function getPattern():String {
-		return pattern;
+	public function getPatternString():String {
+		return patternString;
+	}
+
+	public function pinit(s:String) {
+		this.patternString = s;
 	}
 
 	public function match(full:String):Bool {
-		var r = new EReg(pattern, "i");
+		var r = new EReg(patternString, "i");
 		return r.match(full);
 	}
 
 	public function matchArray(full:String):Array<String> {
-		var r = new EReg(pattern, "i");
+		var r = new EReg(patternString, "i");
 		if (r.match(full) == false)
 			return null;
 

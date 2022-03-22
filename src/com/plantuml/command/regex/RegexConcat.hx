@@ -14,9 +14,9 @@ class RegexConcat extends AbstractRegex implements IRegex {
 		this.all = all;
 		var tmp = "";
 		for (r in all)
-			tmp += r.getPattern();
+			tmp += r.getPatternString();
 
-		this.pattern = tmp;
+		pinit(tmp);
 	}
 
 	public function matcher(full:String):Map<String, String> {

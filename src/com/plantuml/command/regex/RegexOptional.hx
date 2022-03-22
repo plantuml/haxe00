@@ -5,7 +5,7 @@ class RegexOptional extends AbstractRegex implements IRegex {
 
 	public function new(orig:IRegex) {
 		this.orig = orig;
-		this.pattern = "(?:" + orig.getPattern() + ")?";
+		pinit("(?:" + orig.getPatternString() + ")?");
 	}
 
 	public function getSize():Int {

@@ -10,7 +10,7 @@ import com.plantuml.api.v1.*;
 class CommandMindMapOrgmodeTest extends utest.Test {
 	function testPattern() {
 		var cmd = new CommandMindMapOrgmode();
-		var p = cmd.getPattern();
+		var p = cmd.getPatternString();
 		Assert.equals("^([ \t]*[*]+)(?:\\[(#\\w+)\\])?(_)?[\\s\u00A0]+([^\\s\u00A0].*)$", p);
 	}
 

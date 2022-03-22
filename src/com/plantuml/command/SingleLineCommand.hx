@@ -11,8 +11,8 @@ abstract class SingleLineCommand implements Command {
 		this.regex = new RegexConcat(array);
 	}
 
-	public function getPattern() {
-		return regex.getPattern();
+	public function getPatternString():String {
+		return regex.getPatternString();
 	}
 
 	public function isValid(lines:BlocLines):CommandControl {
