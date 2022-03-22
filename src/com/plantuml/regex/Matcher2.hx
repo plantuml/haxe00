@@ -14,7 +14,7 @@ class Matcher2 {
 		return r.match(input);
 	}
 
-	public function group(?n:Int):String {
+	public function group(n:Int):String {
 		trace('n=$n');
 		final r = new EReg(p, "i");
 		var m = r.match(input);
