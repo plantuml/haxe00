@@ -31,7 +31,7 @@ class MyPatternTest extends utest.Test {
 	}
 
 	function testL() {
-		final s = "^(%%L*)(\\d*)$";
+		final s = "^([%%L]*)(\\d*)$";
 		final p = MyPattern.cmpile(s);
 
 		final m = p.matcher(getLetterAccent() + "abc123");
@@ -43,6 +43,32 @@ class MyPatternTest extends utest.Test {
 		Assert.isFalse(m2.matches());
 		Assert.isNull(m2.group(1));
 		Assert.isNull(m2.group(2));
+
+		Assert.isFalse(p.matcher("_abc123").matches());
+	}
+
+	function testUL() {
+		final s = "^([%%UL]*)(\\d*)$";
+		final p = MyPattern.cmpile(s);
+
+		final m = p.matcher(getLetterAccent() + "abc123");
+		Assert.isTrue(m.matches());
+		Assert.equals(getLetterAccent() + "abc", m.group(1));
+		Assert.equals("123", m.group(2));
+
+		final m2 = p.matcher(";abc123");
+		Assert.isFalse(m2.matches());
+		Assert.isNull(m2.group(1));
+		Assert.isNull(m2.group(2));
+
+		Assert.isTrue(p.matcher("_abc123").matches());
+	}
+
+	function testLN() {
+		final s = "^([%%LN]*)(\\d*)$";
+		final p = MyPattern.cmpile(s);
+
+		Assert.isTrue(p.matcher(getLetterAccent() + "abc123").matches());
 	}
 
 	function testBasicThing2() {

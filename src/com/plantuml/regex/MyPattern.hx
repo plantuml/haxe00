@@ -12,11 +12,17 @@ class MyPattern {
 
 	static function transform(s:String):String {
 		#if java
-		s = s.replaceAll("%%L", "[\\p{L}]");
+		s = s.replaceAll("[%%LN]", "[\\p{L}0-9]");
+		s = s.replaceAll("[%%L]", "[\\p{L}]");
+		s = s.replaceAll("[%%UL]", "[_\\p{L}]");
 		#elseif python
-		s = s.replaceAll("%%L", "[^\\W\\d_]");
+		s = s.replaceAll("[%%LN]", "[^\\W_]");
+		s = s.replaceAll("[%%L]", "[^\\W\\d_]");
+		s = s.replaceAll("[%%UL]", "[^\\W\\d]");
 		#else
-		s = s.replaceAll("%%L", "[\\p{L}]");
+		s = s.replaceAll("[%%LN]", "[\\p{L}0-9]");
+		s = s.replaceAll("[%%L]", "[\\p{L}]");
+		s = s.replaceAll("[%%UL]", "[_\\p{L}]");
 		#end
 		return s;
 	}
