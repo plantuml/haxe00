@@ -32,7 +32,10 @@ jobs:
       - name: check
         run: |
           echo Hello, world!
-          ls
+          ls -l
+          pwd
+          java -version
+          python --version
           echo end of check
 
       - name: install haxe libraries
