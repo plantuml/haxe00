@@ -1,4 +1,4 @@
-package com.plantuml.svg;
+package tcom.plantuml.svg;
 
 import com.plantuml.svg.SvgGraphics;
 import utest.*;

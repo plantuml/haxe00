@@ -1,5 +1,8 @@
-package com.plantuml.command.regex;
+package tcom.plantuml.command.regex;
 
+import com.plantuml.command.regex.*;
+import com.plantuml.command.regex.RegexLeaf;
+import com.plantuml.command.regex.RegexOptional;
 import utest.Assert;
 
 class RegexLeafTest extends utest.Test {

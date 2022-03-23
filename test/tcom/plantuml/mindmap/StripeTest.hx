@@ -1,4 +1,4 @@
-package com.plantuml.mindmap;
+package tcom.plantuml.mindmap;
 
 import com.plantuml.mindmap.Stripe;
 import utest.*;

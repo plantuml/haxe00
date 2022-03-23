@@ -1,3 +1,6 @@
+import tcom.plantuml.regex.MyPatternTest;
+import tcom.plantuml.command.regex.*;
+import tcom.plantuml.mindmap.*;
 import a00.*;
 import com.plantuml.command.regex.*;
 import com.plantuml.mindmap.*;
@@ -8,21 +11,9 @@ import utest.ui.Report;
 
 class MainTest {
 	static function main() {
-		trace("hello");
-		// the long way
 		var runner = new Runner();
 		runner.addCases("a00");
-		runner.addCases("com.plantuml.svg");
-		runner.addCase(new MinMapDiagramTest());
-		runner.addCase(new RegexLeafTest());
-		runner.addCase(new RegexLeaf2Test());
-		runner.addCase(new CommandMindMapDirectionTest());
-		runner.addCase(new CommandMindMapOrgmodeTest());
-		runner.addCase(new StripeFrontierTest());
-		runner.addCase(new StripeTest());
-		runner.addCase(new UnicodeTest());
-		runner.addCase(new UnicodeRegexTest());
-		runner.addCase(new MyPatternTest());
+		runner.addCases("tcom");
 
 		Report.create(runner);
 		runner.run();

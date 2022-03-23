@@ -1,4 +1,4 @@
-package com.plantuml.mindmap;
+package tcom.plantuml.mindmap;
 
 import com.plantuml.command.BlocLines;
 import com.plantuml.command.CommandControl;

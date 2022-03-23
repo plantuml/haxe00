@@ -1,4 +1,4 @@
-package com.plantuml.mindmap;
+package tcom.plantuml.mindmap;
 
 import utest.Assert;
 import com.plantuml.ugraphic.UGraphicSvg;

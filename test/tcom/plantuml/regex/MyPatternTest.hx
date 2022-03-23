@@ -1,4 +1,6 @@
-package com.plantuml.regex;
+package tcom.plantuml.regex;
+
+import com.plantuml.regex.MyPattern;
 
 using hx.strings.Strings;
 
