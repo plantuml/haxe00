@@ -11,9 +11,9 @@ class MainTest {
 		trace("hello");
 		// the long way
 		var runner = new Runner();
-		runner.addCases('a00');
+		runner.addCases("a00");
+		runner.addCases("com.plantuml.svg");
 		runner.addCase(new MinMapDiagramTest());
-		runner.addCase(new SvgGraphicsTest());
 		runner.addCase(new RegexLeafTest());
 		runner.addCase(new RegexLeaf2Test());
 		runner.addCase(new CommandMindMapDirectionTest());
