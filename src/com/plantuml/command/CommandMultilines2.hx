@@ -16,6 +16,9 @@ abstract class CommandMultilines2 implements Command {
 		if (regexStart.match(s) == false)
 			return CommandControl.NOT_OK;
 
+		if (lines.size() == 1)
+			return CommandControl.OK_PARTIAL;
+
 		throw new haxe.exceptions.NotImplementedException();
 	}
 }
