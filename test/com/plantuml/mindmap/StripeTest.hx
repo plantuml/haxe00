@@ -22,8 +22,5 @@ class StripeTest extends utest.Test {
 
 		tree.add(new Stripe(5, 6, 120));
 		Assert.equals("{1->2 (3)=true, 5->6 (120)=true, 10->11 (12)=true}", tree.toString());
-
-		for (k in tree.keys())
-			trace(k);
 	}
 }

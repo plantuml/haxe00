@@ -22,7 +22,7 @@ abstract class CommandMultilines2 implements Command {
 	}
 
 	public function isValid(lines:BlocLines):CommandControl {
-		trace('lines=$lines');
+		// trace('lines=$lines');
 		final s = lines.getFirst();
 		if (regexStart.match(s) == false)
 			return CommandControl.NOT_OK;

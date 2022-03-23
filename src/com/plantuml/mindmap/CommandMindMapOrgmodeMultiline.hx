@@ -1,5 +1,8 @@
 package com.plantuml.mindmap;
 
+import com.plantuml.mindmap.IdeaShape.IdeaShapeUtils;
+import com.plantuml.ugraphic.color.HColor;
+
 using com.plantuml.utils.StartUtils;
 using hx.strings.Strings;
 
@@ -37,30 +40,28 @@ class CommandMindMapOrgmodeMultiline extends CommandMultilines2 {
 	public function execute(diagram_:Diagram, lines:BlocLines):CommandExecutionResult {
 		final diagram:MindMapDiagram = cast(diagram_, MindMapDiagram);
 		final line0 = getStartingPattern().matcher(lines.getFirst().getTrimmed().getString());
-		trace('lines=$lines');
-		trace('line0=$line0');
-		//
-		//		final List<String> lineLast = StringUtils.getSplit(MyPattern.cmpile(getPatternEnd()),
-		//				lines.getLast().getString());
-		//		lines = lines.removeStartingAndEnding(line0.get("DATA", 0), 1);
-		//
-		//		final String stereotype = lineLast.get(1);
+
+		final lineLast = getEndingPattern().matcher(lines.getLast().getString());
+		lines = lines.overideFirstAndLastLines(line0["DATA"].getTrimmed(), lineLast["DATA"].getTrimmed());
+
+		final stereotype = lineLast["STEREO"];
 		//		if (stereotype != null) {
 		//			lines = lines.overrideLastLine(lineLast.get(0));
 		//		}
-		//
-		//		final String type = line0.get("TYPE", 0);
-		//		final String stringColor = line0.get("BACKCOLOR", 0);
-		//		HColor backColor = null;
+
+		final type = line0["TYPE"];
+		final stringColor = line0["BACKCOLOR"];
+		var backColor:HColor = null;
 		//		if (stringColor != null) {
 		//			backColor = diagram.getSkinParam().getIHtmlColorSet().getColor(diagram.getSkinParam().getThemeStyle(),
 		//					stringColor);
 		//		}
-		//
-		//		if (stereotype == null) {
-		//			return diagram.addIdea(backColor, type.length() - 1, lines.toDisplay(),
-		//					IdeaShape.fromDesc(line0.get("SHAPE", 0)));
-		//		}
+
+		final shape = IdeaShapeUtils.fromDesc(line0["SHAPE"]);
+
+		if (stereotype == null) {
+			return diagram.addIdea(backColor, type.length - 1, lines.toDisplay(), shape);
+		}
 		//		return diagram.addIdea(stereotype, backColor, type.length() - 1, lines.toDisplay(),
 		//				IdeaShape.fromDesc(line0.get("SHAPE", 0)));
 		throw new haxe.exceptions.NotImplementedException();

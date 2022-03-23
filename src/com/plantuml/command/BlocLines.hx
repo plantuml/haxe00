@@ -1,7 +1,10 @@
 package com.plantuml.command;
 
+import com.plantuml.cucadiagram.Display;
+
 using com.plantuml.utils.StartUtils;
 using hx.strings.Strings;
+using com.plantuml.ArrayExtensions;
 
 class BlocLines {
 	var lines:Array<String>;
@@ -71,6 +74,17 @@ class BlocLines {
 
 	public function getBlocLinesIterator():BlocLinesIterator {
 		return new BlocLinesIteratorImpl(lines);
+	}
+
+	public function overideFirstAndLastLines(newFirst:String, newLast:String):BlocLines {
+		var newLines = lines.copy();
+		newLines[0] = newFirst;
+		newLines[newLines.length - 1] = newLast;
+		return new BlocLines(newLines);
+	}
+
+	public function toDisplay():Display {
+		return Display.create(lines);
 	}
 }
 

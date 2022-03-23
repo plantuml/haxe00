@@ -1,14 +1,23 @@
 package com.plantuml.cucadiagram;
 
 class Display {
-	final label:String;
+	final displayData:Array<String>;
 
-	private function new(label:String) {
-		this.label = label;
+	private function new() {
+		this.displayData = [];
 	}
 
 	public static function getWithNewlines(label:String) {
-		return new Display(label);
+		final r = new Display();
+		r.displayData.push(label);
+		return r;
+	}
+
+	public static function create(lines:Array<String>):Display {
+		final r = new Display();
+		for (s in lines)
+			r.displayData.push(s);
+		return r;
 	}
 
 	public function getEndingStereotype():String {
@@ -20,10 +29,10 @@ class Display {
 	}
 
 	public function get(i:Int):String {
-		return label;
+		return displayData[i];
 	}
 
-	public function toString():String {
-		return label;
-	}
+	// public function toString():String {
+	// 	return label;
+	// }
 }

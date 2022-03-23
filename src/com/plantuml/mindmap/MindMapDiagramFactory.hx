@@ -29,12 +29,12 @@ class MindMapDiagramFactory implements PSystemFactory {
 
 	private function getCandidate(it:BlocLinesIterator) {
 		for (cmd in this.cmds) {
-			trace('cmd=$cmd');
+			// trace('cmd=$cmd');
 			var nbPeek = 1;
 			var bl = new BlocLines(it.peek(nbPeek));
-			trace('bl=$bl');
+			// trace('bl=$bl');
 			var result = cmd.isValid(bl);
-			trace('result=$result');
+			// trace('result=$result');
 			if (result == CommandControl.OK)
 				return {
 					cmd: cmd,
@@ -45,7 +45,7 @@ class MindMapDiagramFactory implements PSystemFactory {
 				nbPeek++;
 				bl = new BlocLines(it.peek(nbPeek));
 				var result = cmd.isValid(bl);
-				trace('result=$result');
+				// trace('result=$result');
 				if (result == CommandControl.OK)
 					return {
 						cmd: cmd,
@@ -70,8 +70,8 @@ class MindMapDiagramFactory implements PSystemFactory {
 				return PSystemErrorUtils.syntaxErrorAt(it.peek(1)[0]);
 
 			final exec:CommandExecutionResult = candidate.cmd.execute(diagram, candidate.bl);
-			trace('exec=$exec');
-			it.move(1);
+			// trace('exec=$exec');
+			it.move(candidate.bl.size());
 
 			// if (exec != CommandExecutionResult.OK)
 		}
