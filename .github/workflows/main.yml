@@ -37,7 +37,6 @@ jobs:
           java -version
           python --version
           echo end of check
-          exit 1
 
       - name: install haxe libraries
         run: |
@@ -60,6 +59,11 @@ jobs:
           java -jar TestJvm/MainTest.jar > TestJvm.tmp
           grep results TestPy.tmp
           grep results TestJvm.tmp
+          if grep "ALL TESTS OK" TestPy.tmp; then
+            echo "ok"
+          else
+            echo "ko"
+          fi
 
       - name: build CLI
         run: |
