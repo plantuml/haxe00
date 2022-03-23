@@ -5,12 +5,20 @@ import com.plantuml.command.*;
 import com.plantuml.command.regex.*;
 
 abstract class CommandMultilines2 implements Command {
-	final regexStart:IRegex;
-	final regexEnd:IRegex;
+	final regexStart:RegexConcat;
+	final regexEnd:RegexConcat;
 
-	public function new(regexStart:IRegex, regexEnd:IRegex) {
+	public function new(regexStart:RegexConcat, regexEnd:RegexConcat) {
 		this.regexStart = regexStart;
 		this.regexEnd = regexEnd;
+	}
+
+	public function getStartingPattern() {
+		return regexStart;
+	}
+
+	public function getEndingPattern() {
+		return regexEnd;
 	}
 
 	public function isValid(lines:BlocLines):CommandControl {

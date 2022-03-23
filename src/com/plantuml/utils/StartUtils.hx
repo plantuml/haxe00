@@ -72,4 +72,12 @@ class StartUtils {
 	static public function sha1(s:String):String {
 		return Sha1.encode(s);
 	}
+
+	static public function getTrimmed(s:String):String {
+		return s.trim();
+	}
+
+	static public function getString(s:String):String {
+		return s;
+	}
 }
