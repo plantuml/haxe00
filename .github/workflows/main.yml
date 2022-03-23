@@ -48,6 +48,15 @@ jobs:
           echo Installed libraries:
           haxelib list
 
+      - name: Tests
+        run: |
+          ls -l
+          echo Haxe version:
+          haxe -version
+          haxe test-full.hxml
+          python --version
+          python TestPy.py
+
       - name: build CLI
         run: |
           ls -l
