@@ -43,7 +43,10 @@ class MindMapDiagramFactory implements PSystemFactory {
 
 			while (result == CommandControl.OK_PARTIAL) {
 				nbPeek++;
-				bl = new BlocLines(it.peek(nbPeek));
+				final tmp = it.peek(nbPeek);
+				if (tmp == null)
+					return null;
+				bl = new BlocLines(tmp);
 				var result = cmd.isValid(bl);
 				// trace('result=$result');
 				if (result == CommandControl.OK)

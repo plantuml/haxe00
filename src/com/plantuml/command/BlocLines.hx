@@ -107,6 +107,8 @@ class BlocLinesIteratorImpl implements BlocLinesIterator {
 	}
 
 	public function peek(nb:Int):Array<String> {
+		if (pos + nb > lines.length)
+			return null;
 		return lines.slice(pos, pos + nb);
 	}
 
