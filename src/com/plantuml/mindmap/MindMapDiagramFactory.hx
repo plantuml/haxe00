@@ -27,9 +27,10 @@ class MindMapDiagramFactory implements PSystemFactory {
 		return cmds;
 	}
 
-	private function getCandidate(s:String) {
-		final bl = BlocLines.single(s);
+	private function getCandidate(it:BlocLinesIterator) {
 		for (cmd in this.cmds) {
+			final bl = new BlocLines(it.peek(1));
+			trace('bl=$bl');
 			final result = cmd.isValid(bl);
 			if (result == CommandControl.OK)
 				return cmd;
@@ -42,18 +43,21 @@ class MindMapDiagramFactory implements PSystemFactory {
 	}
 
 	public function createSystem(lines:BlocLines):Diagram {
-		var diagram = new MindMapDiagram();
-		for (s in lines.getLines()) {
-			trace('s=$s');
-			if (s == "" || s.startsWith("@start") || s.startsWith("@end"))
-				continue;
+		final diagram = new MindMapDiagram();
+		final it = lines.getBlocLinesIterator();
 
-			var cmd = getCandidate(s);
+		while (it.hasMore()) {
+			// trace('s=$s');
+			// if (s == "" || s.startsWith("@start") || s.startsWith("@end"))
+			// 	continue;
+
+			final cmd = getCandidate(it);
 			if (cmd == null)
-				return PSystemErrorUtils.syntaxErrorAt(s);
+				return PSystemErrorUtils.syntaxErrorAt(it.peek(1)[0]);
 
-			var exec:CommandExecutionResult = cmd.execute(diagram, BlocLines.single(s));
+			final exec:CommandExecutionResult = cmd.execute(diagram, BlocLines.single(it.peek(1)[0]));
 			trace('exec=$exec');
+			it.move(1);
 
 			// if (exec != CommandExecutionResult.OK)
 		}

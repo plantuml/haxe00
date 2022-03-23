@@ -69,7 +69,7 @@ class BlocLines {
 		return null;
 	}
 
-	public function getBlocLinesIterator() {
+	public function getBlocLinesIterator():BlocLinesIterator {
 		return new BlocLinesIteratorImpl(lines);
 	}
 }
@@ -83,10 +83,18 @@ class BlocLinesIteratorImpl implements BlocLinesIterator {
 	}
 
 	public function peek(nb:Int):Array<String> {
-		return lines.slice(pos, nb);
+		return lines.slice(pos, pos + nb);
 	}
 
-	public function move(?dist:Int = 1) {
+	public function move(dist:Int) {
 		pos += dist;
+	}
+
+	public function currentPosition():Int {
+		return pos;
+	}
+
+	public function hasMore():Bool {
+		return pos < lines.length;
 	}
 }
