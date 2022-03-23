@@ -37,6 +37,7 @@ jobs:
           java -version
           python --version
           echo end of check
+          exit 1
 
       - name: install haxe libraries
         run: |
