@@ -60,12 +60,13 @@ jobs:
           if grep "ALL TESTS OK" TestPy.tmp; then
             echo "ok"
           else
+            cat TestPy.tmp
             exit 1
           fi
           if grep "ALL TESTS OK" TestJvm.tmp; then
-            cat TestJvm.tmp
             echo "ok"
           else
+            cat TestJvm.tmp
             exit 1
           fi
 
