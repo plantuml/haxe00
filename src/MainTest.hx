@@ -15,6 +15,7 @@ class MainTest {
 		runner.addCase(new MinMapDiagramTest());
 		runner.addCase(new SvgGraphicsTest());
 		runner.addCase(new RegexLeafTest());
+		runner.addCase(new RegexLeaf2Test());
 		runner.addCase(new CommandMindMapDirectionTest());
 		runner.addCase(new CommandMindMapOrgmodeTest());
 		runner.addCase(new StripeFrontierTest());

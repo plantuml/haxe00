@@ -1,5 +1,8 @@
-package com.plantuml.command.regex; import utest.Assert; import com.plantuml.api.v1.*; import utest.ui.Report; class RegexLeafTest extends utest.Test {
+package com.plantuml.command.regex;
 
+import utest.Assert;
+
+class RegexLeafTest extends utest.Test {
 	function testAz() {
 		final az = new RegexLeaf(1, "([a-z]+)", "name");
 		Assert.isTrue(az.match("john"));
@@ -67,11 +70,5 @@ package com.plantuml.command.regex; import utest.Assert; import com.plantuml.api
 		Assert.equals("123", res.get("NUMBER"));
 		Assert.isNull(res.get("COMMAND"));
 		Assert.equals("john", res.get("AZ"));
-	}
-
-	function testSpace() {
-		var r = new RegexConcat([new RegexLeaf(1, "[%s]*\\<\\<(.+)\\>\\>", "STEREO"));
-		var res = r.matcher("    <<foo>>");
-		trace(res);
 	}
 }

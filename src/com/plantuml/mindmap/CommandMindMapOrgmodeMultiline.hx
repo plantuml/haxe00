@@ -30,7 +30,7 @@ class CommandMindMapOrgmodeMultiline extends CommandMultilines2 {
 			RegexLeaf.start(), //
 			new RegexLeaf(1, "(.*)", "DATA"), //
 			new RegexLeaf(0, ";"), //
-			new RegexOptional(new RegexLeaf(1, "[%s]*\\<\\<(.+)\\>\\>", "STEREO")), //
+			new RegexOptional(new RegexLeaf(1, "[%s]*<<(.+)>>", "STEREO")), //
 			RegexLeaf.end()
 		]);
 
