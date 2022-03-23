@@ -36,7 +36,10 @@ class MindMapDiagramFactory implements PSystemFactory {
 			var result = cmd.isValid(bl);
 			trace('result=$result');
 			if (result == CommandControl.OK)
-				return cmd;
+				return {
+					cmd: cmd,
+					bl: bl
+				};
 
 			while (result == CommandControl.OK_PARTIAL) {
 				nbPeek++;
@@ -44,7 +47,10 @@ class MindMapDiagramFactory implements PSystemFactory {
 				var result = cmd.isValid(bl);
 				trace('result=$result');
 				if (result == CommandControl.OK)
-					return cmd;
+					return {
+						cmd: cmd,
+						bl: bl
+					};
 			}
 		}
 		return null;
@@ -59,11 +65,11 @@ class MindMapDiagramFactory implements PSystemFactory {
 			// if (s == "" || s.startsWith("@start") || s.startsWith("@end"))
 			// 	continue;
 
-			final cmd = getCandidate(it);
-			if (cmd == null)
+			final candidate = getCandidate(it);
+			if (candidate == null)
 				return PSystemErrorUtils.syntaxErrorAt(it.peek(1)[0]);
 
-			final exec:CommandExecutionResult = cmd.execute(diagram, BlocLines.single(it.peek(1)[0]));
+			final exec:CommandExecutionResult = candidate.cmd.execute(diagram, candidate.bl);
 			trace('exec=$exec');
 			it.move(1);
 
