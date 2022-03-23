@@ -55,7 +55,10 @@ jobs:
           haxe -version
           haxe test-full.hxml
           python --version
-          python TestPy.py
+          python TestPy.py > TestPy.tmp
+          java -jar TestJvm/MainTest.jar > TestJvm.tmp
+          grep results TestPy.tmp
+          grep results TestJvm.tmp
 
       - name: build CLI
         run: |
