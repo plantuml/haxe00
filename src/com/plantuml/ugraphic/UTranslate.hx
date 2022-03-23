@@ -1,27 +1,38 @@
 package com.plantuml.ugraphic;
 
-class UTranslate implements UChange {
-	private final dx:Float;
-	private final dy:Float;
+import com.plantuml.awt.geom.Dimension2D;
+import com.plantuml.ugraphic.UChange;
 
-	public function new(dx:Float, dy:Float) {
-		this.dx = dx;
-		this.dy = dy;
+class UTranslate implements UChange {
+	private final deltaX:Float;
+	private final deltaY:Float;
+
+	public function new(deltaX:Float, deltaY:Float) {
+		this.deltaX = deltaX;
+		this.deltaY = deltaY;
+	}
+
+	public static function dx(x:Float):UChange {
+		return new UTranslate(x, 0);
+	}
+
+	public static function dy(y:Float):UChange {
+		return new UTranslate(0, y);
 	}
 
 	public function getDx():Float {
-		return dx;
+		return deltaX;
 	}
 
 	public function getDy():Float {
-		return dy;
+		return deltaY;
 	}
 
 	public function copy():UTranslate {
-		return new UTranslate(dx, dy);
+		return new UTranslate(deltaX, deltaY);
 	}
 
 	public function compose(other:UTranslate):UTranslate {
-		return new UTranslate(dx + other.dx, dy + other.dy);
+		return new UTranslate(this.deltaX + other.deltaX, this.deltaY + other.deltaY);
 	}
 }
