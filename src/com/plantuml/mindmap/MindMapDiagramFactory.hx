@@ -29,14 +29,22 @@ class MindMapDiagramFactory implements PSystemFactory {
 
 	private function getCandidate(it:BlocLinesIterator) {
 		for (cmd in this.cmds) {
-			final bl = new BlocLines(it.peek(1));
+			trace('cmd=$cmd');
+			var nbPeek = 1;
+			var bl = new BlocLines(it.peek(nbPeek));
 			trace('bl=$bl');
-			final result = cmd.isValid(bl);
+			var result = cmd.isValid(bl);
+			trace('result=$result');
 			if (result == CommandControl.OK)
 				return cmd;
 
-			if (result == CommandControl.OK_PARTIAL) {
-				trace(cmd);
+			while (result == CommandControl.OK_PARTIAL) {
+				nbPeek++;
+				bl = new BlocLines(it.peek(nbPeek));
+				var result = cmd.isValid(bl);
+				trace('result=$result');
+				if (result == CommandControl.OK)
+					return cmd;
 			}
 		}
 		return null;

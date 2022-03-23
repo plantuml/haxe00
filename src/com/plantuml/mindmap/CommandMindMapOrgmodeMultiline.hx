@@ -20,7 +20,15 @@ class CommandMindMapOrgmodeMultiline extends CommandMultilines2 {
 			RegexLeaf.end()
 		]);
 
-		super(start);
+		final end = new RegexConcat([
+			RegexLeaf.start(), //
+			new RegexLeaf(1, "(.*)", "DATA"), //
+			new RegexLeaf(0, ";"), //
+			new RegexOptional(new RegexLeaf(1, "[%s]*\\<\\<(.+)\\>\\>", "STEREO")), //
+			RegexLeaf.end()
+		]);
+
+		super(start, end);
 	}
 
 	public function execute(diagram:Diagram, lines:BlocLines):CommandExecutionResult {
