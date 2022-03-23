@@ -11,7 +11,7 @@ class A03Test extends AbstractTest {
 		final diag = "
 		@startmindmap
 		* Debian
-		**: Ubuntu
+		**: This is ubuntu
 		on several
 		lines;
 		*** Linux Mint

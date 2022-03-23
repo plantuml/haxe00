@@ -7,7 +7,7 @@ import com.plantuml.command.BlocLines;
 import com.plantuml.command.regex.RegexLeaf;
 import com.plantuml.mindmap.MindMapDiagramFactory;
 
-class MinMapDiagramTest extends utest.Test {
+class MindMapDiagramTest extends utest.Test {
 	function testBasicThing1() {
 		var lines = new BlocLines([
 			"* WORLD", "** America", "*** Canada", "*** USA", "** Europe", "*** UK ", "*** France", "*** Germany", "*** Italy", "** Africa"
