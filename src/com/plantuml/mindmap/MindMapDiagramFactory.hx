@@ -1,5 +1,6 @@
 package com.plantuml.mindmap;
 
+import com.plantuml.error.PSystemErrorUtils;
 import com.plantuml.command.*;
 import com.plantuml.core.Diagram;
 import com.plantuml.core.DiagramType;
@@ -38,14 +39,16 @@ class MindMapDiagramFactory implements PSystemFactory {
 	public function createSystem(lines:BlocLines):Diagram {
 		var diagram = new MindMapDiagram();
 		for (s in lines.getLines()) {
+			trace('s=$s');
 			if (s == "" || s.startsWith("@start") || s.startsWith("@end"))
 				continue;
 
 			var cmd = getCandidate(s);
 			if (cmd == null)
-				throw new haxe.exceptions.NotImplementedException(s);
+				return PSystemErrorUtils.syntaxErrorAt(s);
 
 			var exec:CommandExecutionResult = cmd.execute(diagram, BlocLines.single(s));
+			trace('exec=$exec');
 
 			// if (exec != CommandExecutionResult.OK)
 		}

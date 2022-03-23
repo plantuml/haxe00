@@ -11,18 +11,20 @@ class MainTest {
 		trace("hello");
 		// the long way
 		var runner = new Runner();
-		runner.addCase(new A00Test());
-		runner.addCase(new A01Test());
-		runner.addCase(new MinMapDiagramTest());
-		runner.addCase(new SvgGraphicsTest());
-		runner.addCase(new RegexLeafTest());
-		runner.addCase(new CommandMindMapDirectionTest());
-		runner.addCase(new CommandMindMapOrgmodeTest());
-		runner.addCase(new StripeFrontierTest());
-		runner.addCase(new StripeTest());
-		runner.addCase(new UnicodeTest());
-		runner.addCase(new UnicodeRegexTest());
-		runner.addCase(new MyPatternTest());
+		// runner.addCase(new A00Test());
+		// runner.addCase(new A01Test());
+		// runner.addCases('a00');
+		runner.addCase(new A02Test());
+		// runner.addCase(new MinMapDiagramTest());
+		// runner.addCase(new SvgGraphicsTest());
+		// runner.addCase(new RegexLeafTest());
+		// runner.addCase(new CommandMindMapDirectionTest());
+		// runner.addCase(new CommandMindMapOrgmodeTest());
+		// runner.addCase(new StripeFrontierTest());
+		// runner.addCase(new StripeTest());
+		// runner.addCase(new UnicodeTest());
+		// runner.addCase(new UnicodeRegexTest());
+		// runner.addCase(new MyPatternTest());
 
 		Report.create(runner);
 		runner.run();
