@@ -1,5 +1,7 @@
 package com.plantuml.error;
 
+import com.plantuml.ugraphic.color.Color;
+import com.plantuml.ugraphic.UGeneralBackground;
 import com.plantuml.ugraphic.UTranslate;
 import com.plantuml.cucadiagram.Display;
 import haxe.display.FsPath;
@@ -16,6 +18,9 @@ class DiagramSyntaxError extends Diagram {
 	}
 
 	public function exportDiagramNow(ug:UGraphic) {
+		final back:Color = "#EE0000";
+		ug.apply(new UGeneralBackground(back));
+
 		final display = lines.toDisplay();
 		final textBlock = display.toTextBlock();
 		textBlock.drawU(ug);
