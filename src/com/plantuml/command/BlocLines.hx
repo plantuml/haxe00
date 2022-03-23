@@ -68,4 +68,23 @@ class BlocLines {
 		}
 		return null;
 	}
+
+	public function getBlocLinesIterator() {
+		return new BlocLinesIteratorImpl(lines);
+	}
+}
+
+class BlocLinesIteratorImpl implements BlocLinesIterator {
+	final lines:Array<String>;
+	var pos:Int = 0;
+
+	public function new(lines:Array<String>) {
+		this.lines = lines;
+	}
+
+	public function peek(nb:Int):Array<String> {
+		throw new haxe.exceptions.NotImplementedException();
+	}
+
+	public function move(?dist:Int) {}
 }
