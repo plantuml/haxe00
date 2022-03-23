@@ -1,5 +1,6 @@
 package com.plantuml.svg;
 
+import com.plantuml.ugraphic.color.Color;
 import com.plantuml.ugraphic.*;
 import hx.strings.StringBuilder;
 
@@ -7,6 +8,7 @@ class SvgGraphics {
 	final root = Xml.createElement("svg");
 	final defs = Xml.createElement("defs");
 	final gRoot = Xml.createElement("g");
+	var generalBackground:Color;
 
 	// var defs;
 	// var gRoot;
@@ -18,7 +20,12 @@ class SvgGraphics {
 
 		final maxXscaled:Int = 800;
 		final maxYscaled:Int = 800;
-		final style = 'width:$maxXscaled px;height: $maxYscaled + px;';
+		var style = 'width:$maxXscaled px;height: $maxYscaled px;';
+		// if (/*this.classesForDarkness.size() == 0 &&*/ backcolor != null)
+		trace('checking generalBackground $generalBackground');
+		if (generalBackground != null)
+			style += 'background:$generalBackground;';
+
 		root.set("style", style);
 		root.set("width", '$maxXscaled' + "px");
 		root.set("height", '$maxYscaled' + "px");
@@ -115,5 +122,9 @@ class SvgGraphics {
 		elt.set("d", sb.toString());
 		elt.set("style", getStyle());
 		getG().addChild(elt);
+	}
+
+	public function setGeneralBackground(color:Color) {
+		this.generalBackground = color;
 	}
 }

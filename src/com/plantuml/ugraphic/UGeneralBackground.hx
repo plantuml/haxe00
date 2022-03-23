@@ -8,4 +8,8 @@ class UGeneralBackground implements UChange {
 	public function new(color:Color) {
 		this.color = color;
 	}
+
+	public function getColor():Color {
+		return color;
+	}
 }

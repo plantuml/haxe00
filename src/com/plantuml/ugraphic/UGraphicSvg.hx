@@ -1,5 +1,6 @@
 package com.plantuml.ugraphic;
 
+import com.plantuml.ugraphic.color.Color;
 import com.plantuml.svg.DriverPathSvg;
 import com.plantuml.svg.DriverRectangleSvg;
 import com.plantuml.svg.DriverTextSvg;
@@ -28,6 +29,11 @@ class UGraphicSvg extends AbstractCommonUGraphic<SvgGraphics> implements UGraphi
 		this.drivers.set(Type.getClassName(UText), new DriverTextSvg());
 		this.drivers.set(Type.getClassName(URectangle), new DriverRectangleSvg());
 		this.drivers.set(Type.getClassName(UPath), new DriverPathSvg());
+	}
+
+	override function setGeneralBackground(color:Color) {
+		trace("override function setGeneralBackground");
+		core.setGeneralBackground(color);
 	}
 
 	public static function create():UGraphicSvg {
