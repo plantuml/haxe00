@@ -11,7 +11,6 @@ class MainTest {
 		trace("hello");
 		// the long way
 		var runner = new Runner();
-		// runner.addCase(new A01Test());
 		runner.addCases('a00');
 		runner.addCase(new MinMapDiagramTest());
 		runner.addCase(new SvgGraphicsTest());

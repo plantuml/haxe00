@@ -5,9 +5,17 @@ import com.plantuml.command.*;
 import com.plantuml.command.regex.*;
 
 abstract class CommandMultilines2 implements Command {
-	final patternStart:IRegex;
+	final regexStart:IRegex;
 
-	public function new(patternStart:IRegex) {
-		this.patternStart = patternStart;
+	public function new(regexStart:IRegex) {
+		this.regexStart = regexStart;
+	}
+
+	public function isValid(lines:BlocLines):CommandControl {
+		final s = lines.getFirst();
+		if (regexStart.match(s) == false)
+			return CommandControl.NOT_OK;
+
+		throw new haxe.exceptions.NotImplementedException();
 	}
 }

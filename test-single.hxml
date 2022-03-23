@@ -1,0 +1,7 @@
+-cp test
+-cp src
+--library utest
+--library haxe-strings
+--interp
+-main MainTestSingle
+

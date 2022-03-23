@@ -7,7 +7,7 @@ class BlocLines {
 	var lines:Array<String>;
 
 	public function new(?lines:Array<String> = null) {
-		if (lines==null)
+		if (lines == null)
 			this.lines = [];
 		else
 			this.lines = lines.copy();
@@ -19,6 +19,16 @@ class BlocLines {
 
 	function toString():String {
 		return lines.toString();
+	}
+
+	public function getFirst() {
+		if (lines.length == 0)
+			return null;
+		return lines[0];
+	}
+
+	public function getLast() {
+		return lines[lines.length - 1];
 	}
 
 	public function size() {
@@ -34,9 +44,9 @@ class BlocLines {
 	}
 
 	public function addLines(lines:String) {
- 		for (s in lines.splitInLines())
+		for (s in lines.splitInLines())
 			addLineSingle(s);
- 	}
+	}
 
 	public function findStartSomething():BlocLines {
 		var headerToRemove = null;

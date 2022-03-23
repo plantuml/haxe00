@@ -18,7 +18,7 @@ abstract class SingleLineCommand implements Command {
 	public function isValid(lines:BlocLines):CommandControl {
 		if (lines.size() != 1)
 			return CommandControl.NOT_OK;
-		var s = lines.getLines()[0];
+		final s = lines.getFirst();
 		if (regex.match(s))
 			return CommandControl.OK;
 		return CommandControl.NOT_OK;
