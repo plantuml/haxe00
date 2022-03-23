@@ -67,7 +67,7 @@ class MindMapDiagramFactory implements PSystemFactory {
 
 			final candidate = getCandidate(it);
 			if (candidate == null)
-				return PSystemErrorUtils.syntaxErrorAt(it.peek(1)[0]);
+				return PSystemErrorUtils.syntaxErrorAt(lines.slice(0, it.currentPosition() + 1));
 
 			final exec:CommandExecutionResult = candidate.cmd.execute(diagram, candidate.bl);
 			// trace('exec=$exec');

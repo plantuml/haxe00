@@ -16,6 +16,12 @@ class BlocLines {
 			this.lines = lines.copy();
 	}
 
+	public function slice(pos:Int, ?end:Int) {
+		if (end == null)
+			return new BlocLines(lines.slice(pos));
+		return new BlocLines(lines.slice(pos, end));
+	}
+
 	public function getLines() {
 		return lines;
 	}
