@@ -16,15 +16,13 @@ class PSystemBuilder {
 		factories.push(new MindMapDiagramFactory());
 	}
 
-	public function createPSystem(data:Array<String>):Diagram {
-		if (data[0].isArobaseStartDiagram() == false)
-			throw new haxe.exceptions.NotImplementedException();
-		if (data.last().isArobaseEndDiagram() == false)
-			throw new haxe.exceptions.NotImplementedException();
+	public function createPSystem(lines:BlocLines):Diagram {
+		lines = lines.findStartSomething();
+		if (lines == null)
+			return null;
 
-		final type = DiagramTypeUtils.getTypeFromArobaseStart(data[0]);
-		data = data.removeFirstAndLast();
-		final lines = new BlocLines(data);
+		final type = DiagramTypeUtils.getTypeFromArobaseStart(lines.getFirst());
+		lines = lines.removeFirstAndLast();
 		for (f in factories.filter(x -> x.getDiagramType() == type)) {
 			final result = f.createSystem(lines);
 			if (result != null)

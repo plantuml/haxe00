@@ -45,14 +45,13 @@ class AbstractTest extends Test {
 
 		final p = new Plantuml();
 		p.addLinesArray(bl.getLines());
-		// trace('p=$p');
+
 		final svg = p.getSvg();
 		Assert.isTrue(svg.length > 0);
 
 		final target = getTarget();
 		final path = getPath().replaceFirst(".hx", '-$target.svg');
-		// trace(path);
-		// trace('Je suis la target $target');
+
 		#if !js
 		sys.io.File.saveContent(path, svg);
 		#end

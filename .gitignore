@@ -7,3 +7,4 @@ js/
 *.py
 *.js
 *.tmp
+/Main.js

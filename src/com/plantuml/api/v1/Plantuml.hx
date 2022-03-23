@@ -1,5 +1,6 @@
 package com.plantuml.api.v1;
 
+import haxe.exceptions.NotImplementedException;
 import com.plantuml.command.BlocLines;
 import com.plantuml.mindmap.MindMapDiagramFactory;
 import com.plantuml.ugraphic.UGraphicSvg;
@@ -26,7 +27,7 @@ class Plantuml {
 
 	public function addLines(lines:String) {
 		for (s in lines.splitInLines())
-		   addLineSingle(s);
+			addLineSingle(s);
 	}
 
 	public function toString() {
@@ -50,8 +51,13 @@ class Plantuml {
 	}
 
 	public function getSvg():String {
+		final blocLines = new BlocLines(data).findStartSomething();
+		if (blocLines == null) {
+			trace('data=$data');
+			throw new haxe.exceptions.NotImplementedException();
+		}
 		final builder = new PSystemBuilder();
-		final diagram = builder.createPSystem(data);
+		final diagram = builder.createPSystem(blocLines.findStartSomething());
 		var svg:UGraphicSvg = UGraphicSvg.create();
 		diagram.exportDiagramNow(svg);
 		var s = svg.getSvg();

@@ -51,7 +51,7 @@ class BlocLines {
 			addLineSingle(s);
 	}
 
-	public function findStartSomething():BlocLines {
+	public function findStartSomething() {
 		var headerToRemove = null;
 		var result = null;
 		for (s in lines) {
@@ -76,14 +76,18 @@ class BlocLines {
 		return new BlocLinesIteratorImpl(lines);
 	}
 
-	public function overideFirstAndLastLines(newFirst:String, newLast:String):BlocLines {
+	public function overideFirstAndLastLines(newFirst:String, newLast:String) {
 		var newLines = lines.copy();
 		newLines[0] = newFirst;
 		newLines[newLines.length - 1] = newLast;
 		return new BlocLines(newLines);
 	}
 
-	public function toDisplay():Display {
+	public function removeFirstAndLast() {
+		return new BlocLines(lines.removeFirstAndLast());
+	}
+
+	public function toDisplay() {
 		return Display.create(lines);
 	}
 }
