@@ -41,13 +41,13 @@ class StartUtils {
 
 	static public function splitInLines(s:String):Array<String> {
 		final r = ~/\r?\n/g;
- 		return r.split(s);
+		return r.split(s);
 	}
 
 	static public function orderMe(s:String):String {
 		final tree:BalancedTree<String, Int> = new BalancedTree();
 		// https://www.regular-expressions.info/unicode.html
-		var r = new EReg("\\w", "i");
+		final r = ~/[!-~]/;
 		for (i in 0...s.length) {
 			var c = s.charAt(i);
 			if (r.match(c) == false)
@@ -59,11 +59,14 @@ class StartUtils {
 				tree.set(c, cpt + 1);
 		}
 		var sb:StringBuilder = new StringBuilder();
-		for (ent in tree.keyValueIterator())
-			for (i in 0...ent.value)
-				sb.add(ent.key);
+		for (ent in tree.keyValueIterator()) {
+			sb.add(ent.key);
+			sb.add("(");
+			sb.add(ent.value);
+			sb.add(")");
+		}
 
-		return "sb.toString()";
+		return sb.toString();
 	}
 
 	static public function sha1(s:String):String {

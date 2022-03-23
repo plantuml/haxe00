@@ -22,8 +22,25 @@ class A01Test extends AbstractTest {
 			** Raspbian with a very long name
 			@endmindmap
 		";
-		final sha1 = exportSvgAndCheck(diag);
-		Assert.equals("b343e2f4826e91f119c58eca2b2fc976f286c6e1", sha1);
-		
+		final v = "&#12394;&#12480;&#12452;&#12450;&#12464;&#12521;&#12512;".htmlDecode();
+		final diag2 = '
+			@startmindmap
+			* Debian$v
+			** Ubuntu
+			*** Linux Mint
+			*** Kubuntu
+			*** Lubuntu
+			*** KDE Neon
+			** LMDE
+			** SolydXK
+			** SteamOS
+			** Raspbian with a very long name
+			@endmindmap
+		';
+		#if !js
+		Assert.equals(diag, diag2);
+		#end
+		final sha1 = exportSvgAndCheck(diag2);
+		Assert.equals("811decf18bdcb1546adf034f343457b46abbb6a7", sha1);
 	}
 }
