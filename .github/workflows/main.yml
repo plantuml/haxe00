@@ -38,14 +38,17 @@ jobs:
       - name: install haxe libraries
         run: |
           haxe -version
-          haxelib install utest
-          haxelib install haxe-strings
-          haxelib install hxjava
-          ls
+          haxelib --quiet install utest
+          haxelib --quiet install haxe-strings
+          haxelib --quiet install hxjava
+          ls -l
+          echo Installed libraries:
+          haxelib list
 
       - name: build CLI
         run: |
-          ls
+          ls -l
+          echo Haxe version:
           haxe -version
           haxe CLI.hxml
           ls -l Main.py
@@ -53,7 +56,8 @@ jobs:
 
       - name: build JavaScript
         run: |
-          ls
+          ls -l
+          echo Haxe version:
           haxe -version
           haxe js.hxml
           ls -l Main.js
