@@ -5,9 +5,13 @@ import com.plantuml.ugraphic.UGraphic;
 import com.plantuml.core.Diagram;
 
 class DiagramSyntaxError extends Diagram {
-	public function new(line:String) {}
+	final line:String;
+
+	public function new(line:String) {
+		this.line = line;
+	}
 
 	public function exportDiagramNow(ug:UGraphic) {
-		ug.draw(new UText("DiagramSyntaxError"));
+		ug.draw(new UText("DiagramSyntaxError at " + line));
 	}
 }
