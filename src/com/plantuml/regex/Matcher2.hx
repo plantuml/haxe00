@@ -104,10 +104,10 @@ class Matcher2 {
 			return null;
 		return m[n];
 		#else
-		trace('n=$n');
+		// trace('n=$n');
 		final r = new EReg(pString, "i");
 		var m = r.match(input);
-		trace('m=$m');
+		// trace('m=$m');
 		if (m == false)
 			return null;
 		return r.matched(n);

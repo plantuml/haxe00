@@ -19,7 +19,7 @@ class MindMapDiagramFactory implements PSystemFactory {
 		// CommonCommands.addCommonCommands1(cmds);
 
 		cmds.push(new CommandMindMapOrgmode());
-		// cmds.push(new CommandMindMapOrgmodeMultiline());
+		cmds.push(new CommandMindMapOrgmodeMultiline());
 		cmds.push(new CommandMindMapRoot());
 		cmds.push(new CommandMindMapPlus());
 		cmds.push(new CommandMindMapDirection());
