@@ -83,8 +83,10 @@ class BlocLinesIteratorImpl implements BlocLinesIterator {
 	}
 
 	public function peek(nb:Int):Array<String> {
-		throw new haxe.exceptions.NotImplementedException();
+		return lines.slice(pos, nb);
 	}
 
-	public function move(?dist:Int) {}
+	public function move(?dist:Int = 1) {
+		pos += dist;
+	}
 }
