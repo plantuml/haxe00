@@ -1,5 +1,6 @@
 package tcom;
 
+import com.plantuml.utils.MacroUtils;
 import com.plantuml.utils.AbstractEnumTools;
 import utest.*;
 
@@ -33,8 +34,14 @@ class Foo {
 
 class MacroTest extends utest.Test {
 	function testBuildTime() {
+		final t:Int = MacroUtils.buildTime();
+		trace('Buildtime MacroUtils is $t');
+		Assert.isTrue(t > 0);
+	}
+
+	function testBuildTimeFoo() {
 		final t:Int = Foo.buildTime();
-		trace('Buildtime is $t');
+		trace('Buildtime foo is $t');
 		Assert.isTrue(t > 0);
 	}
 
