@@ -1,19 +1,16 @@
 package com.plantuml.mindmap;
 
-import com.plantuml.ugraphic.color.HColorSet;
-import com.plantuml.style.Style;
-import com.plantuml.graphic.FontConfiguration;
 import com.plantuml.awt.geom.Dimension2D;
 import com.plantuml.cucadiagram.Display;
+import com.plantuml.graphic.FontConfiguration;
 import com.plantuml.graphic.StringBounder;
 import com.plantuml.graphic.TextBlock;
 import com.plantuml.style.ClockwiseTopRightBottomLeft;
-import com.plantuml.style.StyleBuilder;
-import com.plantuml.ugraphic.UFont;
+import com.plantuml.style.Style;
 import com.plantuml.ugraphic.UGraphic;
 import com.plantuml.ugraphic.URectangle;
-import com.plantuml.ugraphic.UText;
 import com.plantuml.ugraphic.UTranslate;
+import com.plantuml.ugraphic.color.*;
 
 class FtileBoxOld implements TextBlock {
 	final padding:ClockwiseTopRightBottomLeft;
@@ -33,7 +30,7 @@ class FtileBoxOld implements TextBlock {
 	public function drawU(ug:UGraphic) {
 		final dim2 = calculateDimension(ug.getStringBounder());
 
-		ug = ug.apply(HColorSet.getColor("#000000"));
+		ug = ug.apply(HColor.plain("#000000"));
 		ug.draw(new URectangle(dim2.getWidth(), dim2.getHeight()));
 
 		ug = ug.apply(new UTranslate(padding.getLeft(), padding.getTop()));

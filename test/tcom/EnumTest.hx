@@ -11,7 +11,7 @@ abstract HttpStatus1(Int) {
 	var MethodNotAllowed1 = 405;
 
 	public function doit() {
-		trace('je suis doit $this');
+		trace('I am in doit $this');
 	}
 }
 

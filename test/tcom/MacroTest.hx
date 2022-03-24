@@ -20,9 +20,9 @@ class Foo {
 		return e;
 	}
 
-	public static macro function tutu2():haxe.macro.Expr.ExprOf<String> {
+	public static macro function foobar2():haxe.macro.Expr.ExprOf<String> {
 		// https://haxe.org/manual/macro-reification-expression.html
-		var commitHash:String = "tutu2";
+		var commitHash:String = "foobar2";
 		return macro $v{commitHash};
 	}
 
@@ -45,20 +45,15 @@ class MacroTest extends utest.Test {
 		Assert.isTrue(t > 0);
 	}
 
-	function testMacroTutu2() {
-		final t = Foo.tutu2();
-		trace("avant2");
+	function testMacrofoobar2() {
+		final t = Foo.foobar2();
 		trace(t);
-		trace("apres2");
 		final i = 2 + 3;
 		Assert.equals(5, i);
 	}
 
 	function testMacroTime() {
 		Foo.trace_build_age_with_reification();
-		trace("avant");
-		// trace(Toto.trace_build_age_with_reification());
-		trace("apres");
 		final i = 2 + 3;
 		Assert.equals(5, i);
 	}
