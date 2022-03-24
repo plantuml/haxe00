@@ -1,3 +1,5 @@
+package tcom;
+
 import utest.*;
 #if js
 import js.lib.RegExp;
