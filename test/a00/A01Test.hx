@@ -41,6 +41,6 @@ class A01Test extends AbstractTest {
 		Assert.equals(diag, diag2);
 		#end
 		final sha1 = exportSvgAndCheck(diag2);
-		Assert.equals("811decf18bdcb1546adf034f343457b46abbb6a7", sha1);
+		Assert.equals("81f6a5f9467759fc4944690a8f3d41dbbe8e4dd3", sha1);
 	}
 }

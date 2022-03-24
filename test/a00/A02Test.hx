@@ -14,6 +14,6 @@ class A02Test extends AbstractTest {
 			@endmindmap
 		";
 		final sha1 = exportSvgAndCheck(diag);
-		Assert.equals("58afa8a6a954f6481e018e94d51071299a2055ea", sha1);
+		Assert.equals("35dda6e4b6f7e6821df4ff5f8a894ae492e3148b", sha1);
 	}
 }
