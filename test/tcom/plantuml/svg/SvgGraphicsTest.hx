@@ -22,6 +22,6 @@ class SvgGraphicsTest extends utest.Test {
 		final svg = new SvgGraphics();
 		svg.text("Hello World", 10, 10, "", 14, "", "plain", "", 100.0, [], "white");
 		final result = svg.toSvg();
-		Assert.equals("9773b688b20053f170bcec64895c7caf08dd6ab6", result.orderMe().sha1());
+		Assert.equals("9ce927ac1a41410139fe3789e3226ead4bd7ff1c", result.orderMe().sha1());
 	}
 }
