@@ -1,13 +1,12 @@
 package com.plantuml;
 
-import com.plantuml.core.DiagramType.DiagramTypeUtils;
 import com.plantuml.command.BlocLines;
-
-using com.plantuml.utils.StartUtils;
-using com.plantuml.ArrayExtensions;
-
-import com.plantuml.mindmap.MindMapDiagramFactory;
 import com.plantuml.core.Diagram;
+import com.plantuml.core.DiagramType;
+import com.plantuml.mindmap.MindMapDiagramFactory;
+
+using com.plantuml.ArrayExtensions;
+using com.plantuml.utils.StartUtils;
 
 class PSystemBuilder {
 	private final factories:Array<PSystemFactory> = [];
@@ -21,7 +20,7 @@ class PSystemBuilder {
 		if (lines == null)
 			return null;
 
-		final type = DiagramTypeUtils.getTypeFromArobaseStart(lines.getFirst());
+		final type = DiagramType.getTypeFromArobaseStart(lines.getFirst());
 		lines = lines.removeFirstAndLast();
 		for (f in factories.filter(x -> x.getDiagramType() == type)) {
 			final result = f.createSystem(lines);

@@ -4,7 +4,6 @@ import haxe.crypto.Sha1;
 import hx.strings.StringBuilder;
 import haxe.ds.BalancedTree;
 import com.plantuml.core.DiagramType;
-import com.plantuml.core.DiagramType.DiagramTypeUtils;
 
 using hx.strings.Strings;
 
@@ -32,7 +31,7 @@ class StartUtils {
 		if (s2.startsWith("@") == false && s2.startsWith("\\") == false)
 			return false;
 
-		return DiagramTypeUtils.getTypeFromArobaseStart(s2) != DiagramType.UNKNOWN;
+		return DiagramType.getTypeFromArobaseStart(s2) != DiagramType.UNKNOWN;
 	}
 
 	static public function startsWithSymbolAnd(s:String, value:String) {
