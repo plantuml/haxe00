@@ -1,5 +1,7 @@
 package com.plantuml.mindmap;
 
+import com.plantuml.style.Style;
+import com.plantuml.graphic.FontConfiguration;
 import com.plantuml.awt.geom.Dimension2D;
 import com.plantuml.cucadiagram.Display;
 import com.plantuml.graphic.StringBounder;
@@ -17,14 +19,14 @@ class FtileBoxOld implements TextBlock {
 	final label:Display;
 	final textBlock:TextBlock;
 
-	public function new(label:Display) {
+	public function new(label:Display, fontConfiguration:FontConfiguration) {
 		this.label = label;
 		this.padding = ClockwiseTopRightBottomLeft.same(10);
-		this.textBlock = label.toTextBlock();
+		this.textBlock = label.toTextBlock(fontConfiguration);
 	}
 
-	public static function createMindMap(styleBuilder:StyleBuilder, label:Display):TextBlock {
-		return new FtileBoxOld(label);
+	public static function createMindMap(style:Style, label:Display):TextBlock {
+		return new FtileBoxOld(label, style.getFontConfiguration());
 	}
 
 	public function drawU(ug:UGraphic) {

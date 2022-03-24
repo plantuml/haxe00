@@ -1,5 +1,6 @@
 package com.plantuml.cucadiagram;
 
+import com.plantuml.graphic.FontConfiguration;
 import com.plantuml.ugraphic.UTranslate;
 import com.plantuml.ugraphic.UText;
 import com.plantuml.ugraphic.UFont;
@@ -44,23 +45,25 @@ class Display {
 	// 	return label;
 	// }
 
-	public function toTextBlock():TextBlock {
-		return new Simple(displayData);
+	public function toTextBlock(fontConfiguration:FontConfiguration):TextBlock {
+		return new Simple(displayData, fontConfiguration);
 	}
 }
 
 class Simple implements TextBlock {
 	final displayData:Array<String>;
+	final fontConfiguration:FontConfiguration;
 
-	public function new(displayData:Array<String>) {
+	public function new(displayData:Array<String>, fontConfiguration:FontConfiguration) {
 		this.displayData = displayData;
+		this.fontConfiguration = fontConfiguration;
 	}
 
 	public function drawU(ug:UGraphic) {
 		var y = 0.;
 		final font = new UFont();
 		for (s in displayData) {
-			ug.apply(UTranslate.dy(y)).draw(new UText(s));
+			ug.apply(UTranslate.dy(y)).draw(new UText(s, fontConfiguration));
 			final dim = ug.getStringBounder().calculateDimension(font, s);
 			y += dim.getHeight();
 		}

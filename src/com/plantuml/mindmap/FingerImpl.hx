@@ -1,5 +1,6 @@
 package com.plantuml.mindmap;
 
+import com.plantuml.style.Style;
 import com.plantuml.awt.geom.Dimension2D;
 import com.plantuml.awt.geom.Point2D;
 import com.plantuml.cucadiagram.Display;
@@ -115,7 +116,8 @@ class FingerImpl implements Finger implements UDrawable {
 			return TextBlockUtils.empty(0, 0);
 
 		if (shape == IdeaShape.BOX) {
-			final box:TextBlock = FtileBoxOld.createMindMap(styleBuilder, label);
+			final style = new Style();
+			final box:TextBlock = FtileBoxOld.createMindMap(style, label);
 			return TextBlockUtils.withMargin(box, 0, 0, marginTop, marginBottom);
 		}
 		throw new haxe.exceptions.NotImplementedException();
