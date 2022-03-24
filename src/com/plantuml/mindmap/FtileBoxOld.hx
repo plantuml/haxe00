@@ -31,6 +31,7 @@ class FtileBoxOld implements TextBlock {
 		final dim2 = calculateDimension(ug.getStringBounder());
 
 		ug = ug.apply(HColor.plain("#000000"));
+		ug = ug.apply(HColor.plain("#CCCCCC").fill());
 		ug.draw(new URectangle(dim2.getWidth(), dim2.getHeight()));
 
 		ug = ug.apply(new UTranslate(padding.getLeft(), padding.getTop()));

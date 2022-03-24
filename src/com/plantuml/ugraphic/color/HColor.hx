@@ -22,6 +22,10 @@ class HColor implements UChange {
 		return new HColor(theColor, false);
 	}
 
+	public function fill() {
+		return new UFill(this);
+	}
+
 	public function getColor() {
 		return color;
 	}

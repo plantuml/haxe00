@@ -26,6 +26,8 @@ abstract class AbstractCommonUGraphic<T> implements UGraphic {
 			copy.translate = copy.translate.compose(translate);
 		} else if (change is HColor) {
 			copy.color = cast(change, HColor);
+		} else if (change is UFill) {
+			copy.backColor = cast(change, UFill).getColor();
 		} else {
 			trace('Unknow change $change');
 			throw new haxe.exceptions.NotImplementedException();
