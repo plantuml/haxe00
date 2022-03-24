@@ -53,7 +53,7 @@ class UGraphicSvg extends AbstractCommonUGraphic<SvgGraphics> implements UGraphi
 			trace(shape);
 			throw new haxe.exceptions.NotImplementedException();
 		} else {
-			driver.draw(shape, getTranslateX(), getTranslateY(), null, null, core);
+			driver.draw(shape, getTranslateX(), getTranslateY(), getColorMapper(), getParam(), core);
 		}
 	}
 

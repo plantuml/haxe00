@@ -10,6 +10,9 @@ class SvgGraphics {
 	final gRoot = Xml.createElement("g");
 	var generalBackground:Color;
 
+	var fill:String = "black";
+	var stroke:String = "black";
+
 	// var defs;
 	// var gRoot;
 
@@ -27,6 +30,8 @@ class SvgGraphics {
 		final elt = Xml.createElement("text");
 		elt.set("x", format(x));
 		elt.set("y", format(y));
+		fillMe(elt);
+
 		elt.set("font-size", format(fontSize));
 		// elt.set("text", text);
 		elt.addChild(Xml.createCData(text));
@@ -75,7 +80,7 @@ class SvgGraphics {
 	}
 
 	function fillMe(elt:Xml) {
-		elt.set("fill", "white");
+		elt.set("fill", fill);
 	}
 
 	function getStyleSpecial():String {
@@ -126,5 +131,13 @@ class SvgGraphics {
 
 	public function setGeneralBackground(color:Color) {
 		this.generalBackground = color;
+	}
+
+	public function setFillColor(fill:String) {
+		this.fill = fill == null ? "none" : fill;
+	}
+
+	public function setStrokeColor(stroke:String) {
+		this.stroke = stroke == null ? "none" : stroke;
 	}
 }

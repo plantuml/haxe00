@@ -1,5 +1,6 @@
 package com.plantuml.mindmap;
 
+import com.plantuml.ugraphic.color.HColorSet;
 import com.plantuml.style.Style;
 import com.plantuml.graphic.FontConfiguration;
 import com.plantuml.awt.geom.Dimension2D;
@@ -31,6 +32,8 @@ class FtileBoxOld implements TextBlock {
 
 	public function drawU(ug:UGraphic) {
 		final dim2 = calculateDimension(ug.getStringBounder());
+
+		ug = ug.apply(HColorSet.getColor("#000000"));
 		ug.draw(new URectangle(dim2.getWidth(), dim2.getHeight()));
 
 		ug = ug.apply(new UTranslate(padding.getLeft(), padding.getTop()));

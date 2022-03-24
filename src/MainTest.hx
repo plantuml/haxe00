@@ -14,6 +14,7 @@ class MainTest {
 		var runner = new Runner();
 		runner.addCases("a00");
 		runner.addCases("tcom");
+		// runner.addCase(new A04Test());
 
 		Report.create(runner);
 		runner.run();

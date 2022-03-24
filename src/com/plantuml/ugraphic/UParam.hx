@@ -1,3 +1,9 @@
 package com.plantuml.ugraphic;
 
-interface UParam {}
+import com.plantuml.ugraphic.color.HColor;
+
+interface UParam {
+	public function getColor():HColor;
+
+	public function getBackcolor():HColor;
+}
