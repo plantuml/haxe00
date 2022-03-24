@@ -26,7 +26,7 @@ class UGraphicSvg extends AbstractCommonUGraphic<SvgGraphics> implements UGraphi
 
 	public function new(core:SvgGraphics) {
 		this.core = core;
-		this.drivers.set(Type.getClassName(UText), new DriverTextSvg());
+		this.drivers.set(Type.getClassName(UText), new DriverTextSvg(new StringBounderSvg()));
 		this.drivers.set(Type.getClassName(URectangle), new DriverRectangleSvg());
 		this.drivers.set(Type.getClassName(UPath), new DriverPathSvg());
 	}

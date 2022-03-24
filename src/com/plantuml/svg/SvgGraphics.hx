@@ -12,6 +12,10 @@ class SvgGraphics {
 
 	var fill:String = "black";
 	var stroke:String = "black";
+	var scale = 1.;
+
+	var maxX:Int = 10;
+	var maxY:Int = 10;
 
 	// var defs;
 	// var gRoot;
@@ -25,6 +29,14 @@ class SvgGraphics {
 		root.addChild(gRoot);
 	}
 
+	function ensureVisible(x:Float, y:Float) {
+		if (x > maxX)
+			maxX = Math.ceil(x + 1);
+
+		if (y > maxY)
+			maxY = Math.ceil(y + 1);
+	}
+
 	public function text(text:String, x:Float, y:Float, fontFamily:String, fontSize:Int, fontWeight:String, fontStyle:String, textDecoration:String,
 			textLength:Float, attributes:Map<String, String>, textBackColor:String) {
 		final elt = Xml.createElement("text");
@@ -36,11 +48,15 @@ class SvgGraphics {
 		// elt.set("text", text);
 		elt.addChild(Xml.createCData(text));
 		getG().addChild(elt);
+
+		ensureVisible(x, y);
+		ensureVisible(x + textLength, y);
 	}
 
 	public function svgRectangle(x:Float, y:Float, width:Float, height:Float, rx:Float, ry:Float, deltaShadow:Float, id:String, codeLine:String) {
 		final elt = createRectangleInternal(x, y, width, height);
 		getG().addChild(elt);
+		ensureVisible(x + width + 2 * deltaShadow, y + height + 2 * deltaShadow);
 	}
 
 	function createRectangleInternal(x:Float, y:Float, width:Float, height:Float) {
@@ -64,8 +80,8 @@ class SvgGraphics {
 	}
 
 	public function toSvg():String {
-		final maxXscaled:Int = 800;
-		final maxYscaled:Int = 800;
+		final maxXscaled:Int = Math.ceil(maxX * scale);
+		final maxYscaled:Int = Math.ceil(maxY * scale);
 		var style = 'width:$maxXscaled px;height: $maxYscaled px;';
 		// if (/*this.classesForDarkness.size() == 0 &&*/ backcolor != null)
 		// trace('checking generalBackground $generalBackground');

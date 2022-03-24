@@ -1,5 +1,6 @@
 package com.plantuml.graphic;
 
+import com.plantuml.ugraphic.UFont;
 import com.plantuml.ugraphic.color.HColor;
 
 class FontConfiguration {
@@ -15,5 +16,9 @@ class FontConfiguration {
 
 	public function getColor() {
 		return currentColor;
+	}
+
+	public function getFont():UFont {
+		return new UFont();
 	}
 }
