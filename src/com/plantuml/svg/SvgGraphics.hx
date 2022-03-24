@@ -63,7 +63,7 @@ class SvgGraphics {
 		final maxYscaled:Int = 800;
 		var style = 'width:$maxXscaled px;height: $maxYscaled px;';
 		// if (/*this.classesForDarkness.size() == 0 &&*/ backcolor != null)
-		trace('checking generalBackground $generalBackground');
+		// trace('checking generalBackground $generalBackground');
 		if (generalBackground != null)
 			style += 'background:$generalBackground;';
 
