@@ -16,6 +16,10 @@ class MainTest {
 		runner.addCases("tcom");
 		// runner.addCase(new A04Test());
 
+		runner.onComplete.add(_ -> {
+			AbstractTest.saveContentStrings();
+		});
+
 		Report.create(runner);
 		runner.run();
 	}

@@ -8,3 +8,6 @@ js/
 *.js
 *.tmp
 /Main.js
+all-interp.html
+all-java.html
+all-py.html
