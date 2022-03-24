@@ -18,18 +18,6 @@ class SvgGraphics {
 		root.set("xmlns:xlink", "http://www.w3.org/1999/xlink");
 		root.set("version", "1.1");
 
-		final maxXscaled:Int = 800;
-		final maxYscaled:Int = 800;
-		var style = 'width:$maxXscaled px;height: $maxYscaled px;';
-		// if (/*this.classesForDarkness.size() == 0 &&*/ backcolor != null)
-		trace('checking generalBackground $generalBackground');
-		if (generalBackground != null)
-			style += 'background:$generalBackground;';
-
-		root.set("style", style);
-		root.set("width", '$maxXscaled' + "px");
-		root.set("height", '$maxYscaled' + "px");
-
 		root.addChild(defs);
 		root.addChild(gRoot);
 	}
@@ -71,6 +59,18 @@ class SvgGraphics {
 	}
 
 	public function toSvg():String {
+		final maxXscaled:Int = 800;
+		final maxYscaled:Int = 800;
+		var style = 'width:$maxXscaled px;height: $maxYscaled px;';
+		// if (/*this.classesForDarkness.size() == 0 &&*/ backcolor != null)
+		trace('checking generalBackground $generalBackground');
+		if (generalBackground != null)
+			style += 'background:$generalBackground;';
+
+		root.set("style", style);
+		root.set("width", '$maxXscaled' + "px");
+		root.set("height", '$maxYscaled' + "px");
+
 		return root.toString();
 	}
 

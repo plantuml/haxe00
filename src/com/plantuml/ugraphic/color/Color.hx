@@ -81,7 +81,7 @@ abstract Color(Null<UInt>) from Int from UInt to Null<UInt> {
 	}
 
 	function toString() {
-		return "#" + StringTools.hex(this, 8);
+		return "#" + StringTools.hex(this, 6);
 	}
 
 	public function hsl():HSL {
