@@ -21,10 +21,3 @@ abstract DiagramType(String) {
 		return UNKNOWN;
 	}
 }
-// class DiagramTypeUtils {
-// 	static public function getTypeFromArobaseStart(s:String):DiagramType {
-// 		if (s.startsWithSymbolAnd("startmindmap"))
-// 			return MINDMAP;
-// 		return UNKNOWN;
-// 	}
-// }
