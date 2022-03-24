@@ -31,9 +31,11 @@ class UGraphicSvg extends AbstractCommonUGraphic<SvgGraphics> implements UGraphi
 		this.drivers.set(Type.getClassName(UPath), new DriverPathSvg());
 	}
 
-	override function setGeneralBackground(color:Color) {
-		trace("override function setGeneralBackground");
-		core.setGeneralBackground(color);
+	public function applySetting(setting:USetting):Void {
+		switch (setting) {
+			case GeneralBackground(color):
+				core.setGeneralBackground(color);
+		}
 	}
 
 	public static function create():UGraphicSvg {

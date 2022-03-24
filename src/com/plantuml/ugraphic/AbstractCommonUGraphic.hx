@@ -14,18 +14,7 @@ abstract class AbstractCommonUGraphic<T> implements UGraphic {
 		return translate.getDy();
 	}
 
-	function setGeneralBackground(color:Color) {
-		trace("doing nothing");
-	}
-
 	public function apply(change:UChange):UGraphic {
-		// trace(change);
-		// trace(Type.getClass(change) == UGeneralBackground);
-		if (Type.getClass(change) == UGeneralBackground) {
-			setGeneralBackground(cast(change, UGeneralBackground).getColor());
-			return this;
-		}
-
 		var result = copyUGraphic();
 		if (change is UTranslate) {
 			final translate = cast(change, UTranslate);

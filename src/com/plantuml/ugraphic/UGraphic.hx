@@ -7,5 +7,7 @@ interface UGraphic {
 
 	public function apply(change:UChange):UGraphic;
 
+	public function applySetting(setting:USetting):Void;
+
 	public function draw(shape:UShape):Void;
 }
