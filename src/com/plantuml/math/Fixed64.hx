@@ -8,7 +8,7 @@ using hx.strings.Strings;
 #if (java || interp || js)
 import haxe.Int64;
 
-abstract Fixed(Int64) {
+abstract Fixed64(Int64) {
 	private function new(value:Int64) {
 		this = value;
 	}
@@ -21,7 +21,7 @@ abstract Fixed(Int64) {
 		return v / 1000;
 	}
 #else
-abstract Fixed(Int) {
+abstract Fixed64(Int) {
 	private function new(value:Int) {
 		this = value;
 	}
@@ -35,21 +35,27 @@ abstract Fixed(Int) {
 	}
 #end
 
-@:op(A + B) private static /*inline*/ function add(a:Fixed, b:Fixed):Fixed {
-	return new Fixed(a.toIntValue() + b.toIntValue());
+@:op(A + B) private static /*inline*/ function add(a:Fixed64, b:Fixed64):Fixed64 {
+	return new Fixed64(a.toIntValue() + b.toIntValue());
 }
 
-@:op(A - B) private static /*inline*/ function sub(a:Fixed, b:Fixed):Fixed {
-	return new Fixed(a.toIntValue() - b.toIntValue());
+@:op(A - B) private static /*inline*/ function sub(a:Fixed64, b:Fixed64):Fixed64 {
+	return new Fixed64(a.toIntValue() - b.toIntValue());
 }
 
-@:op(A * B) private static /*inline*/ function mul(a:Fixed, b:Fixed):Fixed {
-	return new Fixed(divBy1000(a.toIntValue() * b.toIntValue()));
+@:op(A * B) private static /*inline*/ function mul(a:Fixed64, b:Fixed64):Fixed64 {
+	return new Fixed64(divBy1000(a.toIntValue() * b.toIntValue()));
 }
 
 @:from
 static public function fromInt(i:Int) {
-	return new Fixed(i * 1000);
+	return new Fixed64(i * 1000);
+}
+
+@:from
+static public function fromFloat(f:Float) {
+	final i:Int = Math.round(f * 1000);
+	return new Fixed64(i);
 }
 
 @:from
@@ -60,10 +66,10 @@ static public function fromArray(array:Array<Int>) {
 	if (dec >= 1000 || dec < 0)
 		throw new NotImplementedException();
 	if (dec < 10)
-		return new Fixed(array[0] * 1000 + 100 * dec);
+		return new Fixed64(array[0] * 1000 + 100 * dec);
 	if (dec < 100)
-		return new Fixed(array[0] * 1000 + 10 * dec);
-	return new Fixed(array[0] * 1000 + dec);
+		return new Fixed64(array[0] * 1000 + 10 * dec);
+	return new Fixed64(array[0] * 1000 + dec);
 }
 
 public function toString() {
