@@ -1,3 +1,4 @@
+import haxe.ds.BalancedTree;
 import hx.strings.StringBuilder;
 import com.plantuml.command.BlocLines;
 import com.plantuml.api.v1.Plantuml;
@@ -10,7 +11,8 @@ import utest.utils.Print;
 import utest.Assert;
 
 class AbstractTest extends Test {
-	private static var allPaths = [];
+	private static var allPaths:Map<String, String> = [];
+	private static var onlyErrorPaths:Map<String, String> = [];
 
 	public function new() {
 		super();
@@ -41,7 +43,7 @@ class AbstractTest extends Test {
 		return "other";
 	}
 
-	function exportSvgAndCheck(diag2:String):String {
+	function exportSvgAndGetSha1(diag2:String):String {
 		var bl = new BlocLines();
 		bl.addLines(diag2);
 		bl = bl.findStartSomething();
@@ -55,22 +57,27 @@ class AbstractTest extends Test {
 		final target = getTarget();
 		final path = getPath().replaceFirst(".hx", '-$target.svg');
 		final targetHtml = 'all-$target.html';
+		final sha1 = svg.orderMe().sha1();
+
+		allPaths[sha1] = path;
 
 		#if !js
 		sys.io.File.saveContent(path, svg);
-		allPaths.push(path);
-		trace(allPaths);
+		// trace(allPaths);
 		#end
-		return svg.orderMe().sha1();
+		return sha1;
 	}
 
-	public static function saveContentStrings() {
-		trace("saveContentStrings");
-		#if !js
-		final target = getTarget();
-		final targetHtml = 'all-$target.html';
-		trace('targetHtml=$targetHtml');
+	function errorInSha1(sha1:String) {
+		trace('Error in $sha1');
+		final path = allPaths[sha1];
+		if (path != null)
+			onlyErrorPaths[sha1] = path;
+		trace(onlyErrorPaths);
+	}
 
+	#if !js
+	public static function exportHtml(file, myMap:Map<String, String>) {
 		final content = [];
 		content.push("<html>");
 		content.push("<style>");
@@ -79,7 +86,7 @@ class AbstractTest extends Test {
 		content.push("}");
 		content.push("</style>");
 		content.push("<body>");
-		for (p in allPaths) {
+		for (p in myMap) {
 			content.push(p);
 			content.push("<p>");
 			content.push("<img src=\"" + p + "\">");
@@ -93,7 +100,19 @@ class AbstractTest extends Test {
 			sb.add(s);
 			sb.add("\n");
 		}
-		sys.io.File.saveContent(targetHtml, sb.toString());
+		sys.io.File.saveContent(file, sb.toString());
+	}
+	#end
+
+	public static function saveContentStrings() {
+		trace("saveContentStrings");
+		#if !js
+		final target = getTarget();
+		final all = '_all-$target.html';
+		final error = '_error-$target.html';
+
+		exportHtml(all, allPaths);
+		exportHtml(error, onlyErrorPaths);
 		#end
 	}
 } // http://www.unexpected-vortices.com/haxe/brief-tutorial.html

@@ -23,7 +23,9 @@ class A03Test extends AbstractTest {
 		** SteamOS
 		** Raspbian with a very long name
 		@endmindmap		";
-		final sha1 = exportSvgAndCheck(diag);
-		Assert.equals("0040280f932cef405a12d53f7c5c3f1a2b92232e", sha1);
+		final sha1 = exportSvgAndGetSha1(diag);
+		final ok = Assert.equals("0040280f932cef405a12d53f7c5c3f1a2b92232e", sha1);
+		if (!ok)
+			errorInSha1(sha1);
 	}
 }

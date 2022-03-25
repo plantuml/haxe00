@@ -15,7 +15,9 @@ class A05Test extends AbstractTest {
 		++ level1b
 		@endmindmap
 		";
-		final sha1 = exportSvgAndCheck(diag);
-		Assert.equals("x", sha1);
+		final sha1 = exportSvgAndGetSha1(diag);
+		final ok = Assert.equals("x", sha1);
+		if (!ok)
+			errorInSha1(sha1);
 	}
 }

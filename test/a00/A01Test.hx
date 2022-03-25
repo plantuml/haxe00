@@ -40,7 +40,9 @@ class A01Test extends AbstractTest {
 		#if !js
 		Assert.equals(diag, diag2);
 		#end
-		final sha1 = exportSvgAndCheck(diag2);
-		Assert.equals("a53f6c2f8bb3048d7686bdddfe2501dd4bcee081", sha1);
+		final sha1 = exportSvgAndGetSha1(diag2);
+		final ok = Assert.equals("a53f6c2f8bb3048d7686bdddfe2501dd4bcee081", sha1);
+		if (!ok)
+			errorInSha1(sha1);
 	}
 }
