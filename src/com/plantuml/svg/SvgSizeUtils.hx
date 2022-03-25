@@ -20,6 +20,12 @@ class SvgSizeUtils {
 			return SvgSizeAsciiUtils.asciiSize("E".code);
 		if (c.between(0xD2, 0xD6))
 			return SvgSizeAsciiUtils.asciiSize("O".code);
+		if (c.isOneOf([0xD8]))
+			return SvgSizeAsciiUtils.asciiSize("O".code);
+		if (c.between(0xD9, 0xDD))
+			return SvgSizeAsciiUtils.asciiSize("U".code);
+		if (c.between(0xE0, 0xE5))
+			return SvgSizeAsciiUtils.asciiSize("a".code);
 		return 1500;
 	}
 }
