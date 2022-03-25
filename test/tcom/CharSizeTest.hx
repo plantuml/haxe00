@@ -30,30 +30,30 @@ class CharSizeTest extends utest.Test {
 		Assert.equals(12480, ascii);
 	}
 
-	// function testGetLongString() {
-	// 	var ug = UGraphicSvg.create();
-	// 	final sb = ug.getStringBounder();
-	// 	final fc = FontConfiguration.create(HColor.plain("#000000"));
-	// 	final codepoint1 = 33;
-	// 	final codepoint2 = "Z".code;
-	// 	for (codepoint in codepoint1...codepoint2) {
-	// 		var text = getLongString(codepoint, 32);
-	// 		Assert.equals(32, text.length);
-	// 		final dim = sb.calculateDimension(fc.getFont(), text);
-	// 		final rect = new URectangle(dim.getWidth(), dim.getHeight());
-	// 		final rectLong = new URectangle(dim.getWidth() * 3, dim.getHeight());
-	// 		ug.apply(HColor.plain("#FFFFFF")).draw(rectLong);
-	// 		ug.apply(HColor.plain("#FF0000")).draw(rect);
-	// 		ug.draw(new UText(text, fc));
-	// 		ug = ug.apply(UTranslate.dy(dim.getHeight() + 10));
-	// 	}
-	// 	final svg = ug.getSvg();
-	// 	final filename = 'unicode/unicode-$codepoint1-$codepoint2.svg';
-	// 	#if !js
-	// 	sys.FileSystem.createDirectory("unicode");
-	// 	sys.io.File.saveContent(filename, svg);
-	// 	#end
-	// }
+	function testGetLongString() {
+		var ug = UGraphicSvg.create();
+		final sb = ug.getStringBounder();
+		final fc = FontConfiguration.create(HColor.plain("#000000"));
+		final codepoint1 = 33;
+		final codepoint2 = "Z".code;
+		for (codepoint in codepoint1...codepoint2) {
+			var text = getLongString(codepoint, 32);
+			Assert.equals(32, text.length);
+			final dim = sb.calculateDimension(fc.getFont(), text);
+			final rect = new URectangle(dim.getWidth(), dim.getHeight());
+			final rectLong = new URectangle(dim.getWidth() * 3, dim.getHeight());
+			ug.apply(HColor.plain("#FFFFFF")).draw(rectLong);
+			ug.apply(HColor.plain("#FF0000")).draw(rect);
+			ug.draw(new UText(text, fc));
+			ug = ug.apply(UTranslate.dy(dim.getHeight() + 10));
+		}
+		final svg = ug.getSvg();
+		final filename = 'unicode/unicode-$codepoint1-$codepoint2.svg';
+		#if !js
+		sys.FileSystem.createDirectory("unicode");
+		sys.io.File.saveContent(filename, svg);
+		#end
+	}
 
 	function getLetterAccent() {
 		final s = "&#12480;".htmlDecode();

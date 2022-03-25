@@ -32,7 +32,8 @@ class UGraphicSvg extends AbstractCommonUGraphic<SvgGraphics> implements UGraphi
 	}
 
 	public override function apply(change:UChange):UGraphicSvg {
-		return cast(super.apply(change), UGraphicSvg);
+		var tmp1 = super.apply(change);
+		return cast(tmp1, UGraphicSvg);
 	}
 
 	public function applySetting(setting:USetting):Void {
