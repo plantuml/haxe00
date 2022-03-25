@@ -1,5 +1,6 @@
 package tcom;
 
+import hx.strings.StringBuilder;
 import hx.strings.Char;
 import utest.Assert;
 
@@ -23,6 +24,10 @@ class CharSizeTest extends utest.Test {
 		Assert.equals(12480, ascii);
 	}
 
+	function testGetLongString() {
+		Assert.equals("BBB", getLongString(66, 3));
+	}
+
 	function getLetterAccent() {
 		final s = "&#12480;".htmlDecode();
 		#if !js
@@ -33,5 +38,12 @@ class CharSizeTest extends utest.Test {
 		Assert.equals(1, s.length);
 		Assert.equals(s, "" + 12480.toChar());
 		return s;
+	}
+
+	function getLongString(codepoint:Int, size:Int) {
+		final sb = new StringBuilder();
+		for (i in 0...size)
+			sb.add("" + codepoint.toChar());
+		return sb.toString();
 	}
 }
