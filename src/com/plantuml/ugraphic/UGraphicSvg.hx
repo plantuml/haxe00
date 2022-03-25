@@ -24,11 +24,15 @@ class StringBounderSvg implements StringBounder {
 class UGraphicSvg extends AbstractCommonUGraphic<SvgGraphics> implements UGraphic {
 	private final core:SvgGraphics;
 
-	public function new(core:SvgGraphics) {
+	private function new(core:SvgGraphics) {
 		this.core = core;
 		this.drivers.set(Type.getClassName(UText), new DriverTextSvg(new StringBounderSvg()));
 		this.drivers.set(Type.getClassName(URectangle), new DriverRectangleSvg());
 		this.drivers.set(Type.getClassName(UPath), new DriverPathSvg());
+	}
+
+	public override function apply(change:UChange):UGraphicSvg {
+		return cast(super.apply(change), UGraphicSvg);
 	}
 
 	public function applySetting(setting:USetting):Void {
@@ -64,6 +68,8 @@ class UGraphicSvg extends AbstractCommonUGraphic<SvgGraphics> implements UGraphi
 	function copyUGraphic():UGraphicSvg {
 		var result = new UGraphicSvg(core);
 		result.translate = this.translate.copy();
+		result.color = this.color;
+		result.backColor = this.backColor;
 		return result;
 	}
 }

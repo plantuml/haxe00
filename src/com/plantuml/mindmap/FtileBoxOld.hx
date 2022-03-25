@@ -1,5 +1,7 @@
 package com.plantuml.mindmap;
 
+import com.plantuml.ugraphic.UGraphicSvg;
+import com.plantuml.ugraphic.AbstractCommonUGraphic;
 import com.plantuml.awt.geom.Dimension2D;
 import com.plantuml.cucadiagram.Display;
 import com.plantuml.graphic.FontConfiguration;

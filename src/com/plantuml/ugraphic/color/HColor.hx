@@ -14,8 +14,12 @@ class HColor implements UChange {
 		this.monochrome = monochrome;
 	}
 
-    public static function plain(s:String):HColor {
-		if (s == null) 
+	public function toString() {
+		return color.toString();
+	}
+
+	public static function plain(s:String):HColor {
+		if (s == null)
 			throw new NotImplementedException();
 
 		final theColor:Color = s;

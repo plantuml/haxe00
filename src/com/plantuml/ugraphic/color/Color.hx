@@ -80,7 +80,7 @@ abstract Color(Null<UInt>) from Int from UInt to Null<UInt> {
 		return output;
 	}
 
-	function toString() {
+	public function toString() {
 		return "#" + StringTools.hex(this, 6);
 	}
 

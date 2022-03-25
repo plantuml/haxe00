@@ -10,8 +10,8 @@ class SvgGraphics {
 	final gRoot = Xml.createElement("g");
 	var generalBackground:Color;
 
-	var fill:String = "black";
 	var stroke:String = "black";
+	var fill:String = "black";
 	var scale = 1.;
 
 	var maxX:Int = 10;
@@ -102,7 +102,7 @@ class SvgGraphics {
 	function getStyleSpecial():String {
 		final style = new StringBuilder();
 		// if (stroke.equals(strokeDark))
-		style.add("stroke:black;");
+		style.add('stroke:$stroke;');
 
 		return style.toString();
 	}
@@ -110,8 +110,8 @@ class SvgGraphics {
 	function getStyle():String {
 		final style = new StringBuilder();
 		// if (stroke.equals(strokeDark))
-		style.add("stroke:black;");
-		style.add("fill:none;");
+		style.add('stroke:$stroke;');
+		style.add('fill:none;');
 
 		return style.toString();
 	}

@@ -62,4 +62,8 @@ class UParamInternal implements UParam {
 	public function getBackcolor():HColor {
 		return backColor;
 	}
+
+	public function toString() {
+		return 'color=$color backColor=$backColor';
+	}
 }

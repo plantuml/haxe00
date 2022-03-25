@@ -1,3 +1,4 @@
+import tcom.CharSizeTest;
 import tcom.plantuml.regex.MyPatternTest;
 import tcom.plantuml.command.regex.*;
 import tcom.plantuml.mindmap.*;
@@ -14,7 +15,7 @@ class MainTest {
 		var runner = new Runner();
 		runner.addCases("a00");
 		runner.addCases("tcom");
-		// runner.addCase(new A04Test());
+		// runner.addCase(new CharSizeTest());
 
 		runner.onComplete.add(_ -> {
 			AbstractTest.saveContentStrings();
