@@ -16,11 +16,6 @@ class FixedTest extends utest.Test {
 		trace("Ints.MAX = " + Ints.MAX);
 
 		Assert.isTrue(Ints.MAX > Ints.MIN);
-
-		Assert.equals(57, Fixed.divBy1000(57000));
-		Assert.equals(57, Fixed.divBy1000(57900));
-		Assert.equals(57, Fixed.divBy1000(57999));
-		Assert.equals(58, Fixed.divBy1000(58000));
 	}
 
 	function testBasicThing1() {
