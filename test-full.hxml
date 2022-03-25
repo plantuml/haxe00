@@ -2,6 +2,7 @@
 -cp src
 --library utest
 --library haxe-strings
+--debug 
 -main MainTest
 
 --each

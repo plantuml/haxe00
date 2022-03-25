@@ -3,5 +3,6 @@
 --library utest
 --library haxe-strings
 --interp
+--debug 
 -main MainTestSingle
 
