@@ -5,7 +5,7 @@ import haxe.exceptions.NotImplementedException;
 using com.plantuml.math.Constant;
 using hx.strings.Strings;
 
-#if java
+#if (java || interp || js)
 import haxe.Int64;
 
 abstract Fixed(Int64) {

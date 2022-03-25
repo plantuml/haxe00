@@ -61,4 +61,11 @@ class FixedTest extends utest.Test {
 		var c = a * b;
 		Assert.equals("882940740.947", "" + c);
 	}
+
+	function testMultBig3() {
+		var a:Fixed = [921003, 425];
+		var b:Fixed = [942037, 941];
+		var c = a * b;
+		Assert.equals("867620170140.947", "" + c);
+	}
 }
