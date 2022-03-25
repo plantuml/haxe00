@@ -31,20 +31,26 @@ class CharSizeTest extends utest.Test {
 	}
 
 	function testGetLongString() {
+		exportCodepoints("!".code, "~".code);
+		exportCodepoints(0xA1, 0xFF);
+	}
+
+	function exportCodepoints(codepoint1, codepoint2) {
 		var ug = UGraphicSvg.create();
 		final sb = ug.getStringBounder();
 		final fc = FontConfiguration.create(HColor.plain("#000000"));
-		final codepoint1 = 33;
-		final codepoint2 = "Z".code;
-		for (codepoint in codepoint1...codepoint2) {
-			var text = getLongString(codepoint, 32);
-			Assert.equals(32, text.length);
+		for (codepoint in codepoint1...(codepoint2 + 1)) {
+			var text = getLongString(codepoint, 32 * 2);
+			Assert.equals(32 * 2, text.length);
 			final dim = sb.calculateDimension(fc.getFont(), text);
 			final rect = new URectangle(dim.getWidth(), dim.getHeight());
 			final rectLong = new URectangle(dim.getWidth() * 3, dim.getHeight());
-			ug.apply(HColor.plain("#FFFFFF")).draw(rectLong);
-			ug.apply(HColor.plain("#FF0000")).draw(rect);
-			ug.draw(new UText(text, fc));
+			final ug2 = ug.apply(UTranslate.dx(40));
+			final num = StringTools.hex(codepoint);
+			ug.draw(new UText(num, fc));
+			ug2.apply(HColor.plain("#FFFFFF")).draw(rectLong);
+			ug2.apply(HColor.plain("#FF0000")).draw(rect);
+			ug2.draw(new UText(text, fc));
 			ug = ug.apply(UTranslate.dy(dim.getHeight() + 10));
 		}
 		final svg = ug.getSvg();
