@@ -4,6 +4,7 @@ import com.plantuml.ugraphic.color.Color;
 import com.plantuml.svg.*;
 
 using hx.strings.Strings;
+using com.plantuml.svg.SvgSizeUtils;
 
 import com.plantuml.awt.geom.Dimension2D;
 import com.plantuml.graphic.StringBounder;
@@ -16,7 +17,7 @@ class StringBounderSvg implements StringBounder {
 		var width = 0.0;
 		for (c in new haxe.iterators.StringIteratorUnicode(text)) {
 			// trace("" + c.toChar());
-			width += SvgSizeUtils.singleSize(c) / 100.0;
+			width += c.singleSize() / 100.0;
 		}
 		return new Dimension2D(width, height);
 	}

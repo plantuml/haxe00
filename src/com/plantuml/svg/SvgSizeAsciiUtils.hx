@@ -3,6 +3,14 @@ package com.plantuml.svg;
 using hx.strings.Strings;
 
 class SvgSizeAsciiUtils {
+	public static function between(c:Int, min:Int, max:Int):Bool {
+		return c >= min && c <= max;
+	}
+
+	public static function isOneOf(c:Int, all:Array<Int>):Bool {
+		return all.contains(c);
+	}
+
 	public static function asciiSize(c:Int):Int {
 		switch (c) {
 			case " ".code:
