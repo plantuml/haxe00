@@ -1,5 +1,7 @@
 package com.plantuml;
 
+import com.plantuml.error.PSystemErrorUtils;
+import com.plantuml.error.DiagramNothingFound;
 import com.plantuml.command.BlocLines;
 import com.plantuml.core.Diagram;
 import com.plantuml.core.DiagramType;
@@ -18,16 +20,26 @@ class PSystemBuilder {
 	public function createPSystem(lines:BlocLines):Diagram {
 		lines = lines.findStartSomething();
 		if (lines == null)
-			return null;
+			return new DiagramNothingFound(lines);
 
 		final type = DiagramType.getTypeFromArobaseStart(lines.getFirst());
+
+		if (type == UNKNOWN)
+			return new DiagramNothingFound(lines);
+
 		lines = lines.removeFirstAndLast();
 		for (f in factories.filter(x -> x.getDiagramType() == type)) {
-			final result = f.createSystem(lines);
-			if (result != null)
-				return result;
+			try {
+				final result = f.createSystem(lines);
+				if (result != null)
+					return result;
+			} catch (e) {
+				trace("Error in some factory");
+				trace(e.message);
+				return PSystemErrorUtils.crashErrorAt(e);
+			}
 		}
-
-		return null;
+		trace("No factory found!");
+		return new DiagramNothingFound(lines);
 	}
 }
