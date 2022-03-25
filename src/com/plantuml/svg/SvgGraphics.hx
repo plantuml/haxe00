@@ -1,5 +1,6 @@
 package com.plantuml.svg;
 
+import com.plantuml.math.Fixed;
 import com.plantuml.ugraphic.color.Color;
 import com.plantuml.ugraphic.*;
 import hx.strings.StringBuilder;
@@ -76,7 +77,8 @@ class SvgGraphics {
 	}
 
 	function format(x:Float):String {
-		return Std.string(x);
+		final tmp:Fixed = x;
+		return "" + tmp;
 	}
 
 	public function toSvg():String {

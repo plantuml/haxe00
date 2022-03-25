@@ -24,6 +24,6 @@ class A03Test extends AbstractTest {
 		** Raspbian with a very long name
 		@endmindmap		";
 		final sha1 = exportSvgAndCheck(diag);
-		Assert.equals("b57d15a9378c62cad99e5ef2d9f03fc6e6236047", sha1);
+		Assert.equals("0040280f932cef405a12d53f7c5c3f1a2b92232e", sha1);
 	}
 }
