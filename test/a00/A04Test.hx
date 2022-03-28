@@ -24,7 +24,7 @@ class A04Test extends AbstractTest {
 		** Raspbian with a very long name
 		@endmindmap		";
 		final sha1 = exportSvgAndGetSha1(diag);
-		final ok = Assert.equals("ddccdfda8a5bdefe777689b2e06a309d981385f3", sha1);
+		final ok = Assert.equals("ef5b2a0f5cf34b38c8310c6515d44dfd5bb9972e", sha1);
 		if (!ok)
 			errorInSha1(sha1);
 	}

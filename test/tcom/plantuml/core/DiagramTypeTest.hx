@@ -11,7 +11,7 @@ class DiagramTypeTest extends utest.Test {
 		Assert.notNull(v1);
 
 		final all:Array<DiagramType> = AbstractEnumTools.getValues(DiagramType);
-		Assert.equals(2, all.length);
+		Assert.equals(3, all.length);
 
 		final type = DiagramType.getTypeFromArobaseStart("@startmindmap");
 		Assert.equals(DiagramType.MINDMAP, type);

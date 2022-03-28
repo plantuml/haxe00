@@ -20,7 +20,7 @@ class A06Test extends AbstractTest {
 		";
 
 		final sha1 = exportSvgAndGetSha1(diag);
-		final ok = Assert.equals("x", sha1);
+		final ok = Assert.equals("0da92b73bd2ccc9d569b18963a248e8cd75fd142", sha1);
 		if (!ok)
 			errorInSha1(sha1);
 	}

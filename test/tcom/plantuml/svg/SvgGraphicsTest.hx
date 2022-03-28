@@ -15,13 +15,13 @@ class SvgGraphicsTest extends utest.Test {
 	function testBasicThing1() {
 		final svg = new SvgGraphics();
 		final result = svg.toSvg();
-		Assert.equals("88f23b0220888d1c8831e203dd17d1480267ea34", result.orderMe().sha1());
+		Assert.equals("7f3c67ffccd13e15f52309276a5bd48540a5a33b", result.orderMe().sha1());
 	}
 
 	function testBasicThing2() {
 		final svg = new SvgGraphics();
 		svg.text("Hello World", 10, 10, "", 14, "", "plain", "", 100.0, [], "white");
 		final result = svg.toSvg();
-		Assert.equals("ef9a7b7e61db26a3502dae761c7e2fdce5271e48", result.orderMe().sha1());
+		Assert.equals("d3185d5463c0e26fe495e573d261721cac8cdc91", result.orderMe().sha1());
 	}
 }
