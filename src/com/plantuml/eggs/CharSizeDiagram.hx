@@ -37,17 +37,24 @@ class CharSizeDiagram extends Diagram {
 		final sb = ug.getStringBounder();
 
 		final dim = sb.calculateDimension(fc.getFont(), text);
-		final width:Float = size / 100.0 * 64;
-		final rect = new URectangle(width, dim.getHeight());
-		final rectLong = new URectangle(width + 30, dim.getHeight());
+		var current = size;
+		for (i in 0...40) {
+			final width:Float = current / 100.0 * 64;
+			current += 10;
 
-		final num = StringTools.hex(single.charCodeAt(0));
-		ug.draw(new UText(num, fc));
+			final rect = new URectangle(width, dim.getHeight());
+			final rectLong = new URectangle(width + 30, dim.getHeight());
 
-		final ug2 = ug.apply(UTranslate.dx(40));
+			// final num = StringTools.hex(single.charCodeAt(0));
 
-		ug2.apply(HColor.plain("#FFFFFF")).draw(rectLong);
-		ug2.apply(HColor.plain("#FF0000")).draw(rect);
-		ug2.draw(utext);
+			final ug2 = ug.apply(UTranslate.dx(0));
+
+			ug2.apply(HColor.plain("#FFFFFF")).draw(rectLong);
+			ug2.apply(HColor.plain("#FF0000")).draw(rect);
+			ug2.draw(utext);
+			ug2.apply(UTranslate.dx(width + 10)).draw(new UText("" + current, fc));
+
+			ug = ug.apply(UTranslate.dy(dim.getHeight()));
+		}
 	}
 }

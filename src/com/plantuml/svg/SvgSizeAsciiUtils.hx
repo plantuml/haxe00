@@ -112,73 +112,73 @@ class SvgSizeAsciiUtils {
 			case "Z".code:
 				return 960;
 			case "[".code | "]".code:
-				return 450;
+				return 430;
 			case "\\".code:
-				return 550;
+				return 670;
 			case "^".code:
-				return 600;
+				return 680;
 			case "_".code:
-				return 600;
+				return 740;
 			case "`".code:
-				return 500;
+				return 510;
 			case "a".code:
-				return 960;
+				return 880;
 			case "b".code:
-				return 1030;
+				return 910;
 			case "c".code:
-				return 900;
+				return 850;
 			case "d".code:
-				return 1030;
+				return 910;
 			case "e".code:
-				return 950;
+				return 860;
 			case "f".code:
 				return 570;
 			case "g".code:
-				return 1030;
+				return 910;
 			case "h".code:
-				return 1030;
+				return 890;
 			case "i".code:
-				return 510;
+				return 400;
 			case "j".code:
-				return 500;
+				return 390;
 			case "k".code:
-				return 970;
+				return 820;
 			case "l".code:
-				return 510;
+				return 400;
 			case "m".code:
-				return 1520;
+				return 1420;
 			case "n".code:
-				return 1030;
+				return 900;
 			case "o".code:
-				return 970;
+				return 930;
 			case "p".code:
-				return 1030;
+				return 910;
 			case "q".code:
-				return 1030;
+				return 920;
 			case "r".code:
-				return 770;
+				return 550;
 			case "s".code:
-				return 830;
+				return 840;
 			case "t".code:
-				return 650;
-			case "u".code:
-				return 1030;
-			case "v".code:
-				return 910;
-			case "w".code:
-				return 1370;
-			case "x".code:
-				return 910;
-			case "y".code:
-				return 910;
-			case "z".code:
-				return 850;
-			case "{".code | "}".code:
-				return 1020;
-			case "|".code:
 				return 540;
+			case "u".code:
+				return 900;
+			case "v".code:
+				return 790;
+			case "w".code:
+				return 1220;
+			case "x".code:
+				return 810;
+			case "y".code:
+				return 770;
+			case "z".code:
+				return 810;
+			case "{".code | "}".code:
+				return 560;
+			case "|".code:
+				return 400;
 			case "~".code:
-				return 1340;
+				return 1100;
 		}
 		return 0;
 	}
