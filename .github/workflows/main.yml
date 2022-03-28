@@ -56,7 +56,7 @@ jobs:
           haxe test-full.hxml
           python --version
           python TestPy.py > TestPy.tmp
-          java -jar TestJvm/MainTest.jar > TestJvm.tmp
+          java -jar TestJvm/MainTest-Debug.jar > TestJvm.tmp
           if grep "ALL TESTS OK" TestPy.tmp; then
             echo "ok"
           else
