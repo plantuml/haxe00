@@ -34,7 +34,7 @@ class Foo {
 
 class MacroTest extends utest.Test {
 	function testBuildTime() {
-		final t:Int = MacroUtils.buildTime();
+		final t:Float = MacroUtils.buildTime();
 		trace('Buildtime MacroUtils is $t');
 		Assert.isTrue(t > 0);
 	}

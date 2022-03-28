@@ -1,5 +1,8 @@
 package com.plantuml.cucadiagram;
 
+using com.plantuml.ArrayExtensions;
+using com.plantuml.utils.StartUtils;
+
 import com.plantuml.graphic.FontConfiguration;
 import com.plantuml.ugraphic.UTranslate;
 import com.plantuml.ugraphic.UText;
@@ -12,20 +15,39 @@ import com.plantuml.graphic.TextBlock;
 class Display {
 	final displayData:Array<String>;
 
-	private function new() {
-		this.displayData = [];
+	private function new(displayData:Array<String>) {
+		this.displayData = displayData;
 	}
 
 	public static function getWithNewlines(label:String) {
-		final r = new Display();
+		final r = new Display([]);
+		for (s in label.splitInLines())
+			r.displayData.push(s);
+		return r;
+	}
+
+	public function pushWithNewlines(label:String):Display {
+		final r = new Display(displayData.copy());
+		for (s in label.splitInLines())
+			r.displayData.push(s);
+		return r;
+	}
+
+	public function push(label:String):Display {
+		final r = new Display(displayData.copy());
 		r.displayData.push(label);
 		return r;
 	}
 
-	public static function create(lines:Array<String>):Display {
-		final r = new Display();
+	public function pushAll(lines:Array<String>):Display {
+		final r = new Display(displayData.copy());
 		for (s in lines)
 			r.displayData.push(s);
+		return r;
+	}
+
+	public static function create(lines:Array<String>):Display {
+		final r = new Display(lines.copy());
 		return r;
 	}
 
