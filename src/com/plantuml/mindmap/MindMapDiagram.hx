@@ -14,6 +14,10 @@ class MindMapDiagram extends Diagram {
 	private var mindmaps:Array<MindMap>;
 	private var defaultDirection:Direction = Direction.RIGHT;
 
+	public function setDefaultDirection(defaultDirection:Direction) {
+		this.defaultDirection = defaultDirection;
+	}
+
 	public function new() {
 		this.mindmaps = [new MindMap(getSkinParam())];
 	}

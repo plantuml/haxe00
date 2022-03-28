@@ -1,5 +1,7 @@
 package com.plantuml.mindmap;
 
+import com.plantuml.Direction.DirectionUtils;
+
 using com.plantuml.ArrayExtensions;
 using com.plantuml.utils.StartUtils;
 using hx.strings.Strings;
@@ -21,7 +23,9 @@ class CommandMindMapDirection extends SingleLineCommand<MindMapDiagram> {
 		]);
 	}
 
-	public function executeArg(diagram:MindMapDiagram, lines:BlocLines, map:Map<String, String>):CommandExecutionResult {
-		throw new haxe.exceptions.NotImplementedException();
+	public function executeArg(diagram:MindMapDiagram, lines:BlocLines, arg:Map<String, String>):CommandExecutionResult {
+		final direction = arg["DIRECTION"];
+		diagram.setDefaultDirection(DirectionUtils.valueOf(direction.toUpperCase()));
+		return CommandExecutionResult.OK;
 	}
 }
