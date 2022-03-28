@@ -78,7 +78,7 @@ class FingerImpl implements Finger implements UDrawable {
 	}
 
 	public function getFullElongation(stringBounder:StringBounder):Float {
-		throw new haxe.exceptions.NotImplementedException();
+		return getPhalanxElongation(stringBounder) + getNailElongation(stringBounder);
 	}
 
 	public function doNotDrawFirstPhalanx() {}

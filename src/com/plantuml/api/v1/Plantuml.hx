@@ -1,5 +1,6 @@
 package com.plantuml.api.v1;
 
+import com.plantuml.error.PSystemErrorUtils;
 import haxe.exceptions.NotImplementedException;
 import com.plantuml.command.BlocLines;
 import com.plantuml.mindmap.MindMapDiagramFactory;
@@ -57,10 +58,18 @@ class Plantuml {
 			throw new haxe.exceptions.NotImplementedException();
 		}
 		final builder = new PSystemBuilder();
-		final diagram = builder.createPSystem(blocLines.findStartSomething());
-		var svg:UGraphicSvg = UGraphicSvg.create();
-		diagram.exportDiagramNow(svg);
-		var s = svg.getSvg();
-		return s;
+		try {
+			final diagram = builder.createPSystem(blocLines.findStartSomething());
+			final svg:UGraphicSvg = UGraphicSvg.create();
+			diagram.exportDiagramNow(svg);
+			final s = svg.getSvg();
+			return s;
+		} catch (e) {
+			final svg:UGraphicSvg = UGraphicSvg.create();
+			final diagramErr = PSystemErrorUtils.crashErrorAt(e);
+			diagramErr.exportDiagramNow(svg);
+			final s = svg.getSvg();
+			return s;
+		}
 	}
 }
