@@ -112,13 +112,13 @@ class SvgSizeAsciiUtils {
 			case "Z".code:
 				return 960;
 			case "[".code | "]".code:
-				return 500;
+				return 450;
 			case "\\".code:
-				return 500;
+				return 550;
 			case "^".code:
-				return 500;
+				return 600;
 			case "_".code:
-				return 500;
+				return 600;
 			case "`".code:
 				return 500;
 			case "a".code:

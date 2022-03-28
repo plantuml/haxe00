@@ -20,12 +20,12 @@ class PSystemBuilder {
 	public function createPSystem(lines:BlocLines):Diagram {
 		lines = lines.findStartSomething();
 		if (lines == null)
-			return new DiagramNothingFound(lines);
+			return new DiagramNothingFound([]);
 
 		final type = DiagramType.getTypeFromArobaseStart(lines.getFirst());
 
 		if (type == UNKNOWN)
-			return new DiagramNothingFound(lines);
+			return new DiagramNothingFound(lines.getLines());
 
 		lines = lines.removeFirstAndLast();
 		for (f in factories.filter(x -> x.getDiagramType() == type)) {
@@ -40,6 +40,6 @@ class PSystemBuilder {
 			}
 		}
 		trace("No factory found!");
-		return new DiagramNothingFound(lines);
+		return new DiagramNothingFound(lines.getLines());
 	}
 }

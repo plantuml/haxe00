@@ -9,7 +9,6 @@ class MainTest {
 		runner.addCases("a00");
 		runner.addCases("tcom");
 		// runner.addCase(new CharSizeTest());
-		// runner.addCase(new FixedTest());
 
 		runner.onComplete.add(_ -> {
 			AbstractTest.saveContentStrings();

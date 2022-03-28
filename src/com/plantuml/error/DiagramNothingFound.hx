@@ -10,9 +10,9 @@ import com.plantuml.ugraphic.color.Color;
 import com.plantuml.ugraphic.color.HColor;
 
 class DiagramNothingFound extends Diagram {
-	final lines:BlocLines;
+	final lines:Array<String>;
 
-	public function new(lines:BlocLines) {
+	public function new(lines:Array<String>) {
 		this.lines = lines;
 	}
 
@@ -20,13 +20,12 @@ class DiagramNothingFound extends Diagram {
 		final back:Color = "#000000";
 		ug.applySetting(GeneralBackground(back));
 
-		final display = lines.toDisplay();
-		final textBlock = display.toTextBlock(FontConfiguration.create(HColor.plain("#00FF00")));
-		textBlock.drawU(ug);
-		final dim = textBlock.calculateDimension(ug.getStringBounder());
+		var err = Display.create(["No @start found in your data:", " "]);
 
-		ug = ug.apply(UTranslate.dy(dim.getHeight()));
-		final err = Display.create(["Nothing found"]);
-		err.toTextBlock(FontConfiguration.create(HColor.plain("#FF0000"))).drawU(ug);
+		err = err.pushAll(lines);
+
+		final fc = FontConfiguration.create(HColor.plain("#00FF00"));
+
+		err.toTextBlock(fc).drawU(ug);
 	}
 }

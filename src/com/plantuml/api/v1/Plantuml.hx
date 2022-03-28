@@ -54,8 +54,11 @@ class Plantuml {
 	public function getSvg():String {
 		final blocLines = new BlocLines(data).findStartSomething();
 		if (blocLines == null) {
-			trace('data=$data');
-			throw new haxe.exceptions.NotImplementedException();
+			final diagramErr = PSystemErrorUtils.noDiagramFound(data);
+			final svg:UGraphicSvg = UGraphicSvg.create();
+			diagramErr.exportDiagramNow(svg);
+			final s = svg.getSvg();
+			return s;
 		}
 		final builder = new PSystemBuilder();
 		try {

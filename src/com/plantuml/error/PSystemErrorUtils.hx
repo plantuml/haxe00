@@ -12,4 +12,8 @@ class PSystemErrorUtils {
 	public static function crashErrorAt(e:Exception):Diagram {
 		return new DiagramCrash(e);
 	}
+
+	public static function noDiagramFound(data:Array<String>):Diagram {
+		return new DiagramNothingFound(data);
+	}
 }
