@@ -4,7 +4,7 @@ import com.plantuml.core.Diagram;
 import com.plantuml.command.*;
 import com.plantuml.command.regex.*;
 
-abstract class CommandMultilines2 implements Command {
+abstract class CommandMultilines2<D> implements Command<D> {
 	final regexStart:RegexConcat;
 	final regexEnd:RegexConcat;
 
@@ -35,4 +35,10 @@ abstract class CommandMultilines2 implements Command {
 
 		return CommandControl.OK_PARTIAL;
 	}
+
+	public function execute(diagram:D, lines:BlocLines):CommandExecutionResult {
+		return execute2(diagram, lines);
+	}
+
+	public abstract function execute2(diagram:D, lines:BlocLines):CommandExecutionResult;
 }

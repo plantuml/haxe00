@@ -8,7 +8,7 @@ import com.plantuml.command.*;
 import com.plantuml.command.regex.*;
 import com.plantuml.core.Diagram;
 
-class CommandMindMapDirection extends SingleLineCommand {
+class CommandMindMapDirection extends SingleLineCommand<MindMapDiagram> {
 	public function new() {
 		_init([
 			RegexLeaf.start(),
@@ -21,7 +21,7 @@ class CommandMindMapDirection extends SingleLineCommand {
 		]);
 	}
 
-	public function executeArg(diagram:Diagram, lines:BlocLines, map:Map<String, String>):CommandExecutionResult {
+	public function executeArg(diagram:MindMapDiagram, lines:BlocLines, map:Map<String, String>):CommandExecutionResult {
 		throw new haxe.exceptions.NotImplementedException();
 	}
 }

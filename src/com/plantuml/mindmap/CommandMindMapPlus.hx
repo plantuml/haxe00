@@ -12,7 +12,7 @@ import com.plantuml.core.Diagram;
 import com.plantuml.command.*;
 import com.plantuml.command.regex.*;
 
-class CommandMindMapPlus extends SingleLineCommand {
+class CommandMindMapPlus extends SingleLineCommand<MindMapDiagram> {
 	public function new() {
 		_init([
 			RegexLeaf.start(), //
@@ -25,8 +25,7 @@ class CommandMindMapPlus extends SingleLineCommand {
 		]);
 	}
 
-	public function executeArg(diagram_:Diagram, lines:BlocLines, arg:Map<String, String>):CommandExecutionResult {
-		final diagram:MindMapDiagram = cast(diagram_, MindMapDiagram);
+	public function executeArg(diagram:MindMapDiagram, lines:BlocLines, arg:Map<String, String>):CommandExecutionResult {
 		final type:String = arg["TYPE"];
 		final label:String = arg["LABEL"];
 		final stringColor:String = arg["BACKCOLOR"];

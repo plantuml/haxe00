@@ -8,14 +8,14 @@ import com.plantuml.core.DiagramType;
 using hx.strings.Strings;
 
 class MindMapDiagramFactory implements PSystemFactory {
-	var cmds:Array<Command>;
+	var cmds:Array<Command<MindMapDiagram>>;
 
 	public function new() {
 		this.cmds = createCommands();
 	}
 
-	private function createCommands():Array<Command> {
-		var cmds:Array<Command> = [];
+	private function createCommands():Array<Command<MindMapDiagram>> {
+		var cmds:Array<Command<MindMapDiagram>> = [];
 		// CommonCommands.addCommonCommands1(cmds);
 
 		cmds.push(new CommandMindMapOrgmode());

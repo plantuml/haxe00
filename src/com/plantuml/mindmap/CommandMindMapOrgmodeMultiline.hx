@@ -14,7 +14,7 @@ import com.plantuml.command.regex.*;
 import com.plantuml.command.regex.RegexConcat;
 import com.plantuml.core.Diagram;
 
-class CommandMindMapOrgmodeMultiline extends CommandMultilines2 {
+class CommandMindMapOrgmodeMultiline extends CommandMultilines2<MindMapDiagram> {
 	public function new() {
 		final start = new RegexConcat([
 			RegexLeaf.start(), //
@@ -37,8 +37,7 @@ class CommandMindMapOrgmodeMultiline extends CommandMultilines2 {
 		super(start, end);
 	}
 
-	public function execute(diagram_:Diagram, lines:BlocLines):CommandExecutionResult {
-		final diagram:MindMapDiagram = cast(diagram_, MindMapDiagram);
+	public function execute2(diagram:MindMapDiagram, lines:BlocLines):CommandExecutionResult {
 		final line0 = getStartingPattern().matcher(lines.getFirst().getTrimmed().getString());
 
 		final lineLast = getEndingPattern().matcher(lines.getLast().getString());

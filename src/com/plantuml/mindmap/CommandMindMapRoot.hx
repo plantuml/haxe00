@@ -4,7 +4,7 @@ import com.plantuml.command.*;
 import com.plantuml.command.regex.*;
 import com.plantuml.core.Diagram;
 
-class CommandMindMapRoot extends SingleLineCommand {
+class CommandMindMapRoot extends SingleLineCommand<MindMapDiagram> {
 	public function new() {
 		_init([
 			RegexLeaf.start(), //
@@ -15,7 +15,7 @@ class CommandMindMapRoot extends SingleLineCommand {
 		]);
 	}
 
-	public function executeArg(diagram:Diagram, lines:BlocLines, map:Map<String, String>):CommandExecutionResult {
+	public function executeArg(diagram:MindMapDiagram, lines:BlocLines, map:Map<String, String>):CommandExecutionResult {
 		throw new haxe.exceptions.NotImplementedException();
 	}
 }

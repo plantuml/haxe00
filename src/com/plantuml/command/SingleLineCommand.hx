@@ -4,7 +4,7 @@ import com.plantuml.core.Diagram;
 import com.plantuml.command.*;
 import com.plantuml.command.regex.*;
 
-abstract class SingleLineCommand implements Command {
+abstract class SingleLineCommand<D> implements Command<D> {
 	var regex:RegexConcat;
 
 	function _init(array:Array<IRegex>) {
@@ -24,10 +24,10 @@ abstract class SingleLineCommand implements Command {
 		return CommandControl.NOT_OK;
 	}
 
-	public function execute(diagram:Diagram, lines:BlocLines):CommandExecutionResult {
+	public function execute(diagram:D, lines:BlocLines):CommandExecutionResult {
 		var map:Map<String, String> = regex.matcher(lines.getLines()[0]);
 		return executeArg(diagram, lines, map);
 	}
 
-	public abstract function executeArg(diagram:Diagram, lines:BlocLines, map:Map<String, String>):CommandExecutionResult;
+	public abstract function executeArg(diagram:D, lines:BlocLines, map:Map<String, String>):CommandExecutionResult;
 }
