@@ -87,9 +87,13 @@ class AbstractTest extends Test {
 		content.push("</style>");
 		content.push("<body>");
 		for (p in myMap) {
+			content.push("<a href='" + p + "'>");
 			content.push(p);
+			content.push("</a>");
 			content.push("<p>");
-			content.push("<img src=\"" + p + "\">");
+			content.push("<a href='" + p + "'>");
+			content.push("<img src='" + p + "'>");
+			content.push("</a>");
 			content.push("<hr>");
 		}
 		content.push("</body>");

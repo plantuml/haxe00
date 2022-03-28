@@ -6,6 +6,7 @@ import com.plantuml.ugraphic.*;
 import hx.strings.StringBuilder;
 
 class SvgGraphics {
+	// https://stackoverflow.com/questions/36253961/using-google-fonts-with-svg-object
 	final root = Xml.createElement("svg");
 	final defs = Xml.createElement("defs");
 	final gRoot = Xml.createElement("g");
@@ -46,6 +47,7 @@ class SvgGraphics {
 		fillMe(elt);
 
 		elt.set("font-size", format(fontSize));
+		elt.set("font-family", "Roboto");
 		// elt.set("text", text);
 		elt.addChild(Xml.createCData(text));
 		getG().addChild(elt);
@@ -84,6 +86,13 @@ class SvgGraphics {
 	public function toSvg():String {
 		final maxXscaled:Int = Math.ceil(maxX * scale);
 		final maxYscaled:Int = Math.ceil(maxY * scale);
+
+		final elt = Xml.createElement("style");
+		elt.set("type", "text/css");
+		final cmd = "@import url('https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic');";
+		elt.addChild(Xml.createCData(cmd));
+		defs.addChild(elt);
+
 		var style = 'width:$maxXscaled px;height: $maxYscaled px;';
 		// if (/*this.classesForDarkness.size() == 0 &&*/ backcolor != null)
 		// trace('checking generalBackground $generalBackground');
