@@ -16,45 +16,49 @@ class SvgSizeAsciiUtils {
 			case " ".code:
 				return 500;
 			case "!".code:
-				return 650;
+				return 410;
 			case "\"".code:
-				return 740;
+				return 430;
 			case "#".code:
-				return 1340;
+				return 990;
 			case "$".code:
-				return 1020;
+				return 900;
 			case "%".code:
-				return 1520;
+				return 1170;
 			case "&".code:
-				return 1430;
+				return 1000;
 			case "'".code:
-				return 440;
+				return 200;
 			case "(".code | ")".code:
-				return 630;
+				return 560;
 			case "*".code:
-				return 800;
+				return 690;
 			case "+".code:
-				return 1340;
+				return 910;
 			case ",".code:
-				return 510;
+				return 320;
 			case "-".code:
-				return 550;
+				return 440;
 			case ".".code:
-				return 510;
+				return 420;
 			case "/".code:
-				return 540;
+				return 490;
 			case "0".code | "1".code | "2".code | "3".code | "4".code | "5".code | "6".code | "7".code | "8".code | "9".code:
-				return 1020;
+				return 900;
 			case ":".code:
-				return 540;
+				return 390;
 			case ";".code:
-				return 540;
-			case "<".code | "=".code | ">".code:
-				return 1340;
+				return 340;
+			case "<".code:
+				return 820;
+			case "=".code:
+				return 880;
+			case ">".code:
+				return 840;
 			case "?".code:
-				return 860;
+				return 760;
 			case "@".code:
-				return 1600;
+				return 1440;
 			case "A".code:
 				return 1160;
 			case "B".code:
@@ -179,4 +183,3 @@ class SvgSizeAsciiUtils {
 		return 0;
 	}
 }
-

@@ -83,15 +83,19 @@ class SvgGraphics {
 		return "" + tmp;
 	}
 
-	public function toSvg():String {
-		final maxXscaled:Int = Math.ceil(maxX * scale);
-		final maxYscaled:Int = Math.ceil(maxY * scale);
-
+	function getDefStyle() {
 		final elt = Xml.createElement("style");
 		elt.set("type", "text/css");
 		final cmd = "@import url('https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic');";
 		elt.addChild(Xml.createCData(cmd));
-		defs.addChild(elt);
+		return elt;
+	}
+
+	public function toSvg():String {
+		final maxXscaled:Int = Math.ceil(maxX * scale);
+		final maxYscaled:Int = Math.ceil(maxY * scale);
+
+		defs.addChild(getDefStyle());
 
 		var style = 'width:$maxXscaled px;height: $maxYscaled px;';
 		// if (/*this.classesForDarkness.size() == 0 &&*/ backcolor != null)

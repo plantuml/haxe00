@@ -92,7 +92,9 @@ class AbstractTest extends Test {
 			content.push("</a>");
 			content.push("<p>");
 			content.push("<a href='" + p + "'>");
-			content.push("<img src='" + p + "'>");
+			content.push("<object data='" + p + "' type='image/svg+xml'>");
+			content.push("</object>");
+			// content.push("<img src='" + p + "'>");
 			content.push("</a>");
 			content.push("<hr>");
 		}
