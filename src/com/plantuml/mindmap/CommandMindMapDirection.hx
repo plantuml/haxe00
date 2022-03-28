@@ -1,5 +1,9 @@
 package com.plantuml.mindmap;
 
+using com.plantuml.ArrayExtensions;
+using com.plantuml.utils.StartUtils;
+using hx.strings.Strings;
+
 import com.plantuml.command.*;
 import com.plantuml.command.regex.*;
 import com.plantuml.core.Diagram;
