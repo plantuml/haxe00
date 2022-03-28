@@ -31,8 +31,8 @@ class CharSizeTest extends utest.Test {
 	}
 
 	function testGetLongString() {
-		exportCodepoints("!".code, "~".code);
 		exportCodepoints(0xA1, 0xFF);
+		exportCodepoints("!".code, "~".code);
 	}
 
 	function exportCodepoints(codepoint1, codepoint2) {

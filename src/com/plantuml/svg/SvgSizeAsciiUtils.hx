@@ -60,67 +60,67 @@ class SvgSizeAsciiUtils {
 			case "@".code:
 				return 1440;
 			case "A".code:
-				return 1160;
+				return 1050;
 			case "B".code:
-				return 1180;
+				return 1000;
 			case "C".code:
-				return 1230;
+				return 1040;
 			case "D".code:
-				return 1290;
+				return 1050;
 			case "E".code:
-				return 1170;
+				return 910;
 			case "F".code:
-				return 1110;
+				return 890;
 			case "G".code:
-				return 1280;
+				return 1090;
 			case "H".code:
-				return 1400;
-			case "I".code:
-				return 640;
-			case "J".code:
-				return 650;
-			case "K".code:
-				return 1200;
-			case "L".code:
-				return 1070;
-			case "M".code:
-				return 1640;
-			case "N".code:
-				return 1400;
-			case "O".code:
-				return 1320;
-			case "P".code:
-				return 1080;
-			case "Q".code:
-				return 1320;
-			case "R".code:
-				return 1210;
-			case "S".code:
-				return 1070;
-			case "T".code:
-				return 1100;
-			case "U".code:
-				return 1350;
-			case "V".code:
-				return 1160;
-			case "W".code:
-				return 1650;
-			case "X".code:
 				return 1140;
+			case "I".code:
+				return 440;
+			case "J".code:
+				return 890;
+			case "K".code:
+				return 1010;
+			case "L".code:
+				return 860;
+			case "M".code:
+				return 1400;
+			case "N".code:
+				return 1140;
+			case "O".code:
+				return 1100;
+			case "P".code:
+				return 1010;
+			case "Q".code:
+				return 1100;
+			case "R".code:
+				return 990;
+			case "S".code:
+				return 950;
+			case "T".code:
+				return 970;
+			case "U".code:
+				return 1040;
+			case "V".code:
+				return 1020;
+			case "W".code:
+				return 1420;
+			case "X".code:
+				return 1010;
 			case "Y".code:
-				return 1060;
+				return 980;
 			case "Z".code:
-				return 1120;
+				return 960;
 			case "[".code | "]".code:
-				return 630;
+				return 500;
 			case "\\".code:
-				return 540;
+				return 500;
 			case "^".code:
-				return 1340;
+				return 500;
 			case "_".code:
-				return 800;
+				return 500;
 			case "`".code:
-				return 800;
+				return 500;
 			case "a".code:
 				return 960;
 			case "b".code:
