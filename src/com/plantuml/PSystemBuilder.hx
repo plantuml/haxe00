@@ -1,5 +1,6 @@
 package com.plantuml;
 
+import com.plantuml.eggs.*;
 import com.plantuml.error.PSystemErrorUtils;
 import com.plantuml.error.DiagramNothingFound;
 import com.plantuml.command.BlocLines;
@@ -14,6 +15,7 @@ class PSystemBuilder {
 	private final factories:Array<PSystemFactory> = [];
 
 	public function new() {
+		factories.push(new CharSizeDiagramFactory());
 		factories.push(new MindMapDiagramFactory());
 	}
 
