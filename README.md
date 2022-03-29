@@ -17,7 +17,7 @@ This way, PlantUML could run almost everywhere.
 
 PlantUML 2 is really a rewrite of the existing Java code.
 
-Haxe provides everything (and more!) that we need for PlantUML (oriented-object, regular expression, nice standard library), however re-implementing all that PlantUML is currently doing will takes time (that is, at least 2 years).
+[Haxe](https://haxe.org) provides everything (and more!) that we need for PlantUML (oriented-object, regular expression, nice standard library), however re-implementing all that PlantUML is currently doing will takes time (that is, at least 2 years).
 
 This means that we are going to slow down on adding new features in current PlantUML 1. We will only focus on bug fixes.
 
@@ -27,8 +27,49 @@ Current version of PlantUML 2 provides only a **tiny** part of what PlantUML 1 i
 * no preprocessor
 * no standard library
 
-Next step is now to add Sequence Diagram.
+**Next step is now to add Sequence Diagram.**
 
+# Compatibility
+
+Globally, PlantUML 2 will be able to parse the same file than PlantUML 1.
+
+Some features will not be re-implemented, but the most important will:
+* MindMap diagram (**done**)
+* Sequence diagram
+* Usecase diagram
+* Activity diagram
+* Class diagram
+* Object diagram
+* Component diagram
+* Deployment diagram
+* State diagram
+* Timing diagram
+* JSON data
+* YAML data
+* Network diagram (nwdiag)
+* Wireframe graphical interface or UI mockups (salt)
+* Archimate diagram
+* Specification and Description Language (SDL)
+* Gantt diagram
+* Work Breakdown Structure diagram (WBS)
+* Entity Relationship diagram (IE/ER)
+
+We are unsure about the following one:
+* Mathematic with AsciiMath or JLaTeXMath notation
+* Activity diagram legacy
+
+Features that will be excluded:
+* Ditaa
+
+We will port to Haxe the [Smetana project](https://plantuml.comsmetana02) which means that PlantUML 2 will **not** need any Graphviz/dot executable to run. 
+
+### Incompatible changes
+
+As said, we will be globally be compatible with PlantUML 1 syntax. However, we take this new release as an opportunity to improve some inconsistent choices that have been made in the past.
+
+* In class diagram, `package` do not define any namespace, which may be confusing. We have added `namespace` keywords to mitigate this. However, in Plantuml 2, `package` and `namespace` will be synonym, which may break some existing diagrams.
+
+Let us know if you know any other inconsistencies that you would like to see resolved. :-)
 
 ## Install Haxe
 
