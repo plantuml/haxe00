@@ -9,4 +9,4 @@ js/
 *.tmp
 /Main.js
 _*.html
-TestJs.js.map
+unit-test-java/*

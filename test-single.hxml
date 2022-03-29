@@ -1,8 +1,0 @@
--cp test
--cp src
---library utest
---library haxe-strings
---interp
---debug 
--main MainTestSingle
-

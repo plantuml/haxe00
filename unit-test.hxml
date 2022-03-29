@@ -12,7 +12,14 @@
 -cp src
 --library utest
 --library haxe-strings
+-main MainTest
 
---js Main.js
--main MainJs
+--each
+--python unit-test.py
+
+--next
+--java ./unit-test-java
+
+--next
+--js unit-test.js
 
