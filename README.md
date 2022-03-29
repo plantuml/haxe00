@@ -145,3 +145,6 @@ if __name__ == "__main__":
     svg = plantuml.getSvg()
     print(svg)
 ```
+
+
+### Java example

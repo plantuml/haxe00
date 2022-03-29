@@ -10,7 +10,7 @@
 #
 -cp src
 --library haxe-strings
--main Library
+-main Libplantuml
 
 --each
 --python libplantuml.py
