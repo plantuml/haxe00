@@ -99,7 +99,7 @@ $ java -jar plantuml-cli/MainCLI.jar
 usage: <PlantUML> foo.puml foo.svg
 ```
 
-## Foo
+## PlantUML as library
 
 
 
