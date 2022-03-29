@@ -1,9 +1,7 @@
 package com.plantuml.api.v2;
 
-import com.plantuml.error.PSystemErrorUtils;
-import haxe.exceptions.NotImplementedException;
 import com.plantuml.command.BlocLines;
-import com.plantuml.mindmap.MindMapDiagramFactory;
+import com.plantuml.error.PSystemErrorUtils;
 import com.plantuml.ugraphic.UGraphicSvg;
 
 using com.plantuml.utils.StartUtils;

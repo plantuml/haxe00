@@ -10,7 +10,7 @@ Moving to [Haxe](https://haxe.org/documentation/introduction/compiler-targets.ht
 * C#
 * C++
 
-This way, PlantUML language could be available everywhere.
+This way, PlantUML could run almost everywhere.
 
 
 # Current situation
@@ -68,12 +68,8 @@ Or in python3:
 ```
 python3 unit-test.py
 ```
-If python3 is your default install:
-```
-python unit-test.py
-```
 
-You can also open `unit-test.html` file in your browser to run the unitary tests in Javascript.
+You can also open `unit-test.html` file in your favorite browser to run unitary tests in Javascript.
 
 
 ## Command Line Interface
@@ -99,6 +95,9 @@ $ java -jar plantuml-cli/MainCLI.jar
 usage: <PlantUML> foo.puml foo.svg
 ```
 
+This CLI is right now really minimalist.
+
+
 ## PlantUML as library
 
 To build the PlantUML library, you must run the following command:
@@ -109,7 +108,7 @@ haxe lib.hxml
 This will build the following files:
 * libplantuml.js
 * libplantuml.py
-* libplantuml/Library.jar
+* libplantuml/Libplantuml.jar
 
 
 ### Javascript example
