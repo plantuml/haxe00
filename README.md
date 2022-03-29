@@ -30,7 +30,7 @@ Current version of PlantUML 2 provides only a **tiny** part of what PlantUML 1 i
 Next step is now to add Sequence Diagram.
 
 
-## How to build it
+## Install Haxe
 
 You first have to install [Haxe 4](https://haxe.org).
 
@@ -50,25 +50,59 @@ haxelib install haxe-strings -R http://lib.haxe.org/
 
 For building, you have to launch the `haxe` command with some `.hxml` build file.
 
-### Unit testing
+As IDE, we recommand the use of [VSCode](https://code.visualstudio.com/). 
 
+## Unit testing
+
+To build the unit tests, you have to launch the following command:
 ```
 haxe unit-test.hxml 
 ```
 
-
-
-
-
-Then build the JavaScript version:
+Then you can run the unit tests in Java:
 ```
-haxe js.hxml 
+java -jar unit-test/MainTest.jar
 ```
 
-Or the Command Line Interface (Java & Python):
+Or in python3:
+```
+python3 unit-test.py
+```
+If python3 is your default install:
+```
+python unit-test.py
+```
+
+You can also open `unit-test.html` file in your browser to run the unitary tests in Javascript.
+
+
+## Command Line Interface
+
+A basic Command Line Interface (CLI) is included for Java and Python.
+
+To build them, just run:
+
 ```
 haxe CLI.hxml 
 ```
+
+Then you can run the python CLI:
+
+```
+$ python3 plantuml-cli.py 
+usage: <PlantUML> foo.puml foo.svg
+```
+
+or the Java one:
+```
+$ java -jar plantuml-cli/MainCLI.jar 
+usage: <PlantUML> foo.puml foo.svg
+```
+
+## Foo
+
+
+
 
 
 After the build, you can run the python command line:

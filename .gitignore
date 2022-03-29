@@ -9,4 +9,6 @@ js/
 *.tmp
 /Main.js
 _*.html
+unit-test/*
 unit-test-java/*
+plantuml-cli/*

@@ -18,10 +18,10 @@
 -dce no
 --each
 
---python Main.py
+--python plantuml-cli.py
 -main MainCLI
 
 --next
 
---java ./jvm
+--java ./plantuml-cli
 -main MainCLI

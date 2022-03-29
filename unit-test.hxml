@@ -18,7 +18,7 @@
 --python unit-test.py
 
 --next
---java ./unit-test-java
+--java ./unit-test
 
 --next
 --js unit-test.js
