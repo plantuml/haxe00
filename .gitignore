@@ -11,4 +11,5 @@ js/
 _*.html
 unit-test/*
 unit-test-java/*
+plantuml-library/*
 plantuml-cli/*
