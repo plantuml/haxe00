@@ -7,9 +7,11 @@ js/
 *.py
 *.js
 *.tmp
-/Main.js
 _*.html
 unit-test/*
 unit-test-java/*
 plantuml-library/*
+libplantuml/*
 plantuml-cli/*
+__*
+*.out

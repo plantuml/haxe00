@@ -13,11 +13,11 @@
 -main Library
 
 --each
---python plantuml-library.py
+--python libplantuml.py
 
 --next
---java ./plantuml-library
+--java ./libplantuml
 
 --next
---js plantuml-library.js
+--js libplantuml.js
 
