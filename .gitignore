@@ -12,7 +12,5 @@ __*
 !demo-python.py
 _*.html
 unit-test/*
-unit-test-java/*
-plantuml-library/*
 libplantuml/*
 plantuml-cli/*

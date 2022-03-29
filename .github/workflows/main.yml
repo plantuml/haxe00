@@ -56,7 +56,7 @@ jobs:
           haxe unit-test.hxml
           python --version
           python unit-test.py > unit-test-py.out
-          java -jar unit-test-java/MainTest.jar > unit-test-java.out
+          java -jar unit-test/MainTest.jar > unit-test-java.out
           if grep "ALL TESTS OK" unit-test-py.out; then
             echo "ok"
           else
