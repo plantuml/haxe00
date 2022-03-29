@@ -1,7 +1,7 @@
 import haxe.ds.BalancedTree;
 import hx.strings.StringBuilder;
 import com.plantuml.command.BlocLines;
-import com.plantuml.api.v1.Plantuml;
+import com.plantuml.api.v2.Plantuml;
 
 using hx.strings.Strings;
 using com.plantuml.utils.StartUtils;

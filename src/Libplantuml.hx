@@ -1,5 +1,5 @@
 @:expose
-class Plantuml extends com.plantuml.api.v1.Plantuml {}
+class PlantumlV2 extends com.plantuml.api.v2.Plantuml {}
 
 class Libplantuml {
 	static function main() {}

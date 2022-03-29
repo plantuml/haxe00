@@ -7,7 +7,7 @@ JavaScript demo of PlantUML 2.
 
 <script type="text/javascript">
 	function update() {
-		var plantuml = new Plantuml();
+		var plantuml = new PlantumlV2();
 		var tt = document.getElementById('tt').value;
 		plantuml.addLines(tt);
 		document.getElementById('result').innerHTML = plantuml.getSvg();

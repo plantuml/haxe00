@@ -120,7 +120,7 @@ You can use `libplantuml.js` this way:
 <script type="text/javascript" src="libplantuml.js"></script>
 <script type="text/javascript">
 	function update() {
-		var plantuml = new Plantuml();
+		var plantuml = new PlantumlV2();
 		var tt = document.getElementById('tt').value;
 		plantuml.addLines(tt);
 		document.getElementById('result').innerHTML = plantuml.getSvg();
@@ -138,13 +138,39 @@ You can use `libplantuml.py` this way:
 import libplantuml
 
 if __name__ == "__main__":
-    plantuml = libplantuml.Plantuml()
+    plantuml = libplantuml.PlantumlV2()
+    plantuml.addLineSingle("@startmindmap")
     plantuml.addLineSingle("* World")
     plantuml.addLineSingle("** America")
-    plantuml.addLineSingle("** Europ")
+    plantuml.addLineSingle("** Europe")
+    plantuml.addLineSingle("@endmindmap")
     svg = plantuml.getSvg()
     print(svg)
 ```
 
 
 ### Java example
+
+The very same example running in Java:
+
+```
+import com.plantuml.api.v2.Plantuml;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		final Plantuml plantuml = new Plantuml();
+		plantuml.addLineSingle("@startmindmap");
+		plantuml.addLineSingle("* World");
+		plantuml.addLineSingle("** America");
+		plantuml.addLineSingle("** Europe");
+		plantuml.addLineSingle("@endmindmap");
+		
+		final String svg = plantuml.getSvg();
+		System.out.println(svg);
+
+	}
+
+}
+```

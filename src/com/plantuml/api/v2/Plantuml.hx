@@ -1,4 +1,4 @@
-package com.plantuml.api.v1;
+package com.plantuml.api.v2;
 
 import com.plantuml.error.PSystemErrorUtils;
 import haxe.exceptions.NotImplementedException;

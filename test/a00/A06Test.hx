@@ -1,6 +1,6 @@
 package a00;
 
-import com.plantuml.api.v1.Plantuml;
+import com.plantuml.api.v2.Plantuml;
 import utest.Assert;
 
 using com.plantuml.utils.StartUtils;

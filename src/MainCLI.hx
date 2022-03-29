@@ -1,4 +1,4 @@
-import com.plantuml.api.v1.*;
+import com.plantuml.api.v2.*;
 
 class MainCLI {
 	static function main() {
