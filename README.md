@@ -101,38 +101,47 @@ usage: <PlantUML> foo.puml foo.svg
 
 ## PlantUML as library
 
-
-
-
-
-After the build, you can run the python command line:
+To build the PlantUML library, you must run the following command:
 ```
-python3 Main.py foo.puml foo.hxml
+haxe lib.hxml 
 ```
 
-Or the java one:
-```
-java -jar jvm/Main.jar foo.puml foo.hxml
-```
-
-Or open the html page **main.html**.
+This will build the following files:
+* libplantuml.js
+* libplantuml.py
+* libplantuml/Library.jar
 
 
-# Building
+### Javascript example
 
-You can just use mindmap diagrams:
+You can use `libplantuml.js` this way:
 
 ```
-@startminmap
-* WORLD
-** America
-*** Canada
-*** USA
-** Europe
-*** UK
-*** France
-*** Germany
-*** Italy
-** Africa
-@endmindmap
+<script type="text/javascript" src="libplantuml.js"></script>
+<script type="text/javascript">
+	function update() {
+		var plantuml = new Plantuml();
+		var tt = document.getElementById('tt').value;
+		plantuml.addLines(tt);
+		document.getElementById('result').innerHTML = plantuml.getSvg();
+	}
+</script>
+```
+
+
+### Python example
+
+You can use `libplantuml.py` this way:
+
+```
+#!/usr/bin/python
+import libplantuml
+
+if __name__ == "__main__":
+    plantuml = libplantuml.Plantuml()
+    plantuml.addLineSingle("* World")
+    plantuml.addLineSingle("** America")
+    plantuml.addLineSingle("** Europ")
+    svg = plantuml.getSvg()
+    print(svg)
 ```
