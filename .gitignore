@@ -1,8 +1,4 @@
 .unittest/*.json
-TestJvm/*
-bin/
-jvm/
-js/
 __*
 *.svg
 *.out
