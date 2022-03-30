@@ -4,7 +4,6 @@ export JAVA_HOME=/opt/jdk1.8.0_102
 rm *.out unit-test.py
 haxe unit-test.hxml
 python3 unit-test.py > unit-test-py.out
-java -jar unit-test-java/MainTest.jar > unit-test-java.out
+java -jar unit-test/MainTest.jar > unit-test-java.out
 cat *.out
-grep results unit-test-py.out
-grep results unit-test-java.out
+grep results *.out

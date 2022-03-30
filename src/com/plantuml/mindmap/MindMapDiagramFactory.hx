@@ -7,7 +7,7 @@ import com.plantuml.core.DiagramType;
 
 using hx.strings.Strings;
 
-class MindMapDiagramFactory extends PSystemCommandFactory {
+class MindMapDiagramFactory extends PSystemCommandFactory<MindMapDiagram> {
 	var cmds:Array<Command<MindMapDiagram>>;
 
 	public function new() {

@@ -4,4 +4,4 @@ import com.plantuml.core.DiagramType;
 import com.plantuml.core.Diagram;
 import com.plantuml.command.BlocLines;
 
-abstract class PSystemCommandFactory implements PSystemFactory {}
+abstract class PSystemCommandFactory<D> implements PSystemFactory {}
