@@ -23,11 +23,11 @@ class RegexLeaf extends AbstractRegex implements IRegex {
 
 	public function eat(array:Array<String>, map:Map<String, String>):Void {
 		if (size == 1) {
-			var s = array.pop();
+			final s = array.pop();
 			map.set(name, s);
 		} else
 			for (i in 0...size) {
-				var s = array.pop();
+				final s = array.pop();
 				map.set(name + i, s);
 			}
 	}

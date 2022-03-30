@@ -2,6 +2,7 @@ package com.plantuml.command.regex;
 
 class RegexOr extends AbstractRegex implements IRegex {
 	private final all:Array<IRegex>;
+	private final name:String;
 
 	public function getSize():Int {
 		var size = 0;
@@ -11,11 +12,12 @@ class RegexOr extends AbstractRegex implements IRegex {
 	}
 
 	public function new(?name:String, all:Array<IRegex>) {
+		this.name = name;
 		this.all = all;
 		var tmp:String = "";
 		for (r in all) {
 			if (tmp.length == 0)
-				tmp += "(?:";
+				tmp += name == null ? "(?:" : "(";
 			else
 				tmp += "|";
 			tmp += r.getPatternString();
@@ -25,6 +27,10 @@ class RegexOr extends AbstractRegex implements IRegex {
 	}
 
 	public function eat(array:Array<String>, map:Map<String, String>):Void {
+		if (name != null) {
+			final s = array.pop();
+			map.set(name, s);
+		}
 		for (r in all)
 			r.eat(array, map);
 	}

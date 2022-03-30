@@ -31,12 +31,12 @@ class CommandArrow extends SingleLineCommand<SequenceDiagram> {
 			//                 new RegexLeaf("ARROW_BODYB2", "(-+)"))), //
 			new RegexLeaf(1, "(_?>>?(?:[ox][%s])?|//?(?:[ox][%s])?|\\\\\\\\?(?:[ox][%s])?|[ox][%s])?", "ARROW_DRESSING2"), //
 			RegexLeaf.spaceZeroOrMore(), //
-			// new RegexOr("PART2", //
-			new RegexLeaf(1, "([%W.@]+)", "PART2CODE"), //
-			//         new RegexLeaf("PART2LONG", "[%g]([^%g]+)[%g]"), //
-			//         new RegexLeaf("PART2LONGCODE", "[%g]([^%g]+)[%g][%s]*as[%s]+([%pLN_.@]+)"), //
-			//         new RegexLeaf("PART2CODELONG", "([%pLN_.@]+)[%s]+as[%s]*[%g]([^%g]+)[%g]")), //
-			// new RegexLeaf("MULTICAST", "((?:\\s&\\s[%pLN_.@]+)*)"), //
+			new RegexOr("PART2", [
+				new RegexLeaf(1, "([%W.@]+)", "PART2CODE"), //
+				new RegexLeaf(1, "[%g]([^%g]+)[%g]", "PART2LONG"), //
+				new RegexLeaf(2, "[%g]([^%g]+)[%g][%s]*as[%s]+([%W.@]+)", "PART2LONGCODE"), //
+				new RegexLeaf(2, "([%W.@]+)[%s]+as[%s]*[%g]([^%g]+)[%g]", "PART2CODELONG")
+			]), // new RegexLeaf("MULTICAST", "((?:\\s&\\s[%pLN_.@]+)*)"), //
 			// new RegexLeaf("PART2ANCHOR", ANCHOR), //
 			// RegexLeaf.spaceZeroOrMore(), //
 			// new RegexLeaf("ACTIVATION", "(?:(\\+\\+|\\*\\*|!!|--|--\\+\\+|\\+\\+--)?)"), //
@@ -55,7 +55,8 @@ class CommandArrow extends SingleLineCommand<SequenceDiagram> {
 
 	public function executeArg(diagram:SequenceDiagram, lines:BlocLines, map:Map<String, String>):CommandExecutionResult {
 		trace('map=' + map.removeNullValue());
-		Assert.equals("{ARROW_BODYA1=-, ARROW_DRESSING2=>, MESSAGE=hello, PART1CODE=Alice, PART2CODE=Bob}", map.removeNullValue().toString());
+		Assert.equals("{ARROW_BODYA1=-, ARROW_DRESSING2=>, MESSAGE=hello, PART1=Alice, PART1CODE=Alice, PART2=Bob, PART2CODE=Bob}",
+			map.removeNullValue().toString());
 		throw new haxe.exceptions.NotImplementedException();
 	}
 }
