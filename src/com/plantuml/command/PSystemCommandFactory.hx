@@ -1,19 +1,18 @@
 package com.plantuml.command;
 
-import com.plantuml.error.PSystemErrorUtils;
-import com.plantuml.core.DiagramType;
-import com.plantuml.core.Diagram;
-import com.plantuml.command.BlocLines;
+import com.plantuml.error.*;
+import com.plantuml.core.*;
+import com.plantuml.command.*;
 
 abstract class PSystemCommandFactory<D> implements PSystemFactory {
-	var cmds2:Array<Command<D>>;
+	var cmds:Array<Command<D>>;
 
-	public function new(cmds2) {
-		this.cmds2 = cmds2;
+	public function new(cmds) {
+		this.cmds = cmds;
 	}
 
-	private function getCandidate2(it:BlocLinesIterator) {
-		for (cmd in this.cmds2) {
+	private function getCandidate(it:BlocLinesIterator) {
+		for (cmd in this.cmds) {
 			// trace('cmd=$cmd');
 			var nbPeek = 1;
 			var bl = new BlocLines(it.peek(nbPeek));
@@ -44,10 +43,10 @@ abstract class PSystemCommandFactory<D> implements PSystemFactory {
 		return null;
 	}
 
-	abstract function createEmpty2():D;
+	abstract function createEmpty():D;
 
-	public function createSystem2(lines:BlocLines):Diagram {
-		final diagram = createEmpty2();
+	public function createSystem(lines:BlocLines):Diagram {
+		final diagram = createEmpty();
 		final it = lines.getBlocLinesIterator();
 
 		while (it.hasMore()) {
@@ -55,7 +54,7 @@ abstract class PSystemCommandFactory<D> implements PSystemFactory {
 			// if (s == "" || s.startsWith("@start") || s.startsWith("@end"))
 			// 	continue;
 
-			final candidate = getCandidate2(it);
+			final candidate = getCandidate(it);
 			if (candidate == null)
 				return PSystemErrorUtils.syntaxErrorAt(lines.slice(0, it.currentPosition() + 1));
 
