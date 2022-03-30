@@ -12,6 +12,7 @@ class MindMapDiagramFactory extends PSystemCommandFactory<MindMapDiagram> {
 
 	public function new() {
 		this.cmds = createCommands();
+		super(this.cmds);
 	}
 
 	private function createCommands():Array<Command<MindMapDiagram>> {
@@ -57,6 +58,10 @@ class MindMapDiagramFactory extends PSystemCommandFactory<MindMapDiagram> {
 			}
 		}
 		return null;
+	}
+
+	function createEmpty2() {
+		return new MindMapDiagram();
 	}
 
 	public function createSystem(lines:BlocLines):Diagram {
