@@ -45,7 +45,7 @@ class CommandArrow extends SingleLineCommand<SequenceDiagram> {
 			// new RegexLeaf("STEREOTYPE", "(\\<\\<.*\\>\\>)?"), //
 			// RegexLeaf.spaceZeroOrMore(), //
 			// new RegexLeaf("URL", "(" + UrlBuilder.getRegexp() + ")?"), //
-			// RegexLeaf.spaceZeroOrMore(), //
+			RegexLeaf.spaceZeroOrMore(), //
 			new RegexLeaf(1, "(?::[%s]*(.*))?", "MESSAGE"), //
 			// RegexLeaf.end()).protectSize(2000);
 			RegexLeaf.end()
