@@ -3,7 +3,7 @@ package com.plantuml.sequencediagram.command;
 import utest.Assert;
 
 class CommandArrow extends SingleLineCommand<SequenceDiagram> {
-	static final ANCHOR = "(\\{([%%W]+)\\}[%s]+)?";
+	static final ANCHOR = "(\\{([%W]+)\\}[%s]+)?";
 
 	public function new() {
 		_init([
@@ -12,12 +12,12 @@ class CommandArrow extends SingleLineCommand<SequenceDiagram> {
 			new RegexLeaf(2, ANCHOR, "ANCHOR"), //
 			// new RegexOr("PART1", //
 			new RegexOr("PART1", [
-				new RegexLeaf(1, "([%W.@]+)", "PART1CODE") //
-					//         new RegexLeaf("PART1LONG", "[%g]([^%g]+)[%g]"), //
-					//         new RegexLeaf("PART1LONGCODE", "[%g]([^%g]+)[%g][%s]*as[%s]+([%pLN_.@]+)"), //
-					//         new RegexLeaf("PART1CODELONG", "([%pLN_.@]+)[%s]+as[%s]*[%g]([^%g]+)[%g]")), //
-			]), //
-			// new RegexLeaf("PART1ANCHOR", ANCHOR), //
+				new RegexLeaf(1, "([%W.@]+)", "PART1CODE"), //
+				new RegexLeaf(1, "[%g]([^%g]+)[%g]", "PART1LONG"),
+				new RegexLeaf(2, "[%g]([^%g]+)[%g][%s]*as[%s]+([%W.@]+)", "PART1LONGCODE"), //
+				new RegexLeaf(2, "([%W.@]+)[%s]+as[%s]*[%g]([^%g]+)[%g]", "PART1CODELONG")
+			]),
+			new RegexLeaf(2, ANCHOR, "PART1ANCHOR"), //
 			RegexLeaf.spaceZeroOrMore(), //
 			// new RegexLeaf("ARROW_DRESSING1",
 			//         "([%s][ox]|(?:[%s][ox])?<<?_?|(?:[%s][ox])?//?|(?:[%s][ox])?\\\\\\\\?)?"), //
