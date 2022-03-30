@@ -5,5 +5,17 @@ rm *.out unit-test.py
 haxe unit-test.hxml
 python3 unit-test.py > unit-test-py.out
 java -jar unit-test/MainTest.jar > unit-test-java.out
-cat *.out
+#cat *.out
+
+if grep "ALL TESTS OK" unit-test-py.out; then
+echo "ok python"
+else
+cat unit-test-py.out
+fi
+if grep "ALL TESTS OK" unit-test-java.out; then
+echo "ok java"
+else
+cat unit-test-java.out
+fi
+
 grep results *.out

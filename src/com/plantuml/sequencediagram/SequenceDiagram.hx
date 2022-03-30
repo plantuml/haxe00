@@ -1,3 +1,5 @@
 package com.plantuml.sequencediagram;
 
-class SequenceDiagram {}
+class SequenceDiagram {
+	public function new() {}
+}
