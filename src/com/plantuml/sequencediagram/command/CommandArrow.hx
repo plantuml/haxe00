@@ -24,16 +24,18 @@ class CommandArrow extends SingleLineCommand<SequenceDiagram> {
 			new RegexLeaf(2, ANCHOR, "PART1ANCHOR"), //
 			RegexLeaf.spaceZeroOrMore(), //
 			new RegexLeaf(1, "([%s][ox]|(?:[%s][ox])?<<?_?|(?:[%s][ox])?//?|(?:[%s][ox])?\\\\\\\\?)?", "ARROW_DRESSING1"), //
-			// new RegexOr(
-			new RegexConcat([
-				new RegexLeaf(1, "(-+)", "ARROW_BODYA1"), //
-				new RegexLeaf(1, getColorOrStylePattern(), "ARROW_STYLE1"), //
-				new RegexLeaf(1, "(-*)", "ARROW_BODYB1")
-			]), //
-			//         new RegexConcat( //
-			//                 new RegexLeaf("ARROW_BODYA2", "(-*)"), //
-			//                 new RegexLeaf("ARROW_STYLE2", getColorOrStylePattern()), //
-			//                 new RegexLeaf("ARROW_BODYB2", "(-+)"))), //
+			new RegexOr([
+				new RegexConcat([
+					new RegexLeaf(1, "(-+)", "ARROW_BODYA1"), //
+					new RegexLeaf(1, getColorOrStylePattern(), "ARROW_STYLE1"), //
+					new RegexLeaf(1, "(-*)", "ARROW_BODYB1")
+				]), //
+				new RegexConcat([
+					new RegexLeaf(1, "(-*)", "ARROW_BODYA2"), //
+					new RegexLeaf(1, getColorOrStylePattern(), "ARROW_STYLE2"), //
+					new RegexLeaf(1, "(-+)", "ARROW_BODYB2")
+				])
+			]), 
 			new RegexLeaf(1, "(_?>>?(?:[ox][%s])?|//?(?:[ox][%s])?|\\\\\\\\?(?:[ox][%s])?|[ox][%s])?", "ARROW_DRESSING2"), //
 			RegexLeaf.spaceZeroOrMore(), //
 			new RegexOr("PART2", [

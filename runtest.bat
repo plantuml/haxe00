@@ -1,7 +1,7 @@
 :hello
-del *.py
-haxe test-full.hxml
-python TestPy.py
-java -jar TestJvm/MainTest-Debug.jar
+del unit-test.py
+haxe unit-test.hxml
+python unit-test.py
+java -jar unit-test/MainTest.jar
 pause
 goto hello
