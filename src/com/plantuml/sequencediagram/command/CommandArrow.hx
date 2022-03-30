@@ -1,9 +1,14 @@
 package com.plantuml.sequencediagram.command;
 
+import com.plantuml.descdiagram.command.CommandLinkElement;
 import utest.Assert;
 
 class CommandArrow extends SingleLineCommand<SequenceDiagram> {
 	static final ANCHOR = "(\\{([%W]+)\\}[%s]+)?";
+
+	public static function getColorOrStylePattern() {
+		return "(?:\\[(" + CommandLinkElement.LINE_STYLE + ")\\])?";
+	}
 
 	public function new() {
 		_init([
@@ -19,10 +24,12 @@ class CommandArrow extends SingleLineCommand<SequenceDiagram> {
 			new RegexLeaf(2, ANCHOR, "PART1ANCHOR"), //
 			RegexLeaf.spaceZeroOrMore(), //
 			new RegexLeaf(1, "([%s][ox]|(?:[%s][ox])?<<?_?|(?:[%s][ox])?//?|(?:[%s][ox])?\\\\\\\\?)?", "ARROW_DRESSING1"), //
-			// new RegexOr(new RegexConcat( //
-			new RegexLeaf(1, "(-+)", "ARROW_BODYA1"), //
-			//         new RegexLeaf("ARROW_STYLE1", getColorOrStylePattern()), //
-			//         new RegexLeaf("ARROW_BODYB1", "(-*)")), //
+			// new RegexOr(
+			new RegexConcat([
+				new RegexLeaf(1, "(-+)", "ARROW_BODYA1"), //
+				new RegexLeaf(1, getColorOrStylePattern(), "ARROW_STYLE1"), //
+				new RegexLeaf(1, "(-*)", "ARROW_BODYB1")
+			]), //
 			//         new RegexConcat( //
 			//                 new RegexLeaf("ARROW_BODYA2", "(-*)"), //
 			//                 new RegexLeaf("ARROW_STYLE2", getColorOrStylePattern()), //
@@ -53,6 +60,7 @@ class CommandArrow extends SingleLineCommand<SequenceDiagram> {
 	}
 
 	public function executeArg(diagram:SequenceDiagram, lines:BlocLines, map:Map<String, String>):CommandExecutionResult {
+		trace('map=$map');
 		trace('map=' + map.removeNullValue());
 		Assert.equals("{ARROW_BODYA1=-, ARROW_DRESSING2=>, MESSAGE=hello, PART1=Alice, PART1CODE=Alice, PART2=Bob, PART2CODE=Bob}",
 			map.removeNullValue().toString());

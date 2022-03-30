@@ -19,16 +19,18 @@ class RegexLeaf extends AbstractRegex implements IRegex {
 	}
 
 	public function eat(array:Array<String>, map:Map<String, String>):Void {
-		if (size == 1) {
-			final s = array.pop();
-			if (s != null && s.length > 0)
-				map.set(name, s);
-		} else
-			for (i in 0...size) {
-				final s = array.pop();
-				if (s != null && s.length > 0)
-					map.set(name + i, s);
-			}
+		if (size == 1)
+			map.set(name, popFromArray(array));
+		else
+			for (i in 0...size)
+				map.set(name + i, popFromArray(array));
+	}
+
+	private function popFromArray(array:Array<String>) {
+		final s = array.pop();
+		if (s != null && s.length == 0)
+			return null;
+		return s;
 	}
 
 	public static function start() {
