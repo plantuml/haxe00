@@ -1,8 +1,5 @@
 package com.plantuml.command.regex;
 
-import com.plantuml.regex.MyPattern;
-import haxe.display.JsonModuleTypes.JsonExpr;
-
 class RegexLeaf extends AbstractRegex implements IRegex {
 	private final name:String;
 	private final size:Int;
@@ -24,25 +21,16 @@ class RegexLeaf extends AbstractRegex implements IRegex {
 	public function eat(array:Array<String>, map:Map<String, String>):Void {
 		if (size == 1) {
 			final s = array.pop();
-			map.set(name, s);
+			if (s != null && s.length > 0)
+				map.set(name, s);
 		} else
 			for (i in 0...size) {
 				final s = array.pop();
-				map.set(name + i, s);
+				if (s != null && s.length > 0)
+					map.set(name + i, s);
 			}
 	}
 
-	/*
-		public function match(full:String):JsonExpr {
-			var r = new EReg(pattern, "i");
-
-			var s = '{"rating": 5}';
-			var o = haxe.Json.parse(s);
-			trace(o); // { rating: 5 }
-			$type(o);
-
-			return o;
-	}*/
 	public static function start() {
 		return new RegexLeaf(0, "^");
 	}

@@ -10,7 +10,6 @@ class CommandArrow extends SingleLineCommand<SequenceDiagram> {
 			RegexLeaf.start(), //
 			new RegexLeaf(1, "(&[%s]*)?", "PARALLEL"), //
 			new RegexLeaf(2, ANCHOR, "ANCHOR"), //
-			// new RegexOr("PART1", //
 			new RegexOr("PART1", [
 				new RegexLeaf(1, "([%W.@]+)", "PART1CODE"), //
 				new RegexLeaf(1, "[%g]([^%g]+)[%g]", "PART1LONG"),
@@ -19,8 +18,7 @@ class CommandArrow extends SingleLineCommand<SequenceDiagram> {
 			]),
 			new RegexLeaf(2, ANCHOR, "PART1ANCHOR"), //
 			RegexLeaf.spaceZeroOrMore(), //
-			// new RegexLeaf("ARROW_DRESSING1",
-			//         "([%s][ox]|(?:[%s][ox])?<<?_?|(?:[%s][ox])?//?|(?:[%s][ox])?\\\\\\\\?)?"), //
+			new RegexLeaf(1, "([%s][ox]|(?:[%s][ox])?<<?_?|(?:[%s][ox])?//?|(?:[%s][ox])?\\\\\\\\?)?", "ARROW_DRESSING1"), //
 			// new RegexOr(new RegexConcat( //
 			new RegexLeaf(1, "(-+)", "ARROW_BODYA1"), //
 			//         new RegexLeaf("ARROW_STYLE1", getColorOrStylePattern()), //
@@ -36,7 +34,8 @@ class CommandArrow extends SingleLineCommand<SequenceDiagram> {
 				new RegexLeaf(1, "[%g]([^%g]+)[%g]", "PART2LONG"), //
 				new RegexLeaf(2, "[%g]([^%g]+)[%g][%s]*as[%s]+([%W.@]+)", "PART2LONGCODE"), //
 				new RegexLeaf(2, "([%W.@]+)[%s]+as[%s]*[%g]([^%g]+)[%g]", "PART2CODELONG")
-			]), // new RegexLeaf("MULTICAST", "((?:\\s&\\s[%pLN_.@]+)*)"), //
+			]),
+			new RegexLeaf(1, "((?:\\s&\\s[%W.@]+)*)", "MULTICAST"), //
 			// new RegexLeaf("PART2ANCHOR", ANCHOR), //
 			// RegexLeaf.spaceZeroOrMore(), //
 			// new RegexLeaf("ACTIVATION", "(?:(\\+\\+|\\*\\*|!!|--|--\\+\\+|\\+\\+--)?)"), //
