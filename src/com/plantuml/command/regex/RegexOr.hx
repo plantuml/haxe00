@@ -10,7 +10,7 @@ class RegexOr extends AbstractRegex implements IRegex {
 		return size;
 	}
 
-	public function new(all:Array<IRegex>) {
+	public function new(?name:String, all:Array<IRegex>) {
 		this.all = all;
 		var tmp:String = "";
 		for (r in all) {

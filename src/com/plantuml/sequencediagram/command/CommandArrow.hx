@@ -1,7 +1,6 @@
 package com.plantuml.sequencediagram.command;
 
-import com.plantuml.command.regex.*;
-import com.plantuml.command.*;
+import utest.Assert;
 
 class CommandArrow extends SingleLineCommand<SequenceDiagram> {
 	static final ANCHOR = "(\\{([%%W]+)\\}[%s]+)?";
@@ -12,10 +11,12 @@ class CommandArrow extends SingleLineCommand<SequenceDiagram> {
 			new RegexLeaf(1, "(&[%s]*)?", "PARALLEL"), //
 			new RegexLeaf(2, ANCHOR, "ANCHOR"), //
 			// new RegexOr("PART1", //
-			new RegexLeaf(1, "([%W.@]+)", "PART1CODE"), //
-			//         new RegexLeaf("PART1LONG", "[%g]([^%g]+)[%g]"), //
-			//         new RegexLeaf("PART1LONGCODE", "[%g]([^%g]+)[%g][%s]*as[%s]+([%pLN_.@]+)"), //
-			//         new RegexLeaf("PART1CODELONG", "([%pLN_.@]+)[%s]+as[%s]*[%g]([^%g]+)[%g]")), //
+			new RegexOr("PART1", [
+				new RegexLeaf(1, "([%W.@]+)", "PART1CODE") //
+					//         new RegexLeaf("PART1LONG", "[%g]([^%g]+)[%g]"), //
+					//         new RegexLeaf("PART1LONGCODE", "[%g]([^%g]+)[%g][%s]*as[%s]+([%pLN_.@]+)"), //
+					//         new RegexLeaf("PART1CODELONG", "([%pLN_.@]+)[%s]+as[%s]*[%g]([^%g]+)[%g]")), //
+			]), //
 			// new RegexLeaf("PART1ANCHOR", ANCHOR), //
 			RegexLeaf.spaceZeroOrMore(), //
 			// new RegexLeaf("ARROW_DRESSING1",
@@ -53,7 +54,8 @@ class CommandArrow extends SingleLineCommand<SequenceDiagram> {
 	}
 
 	public function executeArg(diagram:SequenceDiagram, lines:BlocLines, map:Map<String, String>):CommandExecutionResult {
-		trace('map=$map');
+		trace('map=' + map.removeNullValue());
+		Assert.equals("{ARROW_BODYA1=-, ARROW_DRESSING2=>, MESSAGE=hello, PART1CODE=Alice, PART2CODE=Bob}", map.removeNullValue().toString());
 		throw new haxe.exceptions.NotImplementedException();
 	}
 }
