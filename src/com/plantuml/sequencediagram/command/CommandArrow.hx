@@ -36,14 +36,14 @@ class CommandArrow extends SingleLineCommand<SequenceDiagram> {
 				new RegexLeaf(2, "([%W.@]+)[%s]+as[%s]*[%g]([^%g]+)[%g]", "PART2CODELONG")
 			]),
 			new RegexLeaf(1, "((?:\\s&\\s[%W.@]+)*)", "MULTICAST"), //
-			// new RegexLeaf("PART2ANCHOR", ANCHOR), //
-			// RegexLeaf.spaceZeroOrMore(), //
-			// new RegexLeaf("ACTIVATION", "(?:(\\+\\+|\\*\\*|!!|--|--\\+\\+|\\+\\+--)?)"), //
-			// RegexLeaf.spaceZeroOrMore(), //
-			// new RegexLeaf("LIFECOLOR", "(?:(#\\w+)?)"), //
-			// RegexLeaf.spaceZeroOrMore(), //
-			// new RegexLeaf("STEREOTYPE", "(\\<\\<.*\\>\\>)?"), //
-			// RegexLeaf.spaceZeroOrMore(), //
+			new RegexLeaf(2, ANCHOR, "PART2ANCHOR"), //
+			RegexLeaf.spaceZeroOrMore(), //
+			new RegexLeaf(1, "(?:(\\+\\+|\\*\\*|!!|--|--\\+\\+|\\+\\+--)?)", "ACTIVATION"), //
+			RegexLeaf.spaceZeroOrMore(), //
+			new RegexLeaf(1, "(?:(#\\w+)?)", "LIFECOLOR"), //
+			RegexLeaf.spaceZeroOrMore(), //
+			new RegexLeaf(1, "(\\<\\<.*\\>\\>)?", "STEREOTYPE"), //
+			RegexLeaf.spaceZeroOrMore(), //
 			// new RegexLeaf("URL", "(" + UrlBuilder.getRegexp() + ")?"), //
 			RegexLeaf.spaceZeroOrMore(), //
 			new RegexLeaf(1, "(?::[%s]*(.*))?", "MESSAGE"), //
