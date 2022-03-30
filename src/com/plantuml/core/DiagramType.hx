@@ -8,6 +8,7 @@ using com.plantuml.utils.StartUtils;
 abstract DiagramType(String) {
 	final UNKNOWN;
 	final MINDMAP;
+	final UML;
 	final CHARSIZE;
 
 	static public function getTypeFromArobaseStart(s:String):DiagramType {
