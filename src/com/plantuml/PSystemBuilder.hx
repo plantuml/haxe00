@@ -32,6 +32,7 @@ class PSystemBuilder {
 		lines = lines.removeFirstAndLast();
 		for (f in factories.filter(x -> x.getDiagramType() == type)) {
 			try {
+				// trace('f=$f');
 				final result = f.createSystem(lines);
 				if (result != null)
 					return result;

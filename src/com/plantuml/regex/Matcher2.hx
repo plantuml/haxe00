@@ -62,7 +62,9 @@ class Matcher2 {
 		// return p.test(input);
 		#else
 		final r = new EReg(pString, "i");
-		return r.match(input);
+		final res = r.match(input);
+		// trace('res=$res');
+		return res;
 		#end
 	}
 

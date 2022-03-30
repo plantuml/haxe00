@@ -13,9 +13,10 @@ abstract class PSystemCommandFactory<D> implements PSystemFactory {
 
 	private function getCandidate(it:BlocLinesIterator) {
 		for (cmd in this.cmds) {
-			// trace('cmd=$cmd');
 			var nbPeek = 1;
 			var bl = new BlocLines(it.peek(nbPeek));
+			// trace('it=$it');
+			// trace('bl=$bl');
 			// trace('bl=$bl');
 			var result = cmd.isValid(bl);
 			// trace('result=$result');

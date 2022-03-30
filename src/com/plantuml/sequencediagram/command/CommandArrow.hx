@@ -10,7 +10,7 @@ class CommandArrow extends SingleLineCommand<SequenceDiagram> {
 		_init([
 			RegexLeaf.start(), //
 			new RegexLeaf(1, "(&[%s]*)?", "PARALLEL"), //
-			new RegexLeaf(1, ANCHOR, "ANCHOR"), //
+			new RegexLeaf(2, ANCHOR, "ANCHOR"), //
 			// new RegexOr("PART1", //
 			new RegexLeaf(1, "([%W.@]+)", "PART1CODE"), //
 			//         new RegexLeaf("PART1LONG", "[%g]([^%g]+)[%g]"), //

@@ -43,6 +43,7 @@ class Pattern2 {
 		#elseif js
 		return new Matcher2(pString, input, p);
 		#else
+		// trace('pString=$pString');
 		return new Matcher2(pString, input);
 		#end
 	}
