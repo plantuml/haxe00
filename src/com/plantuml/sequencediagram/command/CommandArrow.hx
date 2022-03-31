@@ -35,7 +35,7 @@ class CommandArrow extends SingleLineCommand<SequenceDiagram> {
 					new RegexLeaf(1, getColorOrStylePattern(), "ARROW_STYLE2"), //
 					new RegexLeaf(1, "(-+)", "ARROW_BODYB2")
 				])
-			]), 
+			]),
 			new RegexLeaf(1, "(_?>>?(?:[ox][%s])?|//?(?:[ox][%s])?|\\\\\\\\?(?:[ox][%s])?|[ox][%s])?", "ARROW_DRESSING2"), //
 			RegexLeaf.spaceZeroOrMore(), //
 			new RegexOr("PART2", [
@@ -53,7 +53,7 @@ class CommandArrow extends SingleLineCommand<SequenceDiagram> {
 			RegexLeaf.spaceZeroOrMore(), //
 			new RegexLeaf(1, "(\\<\\<.*\\>\\>)?", "STEREOTYPE"), //
 			RegexLeaf.spaceZeroOrMore(), //
-			// new RegexLeaf("URL", "(" + UrlBuilder.getRegexp() + ")?"), //
+			new RegexLeaf(UrlBuilder.getRegexpSize() + 1, "(" + UrlBuilder.getRegexp() + ")?", "URL"), //
 			RegexLeaf.spaceZeroOrMore(), //
 			new RegexLeaf(1, "(?::[%s]*(.*))?", "MESSAGE"), //
 			// RegexLeaf.end()).protectSize(2000);
