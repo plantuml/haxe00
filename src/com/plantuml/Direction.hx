@@ -1,7 +1,5 @@
 package com.plantuml;
 
-import haxe.exceptions.NotImplementedException;
-
 enum Direction {
 	RIGHT;
 	LEFT;

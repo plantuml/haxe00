@@ -1,7 +1,5 @@
 package com.plantuml;
 
-import com.plantuml.style.StyleBuilder;
-
 class SkinParam implements ISkinParam {
 	public function new() {}
 

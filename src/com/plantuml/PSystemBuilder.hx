@@ -1,15 +1,5 @@
 package com.plantuml;
 
-import com.plantuml.command.*;
-import com.plantuml.core.*;
-import com.plantuml.eggs.*;
-import com.plantuml.error.*;
-import com.plantuml.mindmap.*;
-import com.plantuml.sequencediagram.*;
-
-using com.plantuml.ArrayExtensions;
-using com.plantuml.utils.StartUtils;
-
 class PSystemBuilder {
 	private final factories:Array<PSystemFactory> = [];
 

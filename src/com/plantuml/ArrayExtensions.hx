@@ -1,7 +1,5 @@
 package com.plantuml;
 
-import haxe.ds.BalancedTree;
-
 class ArrayExtensions {
 	public static inline function last<T>(a:Array<T>):T {
 		return a[a.length - 1];
