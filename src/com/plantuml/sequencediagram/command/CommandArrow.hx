@@ -62,24 +62,24 @@ class CommandArrow extends SingleLineCommand<SequenceDiagram> {
 	}
 
 	private function getOrCreateParticipant(system:SequenceDiagram, arg2:Map<String, String>, n:String):Participant {
-		//		final String code;
-		//		final Display display;
-		//		if (arg2.get(n + "CODE", 0) != null) {
-		//			code = arg2.get(n + "CODE", 0);
-		//			display = Display.getWithNewlines(code);
-		//		} else if (arg2.get(n + "LONG", 0) != null) {
-		//			code = arg2.get(n + "LONG", 0);
-		//			display = Display.getWithNewlines(code);
-		//		} else if (arg2.get(n + "LONGCODE", 0) != null) {
-		//			display = Display.getWithNewlines(arg2.get(n + "LONGCODE", 0));
-		//			code = arg2.get(n + "LONGCODE", 1);
-		//		} else if (arg2.get(n + "CODELONG", 0) != null) {
-		//			code = arg2.get(n + "CODELONG", 0);
-		//			display = Display.getWithNewlines(arg2.get(n + "CODELONG", 1));
-		//			return system.getOrCreateParticipant(code, display);
-		//		} else {
-		//			throw new IllegalStateException();
-		//		}
+		var code;
+		var display;
+		if (arg2.get(n + "CODE") != null) {
+			code = arg2.get(n + "CODE");
+			display = Display.getWithNewlines(code);
+			//		} else if (arg2.get(n + "LONG", 0) != null) {
+			//			code = arg2.get(n + "LONG", 0);
+			//			display = Display.getWithNewlines(code);
+			//		} else if (arg2.get(n + "LONGCODE", 0) != null) {
+			//			display = Display.getWithNewlines(arg2.get(n + "LONGCODE", 0));
+			//			code = arg2.get(n + "LONGCODE", 1);
+			//		} else if (arg2.get(n + "CODELONG", 0) != null) {
+			//			code = arg2.get(n + "CODELONG", 0);
+			//			display = Display.getWithNewlines(arg2.get(n + "CODELONG", 1));
+			//			return system.getOrCreateParticipant(code, display);
+		} else {
+			throw new haxe.exceptions.NotImplementedException();
+		}
 		//		return system.getOrCreateParticipant(code, display);
 		throw new haxe.exceptions.NotImplementedException();
 	}
@@ -93,7 +93,7 @@ class CommandArrow extends SingleLineCommand<SequenceDiagram> {
 	}
 
 	private function getDressing(arg:Map<String, String>, key):String {
-		var value = arg.get(key);
+		var value = arg[key];
 		if (value == null)
 			return "";
 		return value.replaceAll("_", "").toLowerCase();

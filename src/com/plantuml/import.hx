@@ -1,6 +1,7 @@
 import com.plantuml.command.*;
 import com.plantuml.command.regex.*;
 import com.plantuml.core.*;
+import com.plantuml.cucadiagram.*;
 import com.plantuml.eggs.*;
 import com.plantuml.error.*;
 import com.plantuml.graphic.*;
