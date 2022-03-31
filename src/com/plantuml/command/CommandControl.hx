@@ -1,7 +1,8 @@
 package com.plantuml.command;
 
-enum CommandControl {
-	OK;
-	NOT_OK;
-	OK_PARTIAL;
+@:enum
+abstract CommandControl(String) {
+	final OK;
+	final NOT_OK;
+	final OK_PARTIAL;
 }

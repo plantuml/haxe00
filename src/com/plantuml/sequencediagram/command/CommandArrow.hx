@@ -80,8 +80,7 @@ class CommandArrow extends SingleLineCommand<SequenceDiagram> {
 		} else {
 			throw new haxe.exceptions.NotImplementedException();
 		}
-		//		return system.getOrCreateParticipant(code, display);
-		throw new haxe.exceptions.NotImplementedException();
+		return system.getOrCreateParticipant(code, display);
 	}
 
 	private function contains(string:String, totest:Array<String>):Bool {
