@@ -1,7 +1,5 @@
 package com.plantuml.mindmap;
 
-import haxe.ds.BalancedTree;
-
 class BalancedTreeStripe extends BalancedTree<Stripe, Bool> {
 	override function compare(k1:Stripe, k2:Stripe) {
 		return Reflect.compare(k1.getStart(), k2.getStart());

@@ -1,14 +1,5 @@
 package com.plantuml.mindmap;
 
-import com.plantuml.ugraphic.UGraphic;
-
-using hx.strings.Strings;
-
-import com.plantuml.ugraphic.color.HColor;
-import com.plantuml.cucadiagram.Display;
-import com.plantuml.command.*;
-import com.plantuml.core.Diagram;
-
 class MindMapDiagram extends Diagram {
 	private var first:String;
 	private var mindmaps:Array<MindMap>;

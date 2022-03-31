@@ -1,7 +1,5 @@
 package com.plantuml.mindmap;
 
-import com.plantuml.awt.geom.Line2D;
-
 class SymetricalTeePositioned {
 	private final tee:SymetricalTee;
 	private var y:Float;

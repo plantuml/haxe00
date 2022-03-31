@@ -1,9 +1,5 @@
 package com.plantuml.mindmap;
 
-import com.plantuml.command.*;
-import com.plantuml.command.regex.*;
-import com.plantuml.core.Diagram;
-
 class CommandMindMapRoot extends SingleLineCommand<MindMapDiagram> {
 	public function new() {
 		_init([

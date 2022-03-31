@@ -1,3 +1,4 @@
+import com.plantuml.awt.geom.*;
 import com.plantuml.command.*;
 import com.plantuml.command.regex.*;
 import com.plantuml.core.*;

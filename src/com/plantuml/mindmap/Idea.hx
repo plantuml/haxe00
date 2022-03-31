@@ -1,9 +1,5 @@
 package com.plantuml.mindmap;
 
-import com.plantuml.cucadiagram.Display;
-import com.plantuml.style.StyleBuilder;
-import com.plantuml.ugraphic.color.HColor;
-
 class Idea {
 	private final label:Display;
 	private final level:Int;

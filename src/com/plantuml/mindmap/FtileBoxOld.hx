@@ -1,19 +1,5 @@
 package com.plantuml.mindmap;
 
-import com.plantuml.ugraphic.UGraphicSvg;
-import com.plantuml.ugraphic.AbstractCommonUGraphic;
-import com.plantuml.awt.geom.Dimension2D;
-import com.plantuml.cucadiagram.Display;
-import com.plantuml.graphic.FontConfiguration;
-import com.plantuml.graphic.StringBounder;
-import com.plantuml.graphic.TextBlock;
-import com.plantuml.style.ClockwiseTopRightBottomLeft;
-import com.plantuml.style.Style;
-import com.plantuml.ugraphic.UGraphic;
-import com.plantuml.ugraphic.URectangle;
-import com.plantuml.ugraphic.UTranslate;
-import com.plantuml.ugraphic.color.*;
-
 class FtileBoxOld implements TextBlock {
 	final padding:ClockwiseTopRightBottomLeft;
 	final label:Display;

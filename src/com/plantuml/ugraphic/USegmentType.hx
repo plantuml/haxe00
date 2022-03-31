@@ -1,15 +1,14 @@
 package com.plantuml.ugraphic;
 
-enum USegmentType {
-	SEG_MOVETO;
-	SEG_LINETO;
-	SEG_QUADTO;
-	SEG_CUBICTO;
-	SEG_CLOSE;
-	SEG_ARCTO;
-}
+@:enum
+abstract USegmentType(String) {
+	final SEG_MOVETO;
+	final SEG_LINETO;
+	final SEG_QUADTO;
+	final SEG_CUBICTO;
+	final SEG_CLOSE;
+	final SEG_ARCTO;
 
-class USegmentType_ {
 	public static function getNbPoints(me:USegmentType):Int {
 		switch (me) {
 			case SEG_MOVETO:

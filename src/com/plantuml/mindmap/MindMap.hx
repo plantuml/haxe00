@@ -1,12 +1,5 @@
 package com.plantuml.mindmap;
 
-import com.plantuml.ugraphic.UTranslate;
-import com.plantuml.graphic.StringBounder;
-import com.plantuml.ugraphic.UGraphic;
-import com.plantuml.command.CommandExecutionResult;
-import com.plantuml.cucadiagram.Display;
-import com.plantuml.ugraphic.color.HColor;
-
 class MindMap {
 	private var left:Branch = new Branch();
 	private var right:Branch = new Branch();

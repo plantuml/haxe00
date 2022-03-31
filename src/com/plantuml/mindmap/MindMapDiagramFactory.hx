@@ -1,11 +1,5 @@
 package com.plantuml.mindmap;
 
-import com.plantuml.error.*;
-import com.plantuml.core.*;
-import com.plantuml.command.*;
-
-using hx.strings.Strings;
-
 class MindMapDiagramFactory extends PSystemCommandFactory<MindMapDiagram> {
 	public function new() {
 		super(createCommands());

@@ -1,6 +1,5 @@
 package com.plantuml.mindmap;
 
-import haxe.ds.BalancedTree;
 import com.plantuml.mindmap.Stripe.BalancedTreeStripe;
 
 class StripeFrontier {

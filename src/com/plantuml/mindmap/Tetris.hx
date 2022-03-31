@@ -1,7 +1,5 @@
 package com.plantuml.mindmap;
 
-import com.plantuml.awt.geom.Line2D;
-
 class Tetris {
 	public static final MAX_VALUE:Float = 999999999.0;
 

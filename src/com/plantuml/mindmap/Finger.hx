@@ -1,8 +1,5 @@
 package com.plantuml.mindmap;
 
-import com.plantuml.graphic.StringBounder;
-import com.plantuml.graphic.UDrawable;
-
 interface Finger extends UDrawable {
 	public function getPhalanxThickness(stringBounder:StringBounder):Float;
 

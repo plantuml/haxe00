@@ -1,19 +1,5 @@
 package com.plantuml.mindmap;
 
-import com.plantuml.style.Style;
-import com.plantuml.awt.geom.Dimension2D;
-import com.plantuml.awt.geom.Point2D;
-import com.plantuml.cucadiagram.Display;
-import com.plantuml.graphic.StringBounder;
-import com.plantuml.graphic.TextBlock;
-import com.plantuml.graphic.UDrawable;
-import com.plantuml.style.StyleBuilder;
-import com.plantuml.ugraphic.TextBlockUtils;
-import com.plantuml.ugraphic.UGraphic;
-import com.plantuml.ugraphic.UPath;
-import com.plantuml.ugraphic.UTranslate;
-import com.plantuml.ugraphic.color.HColor;
-
 class FingerImpl implements Finger implements UDrawable {
 	private final label:Display;
 	private final backColor:HColor;
