@@ -1,8 +1,14 @@
 {
 	"version": "0.2.0",
+	"haxeTestExplorer.launchConfiguration": "Debug",
 	"configurations": [
 		{
 			"name": "Haxe Interpreter",
+			"type": "haxe-eval",
+			"request": "launch"
+		},
+		{
+			"name": "Debug",
 			"type": "haxe-eval",
 			"request": "launch"
 		}

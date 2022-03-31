@@ -4,5 +4,6 @@
 -cp src
 --library utest
 --library haxe-strings
+-lib test-adapter
 -main MainTest
 --interp
