@@ -15,7 +15,7 @@ class CommandMindMapDirection extends SingleLineCommand<MindMapDiagram> {
 
 	public function executeArg(diagram:MindMapDiagram, lines:BlocLines, arg:Map<String, String>):CommandExecutionResult {
 		final direction = arg["DIRECTION"];
-		diagram.setDefaultDirection(DirectionUtils.valueOf(direction.toUpperCase()));
+		diagram.setDefaultDirection(Direction.valueOf(direction.toUpperCase()));
 		return CommandExecutionResult.OK;
 	}
 }

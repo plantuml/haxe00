@@ -1,13 +1,12 @@
 package com.plantuml;
 
-enum Direction {
-	RIGHT;
-	LEFT;
-	DOWN;
-	UP;
-}
+@:enum
+abstract Direction(String) {
+	final RIGHT;
+	final LEFT;
+	final DOWN;
+	final UP;
 
-class DirectionUtils {
 	public static function valueOf(s:String):Direction {
 		if (s == "RIGHT")
 			return RIGHT;
