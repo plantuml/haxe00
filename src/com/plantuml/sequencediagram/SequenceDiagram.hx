@@ -13,6 +13,9 @@ class SequenceDiagram {
 	//
 	private final participantsList:Array<Participant> = [];
 
+	private final hiddenPortions:Set<EntityPortion> = EnumSet.<EntityPortion>
+
+	noneOf(EntityPortion.class);
 	//
 	//	private final List<Event> events = new ArrayList<>();
 	//
@@ -21,14 +24,14 @@ class SequenceDiagram {
 	public function new() {}
 
 	public function getOrCreateParticipant(code:String, display:Display):Participant {
-		//		Participant result = participantsget(code);
-		//		if (result == null) {
-		//			result = new Participant(ParticipantType.PARTICIPANT, code, display, hiddenPortions, 0,
-		//					getSkinParam().getCurrentStyleBuilder());
-		//			addWithOrder(result);
-		//			participantEnglobers2.put(result, participantEnglober);
-		//		}
-		//		return result;
+		var result:Participant = participantsget(code);
+		if (result == null) {
+			result = new Participant(ParticipantType.PARTICIPANT, code, display, hiddenPortions, 0, getSkinParam().getCurrentStyleBuilder());
+			//			addWithOrder(result);
+			//			participantEnglobers2.put(result, participantEnglober);
+			throw new haxe.exceptions.NotImplementedException();
+		}
+		return result;
 
 		throw new haxe.exceptions.NotImplementedException();
 	}
