@@ -1,12 +1,5 @@
 package com.plantuml.mindmap;
 
-import com.plantuml.cucadiagram.Display;
-import com.plantuml.mindmap.IdeaShape.IdeaShapeUtils;
-import com.plantuml.ugraphic.color.HColor;
-import com.plantuml.core.Diagram;
-import com.plantuml.command.*;
-import com.plantuml.command.regex.*;
-
 class CommandMindMapOrgmode extends SingleLineCommand<MindMapDiagram> {
 	public function new() {
 		_init([
@@ -26,7 +19,7 @@ class CommandMindMapOrgmode extends SingleLineCommand<MindMapDiagram> {
 		final stringColor:String = arg["BACKCOLOR"];
 		final backColor:HColor = null;
 
-		final shape = IdeaShapeUtils.fromDesc(arg["SHAPE"]);
+		final shape = IdeaShape.fromDesc(arg["SHAPE"]);
 
 		return diagram.addIdea(backColor, diagram.getSmartLevel(type), Display.getWithNewlines(label), shape);
 

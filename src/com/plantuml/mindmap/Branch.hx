@@ -1,13 +1,5 @@
 package com.plantuml.mindmap;
 
-import com.plantuml.graphic.StringBounder;
-import com.plantuml.ugraphic.UGraphic;
-import com.plantuml.graphic.UDrawable;
-import com.plantuml.command.CommandExecutionResult;
-import com.plantuml.cucadiagram.Display;
-import com.plantuml.ugraphic.color.HColor;
-import com.plantuml.style.StyleBuilder;
-
 class Branch implements UDrawable {
 	private var root:Idea;
 	private var last:Idea;

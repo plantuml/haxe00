@@ -1,11 +1,10 @@
 package com.plantuml.mindmap;
 
-enum IdeaShape {
-	BOX;
-	NONE;
-}
+@:enum
+abstract IdeaShape(String) {
+	final BOX;
+	final NONE;
 
-class IdeaShapeUtils {
 	public static function fromDesc(s:String):IdeaShape {
 		if ("_" == s)
 			return NONE;

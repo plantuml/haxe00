@@ -1,19 +1,5 @@
 package com.plantuml.mindmap;
 
-import com.plantuml.mindmap.IdeaShape.IdeaShapeUtils;
-import com.plantuml.ugraphic.color.HColor;
-
-using com.plantuml.utils.StartUtils;
-using hx.strings.Strings;
-
-import com.plantuml.command.*;
-import com.plantuml.command.CommandControl;
-import com.plantuml.command.CommandExecutionResult;
-import com.plantuml.command.CommandMultilines2;
-import com.plantuml.command.regex.*;
-import com.plantuml.command.regex.RegexConcat;
-import com.plantuml.core.Diagram;
-
 class CommandMindMapOrgmodeMultiline extends CommandMultilines2<MindMapDiagram> {
 	public function new() {
 		final start = new RegexConcat([
@@ -56,7 +42,7 @@ class CommandMindMapOrgmodeMultiline extends CommandMultilines2<MindMapDiagram> 
 		//					stringColor);
 		//		}
 
-		final shape = IdeaShapeUtils.fromDesc(line0["SHAPE"]);
+		final shape = IdeaShape.fromDesc(line0["SHAPE"]);
 
 		if (stereotype == null) {
 			return diagram.addIdea(backColor, type.length - 1, lines.toDisplay(), shape);

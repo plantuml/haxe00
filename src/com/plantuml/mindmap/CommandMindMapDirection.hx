@@ -1,15 +1,5 @@
 package com.plantuml.mindmap;
 
-import com.plantuml.Direction.DirectionUtils;
-
-using com.plantuml.ArrayExtensions;
-using com.plantuml.utils.StartUtils;
-using hx.strings.Strings;
-
-import com.plantuml.command.*;
-import com.plantuml.command.regex.*;
-import com.plantuml.core.Diagram;
-
 class CommandMindMapDirection extends SingleLineCommand<MindMapDiagram> {
 	public function new() {
 		_init([
