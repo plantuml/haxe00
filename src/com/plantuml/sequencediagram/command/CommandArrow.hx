@@ -134,16 +134,13 @@ class CommandArrow extends SingleLineCommand<SequenceDiagram> {
 		final sync:Bool = contains(dressing1, ["<<", "\\\\", "//"]) || contains(dressing2, [">>", "\\\\", "//"]);
 
 		final dotted = getLength(arg) > 1;
-		//
-		//		final Display labels;
-		//		if (arg.get("MESSAGE", 0) == null) {
-		//			labels = Display.create("");
-		//		} else {
-		//			// final String message = UrlBuilder.multilineTooltip(arg.get("MESSAGE", 0));
-		//			final String message = arg.get("MESSAGE", 0);
-		//			labels = Display.getWithNewlines(message);
-		//		}
-		//
+
+		var labels:Display;
+		if (arg["MESSAGE"] == null)
+			labels = Display.create([]);
+		else
+			labels = Display.getWithNewlines(arg["MESSAGE"]);
+
 		//		ArrowConfiguration config = hasDressing1 && hasDressing2 ? ArrowConfiguration.withDirectionBoth()
 		//				: ArrowConfiguration.withDirectionNormal();
 		//		if (dotted)
