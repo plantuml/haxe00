@@ -4,6 +4,7 @@ import com.plantuml.core.*;
 import com.plantuml.graphic.*;
 import com.plantuml.skin.*;
 import com.plantuml.ugraphic.*;
+import com.plantuml.ugraphic.color.*;
 import hx.strings.StringBuilder;
 
 using com.plantuml.ArrayExtensions;

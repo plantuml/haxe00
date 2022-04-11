@@ -141,14 +141,13 @@ class CommandArrow extends SingleLineCommand<SequenceDiagram> {
 		else
 			labels = Display.getWithNewlines(arg["MESSAGE"]);
 
-		//		ArrowConfiguration config = hasDressing1 && hasDressing2 ? ArrowConfiguration.withDirectionBoth()
-		//				: ArrowConfiguration.withDirectionNormal();
-		//		if (dotted)
-		//			config = config.withBody(ArrowBody.DOTTED);
-		//
-		//		if (sync)
-		//			config = config.withHead(ArrowHead.ASYNC);
-		//
+		var config = hasDressing1 && hasDressing2 ? ArrowConfiguration.withDirectionBoth() : ArrowConfiguration.withDirectionNormal();
+		if (dotted)
+			config = config.withBody(ArrowBody.DOTTED);
+
+		if (sync)
+			config = config.withHead(ArrowHead.ASYNC);
+
 		//		if (dressing2.contains("\\") || dressing1.contains("/"))
 		//			config = config.withPart(ArrowPart.TOP_PART);
 		//
