@@ -1,3 +1,5 @@
 package com.plantuml.utils;
 
-interface Set<X> {}
+class Set<X> {
+	public function new() {}
+}

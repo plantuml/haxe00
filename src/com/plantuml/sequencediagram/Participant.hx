@@ -42,6 +42,10 @@ class Participant {
 	}
 
 	public function getCode():String {
-		throw new haxe.exceptions.NotImplementedException();
+		return code;
+	}
+
+	public function getOrder() {
+		return order;
 	}
 }

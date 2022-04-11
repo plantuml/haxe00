@@ -1,6 +1,8 @@
 package com.plantuml.sequencediagram;
 
 class SequenceDiagram {
+	private final skinParam = new SkinParam();
+
 	//	private boolean hideUnlinkedData;
 	//
 	//	public final boolean isHideUnlinkedData() {
@@ -11,25 +13,25 @@ class SequenceDiagram {
 	//		this.hideUnlinkedData = hideUnlinkedData;
 	//	}
 	//
-	private final participantsList:Array<Participant> = [];
-
-	private final hiddenPortions:Set<EntityPortion> = EnumSet.<EntityPortion>
-
-	noneOf(EntityPortion.class);
-	//
 	//	private final List<Event> events = new ArrayList<>();
 	//
 	//	private final Map<Participant, ParticipantEnglober> participantEnglobers2 = new HashMap<Participant, ParticipantEnglober>();
+	private final participantEnglobers2:Map<Participant, ParticipantEnglober> = [];
 
-	public function new() {}
+	private var participantEnglober:ParticipantEnglober;
+	private final hiddenPortions:Set<EntityPortion>;
+	private final participantsList:Array<Participant> = [];
+
+	public function new() {
+		this.hiddenPortions = null;
+	}
 
 	public function getOrCreateParticipant(code:String, display:Display):Participant {
 		var result:Participant = participantsget(code);
 		if (result == null) {
 			result = new Participant(ParticipantType.PARTICIPANT, code, display, hiddenPortions, 0, getSkinParam().getCurrentStyleBuilder());
-			//			addWithOrder(result);
-			//			participantEnglobers2.put(result, participantEnglober);
-			throw new haxe.exceptions.NotImplementedException();
+			addWithOrder(result);
+			participantEnglobers2[result] = participantEnglober;
 		}
 		return result;
 
@@ -42,5 +44,19 @@ class SequenceDiagram {
 				return p;
 
 		return null;
+	}
+
+	private function addWithOrder(result:Participant) {
+		for (i in 0...participantsList.length)
+			if (result.getOrder() < participantsList[i].getOrder()) {
+				participantsList.insert(i, result);
+				return;
+			}
+
+		participantsList.push(result);
+	}
+
+	function getSkinParam():SkinParam {
+		return skinParam;
 	}
 }
