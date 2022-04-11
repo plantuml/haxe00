@@ -120,7 +120,6 @@ class CommandArrow extends SingleLineCommand<SequenceDiagram> {
 			circleAtStart = dressing1.contains("o");
 			circleAtEnd = dressing2.contains("o");
 			reverseDefine = false;
-			throw new haxe.exceptions.NotImplementedException();
 		} else if (hasDressing1) {
 			//			p2 = getOrCreateParticipant(diagram, arg, "PART1");
 			//			p1 = getOrCreateParticipant(diagram, arg, "PART2");
@@ -131,10 +130,10 @@ class CommandArrow extends SingleLineCommand<SequenceDiagram> {
 		} else {
 			return CommandExecutionResult.ERROR("Illegal sequence arrow");
 		}
-		//
-		//		final boolean sync = contains(dressing1, "<<", "\\\\", "//") || contains(dressing2, ">>", "\\\\", "//");
-		//
-		//		final boolean dotted = getLength(arg) > 1;
+
+		final sync:Bool = contains(dressing1, ["<<", "\\\\", "//"]) || contains(dressing2, [">>", "\\\\", "//"]);
+
+		final dotted = getLength(arg) > 1;
 		//
 		//		final Display labels;
 		//		if (arg.get("MESSAGE", 0) == null) {
@@ -235,5 +234,17 @@ class CommandArrow extends SingleLineCommand<SequenceDiagram> {
 		//		return CommandExecutionResult.ok();
 
 		throw new haxe.exceptions.NotImplementedException();
+	}
+
+	function getLength(arg2:Map<String, String>):Int {
+		var sa = arg2.getLazzy("ARROW_BODYA", 0);
+		if (sa == null)
+			sa = "";
+
+		var sb = arg2.getLazzy("ARROW_BODYB", 0);
+		if (sb == null)
+			sb = "";
+
+		return sa.length + sb.length;
 	}
 }

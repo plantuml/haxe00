@@ -16,4 +16,12 @@ class ArrayExtensions {
 				result.set(key, value);
 		return result.toString();
 	}
+
+	public static function getLazzy(m:Map<String, String>, key:String, num:Int):String {
+		for (k => v in m)
+			if (k.startsWith(key) && v != null)
+				return v;
+
+		return null;
+	}
 }
