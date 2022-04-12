@@ -224,9 +224,7 @@ class CommandArrow extends SingleLineCommand<SequenceDiagram> {
 		//			else
 		//				diagram.activate(p2, LifeEventType.ACTIVATE, activationColor);
 		//
-		//		return CommandExecutionResult.ok();
-
-		throw new haxe.exceptions.NotImplementedException();
+		return CommandExecutionResult.OK;
 	}
 
 	function getLength(arg2:Map<String, String>):Int {

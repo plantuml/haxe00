@@ -1,6 +1,6 @@
 package com.plantuml.sequencediagram;
 
-class SequenceDiagram {
+class SequenceDiagram extends Diagram {
 	private final skinParam = new SkinParam();
 
 	//	private boolean hideUnlinkedData;
@@ -88,5 +88,9 @@ class SequenceDiagram {
 		//			pendingCreate = null;
 		//		}
 		return null;
+	}
+
+	public function exportDiagramNow(ug:UGraphic) {
+		throw new NotImplementedException();
 	}
 }
