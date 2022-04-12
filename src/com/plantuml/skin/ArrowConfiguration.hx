@@ -56,4 +56,31 @@ class ArrowConfiguration {
 
 		return dressing.withHead(head);
 	}
+
+	public function withPart(part:ArrowPart):ArrowConfiguration {
+		if (dressing2.getHead() != ArrowHead.NONE)
+			return new ArrowConfiguration(body, dressing1, dressing2.withPart(part), decoration1, decoration2, color, isSelf, thickness, reverseDefine);
+
+		return new ArrowConfiguration(body, dressing1.withPart(part), dressing2, decoration1, decoration2, color, isSelf, thickness, reverseDefine);
+	}
+
+	public function withDecoration1(decoration1:ArrowDecoration):ArrowConfiguration {
+		return new ArrowConfiguration(body, dressing1, dressing2, decoration1, decoration2, color, isSelf, thickness, reverseDefine);
+	}
+
+	public function withDecoration2(decoration2:ArrowDecoration):ArrowConfiguration {
+		return new ArrowConfiguration(body, dressing1, dressing2, decoration1, decoration2, color, isSelf, thickness, reverseDefine);
+	}
+
+	public function withHead1(head:ArrowHead):ArrowConfiguration {
+		return new ArrowConfiguration(body, dressing1.withHead(head), dressing2, decoration1, decoration2, color, isSelf, thickness, reverseDefine);
+	}
+
+	public function withHead2(head:ArrowHead):ArrowConfiguration {
+		return new ArrowConfiguration(body, dressing1, dressing2.withHead(head), decoration1, decoration2, color, isSelf, thickness, reverseDefine);
+	}
+
+	public function withReverseDefine():ArrowConfiguration {
+		return new ArrowConfiguration(body, dressing1, dressing2, decoration1, decoration2, color, isSelf, thickness, !reverseDefine);
+	}
 }
