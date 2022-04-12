@@ -91,6 +91,7 @@ class SequenceDiagram extends Diagram {
 	}
 
 	public function exportDiagramNow(ug:UGraphic) {
+		final maker = new SequenceDiagramFileMakerTeoz(this, new Rose(), new FileFormatOption(), 0);
 		throw new NotImplementedException();
 	}
 }
