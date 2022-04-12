@@ -59,5 +59,31 @@ class SequenceDiagramFileMakerTeoz {
 		//		this.dimTotal = new Dimension2DDouble(totalWidth, totalHeight);
 	}
 
-	public function drawInternal(ug:UGraphic, index:Int) {}
+	private function createMainTile():PlayingSpace {
+		//		final RealOrigin origin = RealUtils.createOrigin();
+		//		Real currentPos = origin.addAtLeast(0);
+		//		for (Participant p : diagram.participants()) {
+		//			final LivingSpace livingSpace = new LivingSpace(p, diagram.getEnglober(p), skin, getSkinParam(), currentPos,
+		//					diagram.events());
+		//			livingSpaces.put(p, livingSpace);
+		//			currentPos = livingSpace.getPosD(stringBounder).addAtLeast(0);
+		//		}
+		//
+		//		final TileArguments tileArguments = new TileArguments(stringBounder, livingSpaces, skin, diagram.getSkinParam(),
+		//				origin);
+		//
+		//		this.dolls = new Dolls(tileArguments);
+		//		final PlayingSpace mainTile = new PlayingSpace(diagram, dolls, tileArguments);
+		//		this.livingSpaces.addConstraints(stringBounder);
+		//		mainTile.addConstraints();
+		//		this.dolls.addConstraints(stringBounder);
+		//		origin.compileNow();
+		//		tileArguments.setBordered(mainTile);
+		//		return mainTile;
+		throw new NotImplementedException();
+	}
+
+	public function drawInternal(ug:UGraphic, index:Int) {
+		throw new NotImplementedException();
+	}
 }
